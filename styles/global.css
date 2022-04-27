@@ -1,0 +1,5 @@
+@font-face {
+  font-family: "MigraExtrabold";
+  src: local("MigraExtrabold"),
+    url("../fonts/migra/Migra-Extrabold.ttf") format("truetype");
+}
