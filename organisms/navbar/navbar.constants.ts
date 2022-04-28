@@ -13,7 +13,7 @@ export const NAV_ITEMS_TEXT: Array<INavItem> = [
     href: '/test',
   },
   {
-    label: 'Playgroud',
+    label: 'Playground',
     href: '/test',
   },
 ];

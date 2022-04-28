@@ -1,9 +1,4 @@
-import { IHero } from './hero.types';
-import { Text } from '@chakra-ui/react';
-
-export const HERO_TEXT: IHero = {
-  name: "Hello, I'm Arham",
+export const SECTION_TEXT = {
   title: <>UI Designer, <br /> Javascript Developer, <br /> I build things for the web</>,
   description: "I’m a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I’m focused on building accessible, human-centered products.",
-  cta: 'See Projects',
 }

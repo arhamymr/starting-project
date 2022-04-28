@@ -14,10 +14,15 @@
     "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@react-three/fiber": "^8.0.12",
+    "@splinetool/react-spline": "^2.1.0",
+    "@splinetool/runtime": "^0.9.35",
+    "firebase": "^9.6.11",
     "framer-motion": "^6",
     "next": "^12.1.5",
     "react": "^18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "three": "^0.139.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.26",

@@ -25,7 +25,8 @@ export default function Navbar() {
   return (
     <Box
       bg={useColorModeValue('rgba(255,255,255,.2)', 'rgba(23,25,35, .2)')}
-      boxShadow={'sm'}
+      borderBottom={`1px solid`}
+      borderColor={useColorModeValue('gray.100', 'gray.700')}
       pos={'fixed'}
       width={'full'}
       backdropFilter={'blur(5px)'}
@@ -48,14 +49,18 @@ export default function Navbar() {
               aria-label={'Toggle Navigation'}
             />
           </Flex>
-          <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+          <Flex flex={{ base: 1 }} align={'center'} justify={{ base: 'center', md: 'start' }}>
             <Link href={'/'} passHref>
-              <Flex gap={2}>
+              <Flex gap={2} align={"center"} cursor={'pointer'}>
                 <Text
                   textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                   fontFamily={'MigraExtrabold'}
                   fontSize={'18px'}
-                  color={useColorModeValue('gray.800', 'white')}>
+                  color={useColorModeValue('gray.800', 'white')}
+                  _hover={{
+                    color: 'pink.300'
+                  }}
+                >
                   Arhamymr
                 </Text>
                 <Text> UI DESIGNER, DEVELOPER</Text>
@@ -71,8 +76,8 @@ export default function Navbar() {
         <Collapse in={isOpen} animateOpacity>
           <MobileNav />
         </Collapse>
-      </Container>
-    </Box>
+      </Container >
+    </Box >
 
   );
 }
@@ -83,13 +88,22 @@ const DesktopNav = () => {
       {NAV_ITEMS_TEXT.map((navItem) => (
         <Box key={navItem.label}>
           <Link href={navItem.href} passHref>
-            <Text cursor="pointer">
+            <Text
+              cursor={"pointer"}
+              px={3}
+              py={1}
+              rounded={'md'}
+              _hover={{
+                bg: 'pink.100',
+                color: 'gray.800',
+              }}>
               {navItem.label}
             </Text>
           </Link>
         </Box>
-      ))}
-    </Stack>
+      ))
+      }
+    </Stack >
   );
 };
 

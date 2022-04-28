@@ -1,17 +1,14 @@
 import {
   Box,
   Heading,
-  Container,
   Text,
-  Button,
-  Stack,
   Flex,
 } from '@chakra-ui/react';
 import { HERO_TEXT } from "./hero.constants";
 
 export default function Hero() {
   return (
-    <Flex align="center" h={'100vh'}>
+    <Flex align="center" h={'100vh'} >
       <Box>
         <Text
           fontWeight={'bold'}
