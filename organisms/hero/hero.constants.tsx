@@ -1,5 +1,4 @@
 import { IHero } from './hero.types';
-import { Text } from '@chakra-ui/react';
 
 export const HERO_TEXT: IHero = {
   name: "Hello, I'm Arham",

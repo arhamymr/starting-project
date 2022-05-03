@@ -1,9 +1,9 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyCqoE4Kjqz-aS2lfQWK202YtR8N4VPMAS4",
-  authDomain: "risethub-b6bb6.firebaseapp.com",
-  projectId: "risethub-b6bb6",
-  storageBucket: "risethub-b6bb6.appspot.com",
-  messagingSenderId: "157035504564",
-  appId: "1:157035504564:web:52f1cb7dc72edf425808e1",
-  measurementId: "G-56EV07DSC6"
+  apiKey: "AIzaSyCmVhVmZSA8IlRAvBzWQ1pMFXvW1bMW8LA",
+  authDomain: "arhamymr.firebaseapp.com",
+  databaseURL: "https://arhamymr.firebaseio.com",
+  projectId: "arhamymr",
+  storageBucket: "arhamymr.appspot.com",
+  messagingSenderId: "89059026784",
+  appId: "1:89059026784:web:0bb23a1ca988948b076005"
 };

@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import ProgressBar from "@badrap/bar-of-progress";
+import MouseDot from 'atoms/mousedot';
 
 //firebase
 import { initializeApp } from "firebase/app";
@@ -25,10 +26,7 @@ const progress = new ProgressBar({
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-
-  useEffect(() => {
-    initializeApp(firebaseConfig);
-  }, []);
+  initializeApp(firebaseConfig);
 
   useEffect(() => {
     router.events.on('routeChangeStart', () => progress.start());
@@ -41,6 +39,7 @@ function MyApp({ Component, pageProps }) {
       <meta name="description" content="UI Designer, Developer" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
+    <MouseDot />
     <Component {...pageProps} />
   </ChakraProvider>
 }

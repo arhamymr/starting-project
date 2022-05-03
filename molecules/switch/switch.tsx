@@ -12,6 +12,11 @@ export default function NighMode() {
     {colorMode !== 'dark' ?
       <SunIcon color={'orange'} mr={3} fontSize={23} /> :
       <MoonIcon mr={3} fontSize={23} color={'pink.300'} />}
-    <Switch size='lg' onChange={toggleColorMode} colorScheme='pink' />
+    <Switch
+      id="expand"
+      size='lg'
+      onChange={toggleColorMode}
+      colorScheme='pink'
+    />
   </Flex>
 }

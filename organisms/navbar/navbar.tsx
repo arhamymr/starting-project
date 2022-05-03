@@ -29,7 +29,8 @@ export default function Navbar() {
       borderColor={useColorModeValue('gray.100', 'gray.700')}
       pos={'fixed'}
       width={'full'}
-      backdropFilter={'blur(5px)'}
+      backdropFilter={'blur(10px)'}
+      zIndex={900}
     >
       <Container maxW={'container.lg'}>
         <Flex
@@ -53,6 +54,7 @@ export default function Navbar() {
             <Link href={'/'} passHref>
               <Flex gap={2} align={"center"} cursor={'pointer'}>
                 <Text
+                  id="expand"
                   textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                   fontFamily={'MigraExtrabold'}
                   fontSize={'18px'}
@@ -89,6 +91,7 @@ const DesktopNav = () => {
         <Box key={navItem.label}>
           <Link href={navItem.href} passHref>
             <Text
+              id="expand"
               cursor={"pointer"}
               px={3}
               py={1}

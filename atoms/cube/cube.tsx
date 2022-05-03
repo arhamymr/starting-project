@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
+import { useColorModeValue } from '@chakra-ui/react';
 
 function Box(props) {
   const ref = useRef(null)
@@ -15,7 +16,7 @@ function Box(props) {
       ref={ref}
       scale={1}>
       <boxGeometry args={[2.5, 2.5, 2.5]} />
-      <meshStandardMaterial color={'hotpink'} />
+      <meshStandardMaterial color={props.color} />
     </mesh>
   )
 }
@@ -26,7 +27,7 @@ export default function App() {
       <ambientLight intensity={0.5} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
       <pointLight position={[-10, -10, -10]} />
-      <Box position={[2, 2, 2]} />
+      <Box position={[2, 2, 2]} color={useColorModeValue('hotpink', 'orange')} />
     </Canvas>
   )
 }

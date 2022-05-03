@@ -1,5 +1,5 @@
 import { Container } from "@chakra-ui/react";
-import { Navbar } from "organisms";
+import { Navbar, Footer } from "organisms";
 import { Box } from "@chakra-ui/react";
 import Cube from "atoms/cube";
 
@@ -13,6 +13,7 @@ export default function Main({ children }) {
       <Container maxW={'container.lg'}>
         {children}
       </Container>
+      <Footer />
     </>
   )
 }
