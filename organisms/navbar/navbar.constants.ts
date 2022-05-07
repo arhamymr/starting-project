@@ -6,6 +6,6 @@ export const NAV_ITEMS_TEXT: Array<INavItem> = [
   },
   {
     label: 'About',
-    href: '/test',
+    href: '/about',
   },
 ];

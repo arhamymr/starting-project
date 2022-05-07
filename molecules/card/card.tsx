@@ -2,11 +2,37 @@ import Image from 'next/image'
 import { Badge, Box, useColorModeValue, Text } from '@chakra-ui/react';
 import moment from 'moment';
 
-const Card = ({ item }) => {
-  console.log(item)
+const Overlay = () => {
   return (
-    <Box id="expand" cursor="pointer" boxShadow={'md'} rounded="md" bg={useColorModeValue('white', 'gray.700')}>
-      <Box pos='relative' height={250} pointerEvents={'none'}>
+    <Box
+      w="100%"
+      h="100%"
+      bg="rgb(246,135,179)"
+      opacity={'0.2'}
+      position="absolute"
+      top={0}
+      left={0}
+      zIndex={888}
+      borderRadius={'10px 10px 0 0'}
+      transition="all 0.3s ease-in-out"
+      _hover={{
+        opacity: 0
+      }}
+    />
+  )
+}
+const Card = ({ item }) => {
+  return (
+    <Box
+      pos="relative"
+      id="expand"
+      cursor="pointer"
+      boxShadow={'md'}
+      rounded="md"
+      bg={useColorModeValue('gray.50', 'gray.700')}
+    >
+      <Box pos='relative' height={250}>
+        <Overlay />
         <Image
           style={{
             borderRadius: '10px 10px 0 0',
@@ -19,12 +45,12 @@ const Card = ({ item }) => {
         />
       </Box>
       <Box p={3} pointerEvents={'none'} cursor="pointer">
-        <Badge>{item.category}</Badge>
+        <Badge mb={2}>{item.category}</Badge>
         <Text fontSize="sm" color="gray.500">
           {moment(item.created_date?.toDate()).format('MMMM Do YYYY')}
         </Text>
         <Text noOfLines={2} fontSize={'xl'} fontWeight={'bold'}>{item.title}</Text>
-        <Text noOfLines={3} overflow="hidden">{item.description}</Text>
+        <Text noOfLines={3} >{item.description}</Text>
       </Box>
     </Box >
 

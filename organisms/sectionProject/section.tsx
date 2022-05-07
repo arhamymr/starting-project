@@ -5,16 +5,10 @@ import {
 } from '@chakra-ui/react';
 import { SECTION_TEXT } from "./section.constants";
 import { useEffect } from 'react';
-import useSection from './hooks/useSection';
-import { Card } from 'molecules';
+import { ProjectItem } from 'molecules';
 
 
 export default function Section() {
-  const { articles, getArticles } = useSection();
-
-  useEffect(() => {
-    getArticles();
-  }, []);
 
   return (
     <Box mb={24}>
@@ -27,13 +21,9 @@ export default function Section() {
         {SECTION_TEXT.title}
       </Heading>
       <Grid templateColumns='repeat(3, 1fr)' gap={6}>
-        {articles?.map((item, index) => (
+        {SECTION_TEXT.data?.map((item, index) => (
           <>
-            <Card key={index} item={item} />
-            <Card key={index} item={item} />
-
-            <Card key={index} item={item} />
-            <Card key={index} item={item} />
+            <ProjectItem key={index} item={item} />
           </>
 
         ))}
