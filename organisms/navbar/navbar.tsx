@@ -50,7 +50,7 @@ export default function Navbar() {
               aria-label={'Toggle Navigation'}
             />
           </Flex>
-          <Flex flex={{ base: 1 }} align={'center'} justify={{ base: 'center', md: 'start' }}>
+          <Flex flex={{ base: 1 }} align={'center'}>
             <Link href={'/'} passHref>
               <Flex gap={2} align={"center"} cursor={'pointer'}>
                 <Text
@@ -65,7 +65,7 @@ export default function Navbar() {
                 >
                   Arhamymr
                 </Text>
-                <Text> UI DESIGNER, DEVELOPER</Text>
+                <Text display={{ base: 'none', md: 'block' }}> DEVELOPER</Text>
               </Flex>
             </Link>
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
