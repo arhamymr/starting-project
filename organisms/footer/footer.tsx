@@ -16,8 +16,8 @@ export default function Hero() {
       justify={'center'}
     >
       <Container w={'full'} maxW={'container.lg'} >
-        <Flex mb={6}>
-          <Box>
+        <Flex mb={6} direction={{ base: 'column', sm: 'row' }}>
+          <Box mb={5}>
             <Text fontSize={'sm'} fontWeight="bold">Social Media</Text>
             {FOOTER_TEXT.social.map((item, index) => <Text fontSize={'sm'} key={index}>{item}</Text>)}
           </Box>

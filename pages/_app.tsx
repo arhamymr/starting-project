@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }) {
   return <ChakraProvider theme={theme}>
     <Head>
       <title>Arhamymr</title>
-      <meta name="description" content="UI Designer, Developer" />
+      <meta name="description" content="Javascript Developer, i build things for the web" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <MouseDot />

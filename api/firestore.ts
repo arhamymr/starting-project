@@ -1,7 +1,7 @@
 import {
   collection, getFirestore,
-  getDocs,
-  limit, query, orderBy
+  doc, getDocs, getDoc,
+  limit, query,
 } from "firebase/firestore";
 
 export const getCollection = async (collectionName, size = 10) => {
@@ -15,8 +15,6 @@ export const getCollection = async (collectionName, size = 10) => {
       ...doc.data()
     }));
 
-    console.log(data, 'tesdfd t')
-
     return {
       status: 'Success',
       message: 'Data has been fetched from ' + collectionName,
@@ -24,5 +22,27 @@ export const getCollection = async (collectionName, size = 10) => {
     }
   } catch (error) {
     throw new Error("Error" + error)
+  }
+}
+
+
+export const getCollectionDetail = async (collectionName, id) => {
+  const db = getFirestore();
+  const docRef = doc(db, collectionName, id);
+
+  const docSnap = await getDoc(docRef);
+
+  try {
+    if (docSnap.exists()) {
+      return {
+        status: 'Success',
+        message: 'Data has been fetched from ' + collectionName,
+        data: docSnap.data(),
+      }
+    } else {
+      throw new Error("No such document!")
+    }
+  } catch (error) {
+    throw new Error("Error: " + error)
   }
 }

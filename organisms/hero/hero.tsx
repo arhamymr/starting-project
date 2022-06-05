@@ -8,7 +8,7 @@ import { HERO_TEXT } from "./hero.constants";
 
 export default function Hero() {
   return (
-    <Flex align="center" h={'100vh'} >
+    <Flex align="center" h={{ base: '600px', md: '100vh' }} >
       <Box>
         <Text
           fontWeight={'bold'}

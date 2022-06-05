@@ -65,7 +65,6 @@ export default function Navbar() {
                 >
                   Arhamymr
                 </Text>
-                <Text display={{ base: 'none', md: 'block' }}> DEVELOPER</Text>
               </Flex>
             </Link>
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>

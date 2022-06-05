@@ -1,12 +1,9 @@
-import { Hero, SectionProject, SectionArticles } from "organisms";
 import MainLayout from "layouts/main";
-
+import DetailArticle from "organisms/detailArticle";
 export default function Home() {
   return (
     <MainLayout>
-      <Hero />
-      <SectionArticles />
-      <SectionProject />
+      <DetailArticle />
     </MainLayout>
   )
 }
