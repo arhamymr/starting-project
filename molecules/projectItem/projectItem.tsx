@@ -1,7 +1,12 @@
 import { Spacer, Flex, Badge, Box, useColorModeValue, Text } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+import Link from 'next/link';
+import { IItemProps } from './item.types';
 
-const ProjectItem = ({ item }) => {
+interface IProps {
+  item: IItemProps;
+}
+const ProjectItem = ({ item }: IProps) => {
   return (
     <Box
       pos="relative"
@@ -18,15 +23,19 @@ const ProjectItem = ({ item }) => {
     >
       <Box p={4} cursor="pointer" id="expand">
         <Flex>
-          <Spacer /> <ExternalLinkIcon fontSize={20} mb={4} />
+          <Spacer />
+          {!!item.github && <Link href={item.github} passHref><Text mr={2}> Github </Text></Link>}
         </Flex>
-
-
-        <Text pointerEvents={'none'} noOfLines={3} fontSize={'2xl'} mb={3} fontWeight={'bold'}>{item.title}</Text>
-        <Text pointerEvents={'none'} noOfLines={4} fontSize={'lg'} mb={3}>{item.description}</Text>
-        {item.category.map((cat) => <Badge my={2} mr={2} key={cat}>{cat}</Badge>)}
+        <Link href={item.link} passHref>
+          <Box >
+            <Text noOfLines={3} fontSize={'2xl'} mb={3} fontWeight={'bold'}>{item.title}</Text>
+            <Text noOfLines={4} fontSize={'lg'} mb={3}>{item.description}</Text>
+            {item.category.map((cat) => <Badge my={2} mr={2} key={cat}>{cat}</Badge>)}
+          </Box>
+        </Link>
       </Box>
     </Box >
+
   )
 }
 

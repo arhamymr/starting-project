@@ -8,4 +8,8 @@ export const NAV_ITEMS_TEXT: Array<INavItem> = [
     label: 'About',
     href: '/about',
   },
+  {
+    label: 'Project & Tools',
+    href: '/project-and-tools',
+  },
 ];

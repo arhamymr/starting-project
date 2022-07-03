@@ -4,12 +4,9 @@ import {
   Grid,
 } from '@chakra-ui/react';
 import { SECTION_TEXT } from "./section.constants";
-import { useEffect } from 'react';
 import { ProjectItem } from 'molecules';
 
-
 export default function Section() {
-
   return (
     <Box mb={24}>
       <Heading

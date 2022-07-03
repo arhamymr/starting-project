@@ -23,9 +23,7 @@ export default function Hero() {
           </Box>
           <Spacer />
           <Box>
-
             {FOOTER_TEXT.contact.map((item, index) => <Text fontSize={'sm'} key={index}>{item}</Text>)}
-
             <Text
               mt={12}
               fontFamily={'MigraExtrabold'}
