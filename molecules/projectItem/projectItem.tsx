@@ -21,16 +21,12 @@ const ProjectItem = ({ item }: IProps) => {
         borderColor: 'pink.500',
       }}
     >
-      <Box p={4} cursor="pointer" id="expand">
-        <Flex>
-          <Spacer />
-          {!!item.github && <Link href={item.github} passHref><Text mr={2}> Github </Text></Link>}
-        </Flex>
-        <Link href={item.link} passHref>
-          <Box >
-            <Text noOfLines={3} fontSize={'2xl'} mb={3} fontWeight={'bold'}>{item.title}</Text>
-            <Text noOfLines={4} fontSize={'lg'} mb={3}>{item.description}</Text>
-            {item.category.map((cat) => <Badge my={2} mr={2} key={cat}>{cat}</Badge>)}
+      <Box p={4} cursor="pointer">
+        <Link href={item.github} passHref>
+          <Box id={'expand'}>
+            <Text id={'expand'} noOfLines={3} fontSize={'2xl'} mb={3} fontWeight={'bold'}>{item.title}</Text>
+            <Text id={'expand'} noOfLines={4} fontSize={'lg'} mb={3}>{item.description}</Text>
+            {item.category.map((cat) => <Badge my={2} id={'expand'} mr={2} key={cat}>{cat}</Badge>)}
           </Box>
         </Link>
       </Box>

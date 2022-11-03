@@ -5,10 +5,6 @@ import { useEffect } from 'react';
 import ProgressBar from "@badrap/bar-of-progress";
 import MouseDot from 'atoms/mousedot';
 
-//firebase
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from 'configs/firebase';
-
 import 'styles/global.css';
 
 const theme = extendTheme({
@@ -26,7 +22,6 @@ const progress = new ProgressBar({
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  initializeApp(firebaseConfig);
 
   useEffect(() => {
     router.events.on('routeChangeStart', () => progress.start());

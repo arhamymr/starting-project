@@ -27,7 +27,6 @@ export default function Hero() {
         <Text color={'gray.500'} maxW={600}>
           {HERO_TEXT.description}
         </Text>
-
       </Box>
     </Flex >
 

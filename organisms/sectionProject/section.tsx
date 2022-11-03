@@ -19,9 +19,7 @@ export default function Section() {
       </Heading>
       <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }} gap={6}>
         {SECTION_TEXT.data?.map((item, index) => (
-          <>
-            <ProjectItem key={index} item={item} />
-          </>
+          <ProjectItem key={index} item={item} />
         ))}
       </Grid>
     </Box>

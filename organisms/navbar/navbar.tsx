@@ -3,8 +3,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Stack,
-  Collapse,
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
@@ -16,9 +14,6 @@ import {
 } from '@chakra-ui/icons';
 import Link from "next/link";
 import { Switch } from "molecules";
-
-import { NAV_ITEMS_TEXT } from './navbar.constants';
-import { INavItem } from './navbar.types';
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -67,82 +62,12 @@ export default function Navbar() {
                 </Text>
               </Flex>
             </Link>
-            <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-              <DesktopNav />
-            </Flex>
+
           </Flex>
           <Switch />
         </Flex>
-
-        <Collapse in={isOpen} animateOpacity>
-          <MobileNav />
-        </Collapse>
       </Container >
     </Box >
 
   );
 }
-
-const DesktopNav = () => {
-  return (
-    <Stack direction={'row'} spacing={4}>
-      {NAV_ITEMS_TEXT.map((navItem) => (
-        <Box key={navItem.label}>
-          <Link href={navItem.href} passHref>
-            <Text
-              id="expand"
-              cursor={"pointer"}
-              px={3}
-              py={1}
-              rounded={'md'}
-              _hover={{
-                bg: 'pink.100',
-                color: 'gray.800',
-              }}>
-              {navItem.label}
-            </Text>
-          </Link>
-        </Box>
-      ))
-      }
-    </Stack >
-  );
-};
-
-
-const MobileNav = () => {
-  return (
-    <Stack
-      bg={useColorModeValue('white', 'gray.800')}
-      p={4}
-      display={{ md: 'none' }}>
-      {NAV_ITEMS_TEXT.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
-      ))}
-    </Stack>
-  );
-};
-
-const MobileNavItem = ({ label, href }: INavItem) => {
-  return (
-    <Stack spacing={4}>
-      <Flex
-        py={2}
-        as={Link}
-        href={href ?? '#'}
-        justify={'space-between'}
-        align={'center'}
-        _hover={{
-          textDecoration: 'none',
-        }}>
-        <Link href={href} passHref>
-          <Text
-            fontWeight={600}
-            color={useColorModeValue('gray.600', 'gray.200')}>
-            {label}
-          </Text>
-        </Link>
-      </Flex>
-    </Stack>
-  );
-};
