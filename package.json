@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "tinacms dev -c \"next dev\"",
+    "build": "tinacms build && next build",
+    "start": "tinacms build && next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -14,14 +14,15 @@
     "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@react-three/fiber": "^8.0.12",
+    "@tinacms/cli": "^1.1.0",
     "firebase": "^9.6.11",
     "framer-motion": "^6.3.3",
     "moment": "^2.29.3",
     "next": "^13.0.1",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
-    "three": "^0.139.2"
+    "three": "^0.139.2",
+    "tinacms": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.26",

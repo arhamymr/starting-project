@@ -3,7 +3,6 @@ import Head from "next/head";
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import ProgressBar from "@badrap/bar-of-progress";
-import MouseDot from 'atoms/mousedot';
 
 import 'styles/global.css';
 
@@ -34,7 +33,6 @@ function MyApp({ Component, pageProps }) {
       <meta name="description" content="Javascript Developer, i build things for the web" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <MouseDot />
     <Component {...pageProps} />
   </ChakraProvider>
 }

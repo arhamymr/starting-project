@@ -4,7 +4,7 @@ import {
   Grid,
 } from '@chakra-ui/react';
 import { SECTION_TEXT } from "./section.constants";
-import { ProjectItem } from 'molecules';
+import { ProjectItem } from 'components';
 
 export default function Section() {
   return (
