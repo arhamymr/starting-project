@@ -13,7 +13,7 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
+      mediaRoot: "upload",
       publicFolder: "public",
     },
   },
@@ -23,13 +23,49 @@ export default defineConfig({
         name: "post",
         label: "Posts",
         path: "content/posts",
+        defaultItem: () => {
+          return {
+            draft: false,
+          };
+        },
         fields: [
+          {
+            name: "draft",
+            label: "Draft",
+            type: "boolean",
+            required: true,
+            description: "If this is checked the post will not be published",
+          },
+          {
+            type: "image",
+            label: "Cover Image",
+            name: "cover",
+          },
+          {
+            label: "Author",
+            name: "author",
+            type: "reference",
+            collections: ["authors"], // points to a collection with the name "author"
+          },
+          {
+            label: "Tags",
+            name: "tag",
+            type: "reference",
+            collections: ["tags"], // points to a collection with the name "author"
+          },
           {
             type: "string",
             name: "title",
             label: "Title",
             isTitle: true,
             required: true,
+          },
+          {
+            required: true,
+            type: "string",
+            name: "overview",
+            label: "Content Overview",
+            description: "Add overview website here",
           },
           {
             type: "rich-text",
@@ -39,9 +75,76 @@ export default defineConfig({
           },
         ],
         ui: {
-          // This is an DEMO router. You can remove this to fit your site
-          router: ({ document }) => `/demo/blog/${document._sys.filename}`,
+          router: ({ document }) => `/blog/${document._sys.filename}`,
         },
+      },
+      {
+        label: "Authors",
+        name: "authors",
+        path: "content/authors",
+        format: "json",
+        fields: [
+          {
+            type: "string",
+            name: "name",
+            label: "Name",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "image",
+            label: "Avatar",
+            name: "avatar",
+          },
+        ],
+      },
+      {
+        label: "Tags",
+        name: "tags",
+        path: "content/tags",
+        format: "json",
+        fields: [
+          {
+            type: "string",
+            name: "name",
+            label: "Tags Name",
+            isTitle: true,
+            required: true,
+          },
+        ],
+      },
+      {
+        label: "Projects",
+        name: "projects",
+        path: "content/projects",
+        format: "json",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title Project",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "description",
+            required: true,
+          },
+          {
+            label: "Tags",
+            name: "tag",
+            type: "reference",
+            collections: ["tags"],
+          },
+          {
+            type: "string",
+            name: "link",
+            label: "Link",
+            required: true,
+          },
+        ],
       },
     ],
   },

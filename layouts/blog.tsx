@@ -1,5 +1,6 @@
 import { Container } from "@chakra-ui/react";
-import { Navbar, Footer } from "views";
+import Navbar from "components/navbar";
+import Footer from "components/footer";
 
 export default function Blog({ children }) {
   return (

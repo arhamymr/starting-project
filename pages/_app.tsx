@@ -3,10 +3,14 @@ import Head from "next/head";
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import ProgressBar from "@badrap/bar-of-progress";
+import { Link } from "styles/component";
 
 import 'styles/global.css';
 
 const theme = extendTheme({
+  components: {
+    Link
+  },
   fonts: {
     heading: "Inter, sans-serif",
     body: "Inter, sans-serif",

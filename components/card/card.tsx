@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Badge, Box, useColorModeValue, Text } from '@chakra-ui/react';
-import moment from 'moment';
+// import moment from 'moment';
 import Link from 'next/link';
 
 const Overlay = () => {
@@ -24,7 +24,7 @@ const Overlay = () => {
 }
 const Card = ({ item }) => {
   return (
-    <Link href={`/articles/${item.slug}`} passHref>
+    <Link href={`/blog/${item.slug}`} passHref>
       <Box
         pos="relative"
         id="expand"
@@ -33,26 +33,26 @@ const Card = ({ item }) => {
         rounded="md"
         bg={useColorModeValue('gray.50', 'gray.700')}
       >
-        <Box pos='relative' height={250}>
+        <Box pos='relative' height={200}>
           <Overlay />
           <Image
             style={{
               borderRadius: '10px 10px 0 0',
+              objectFit:'cover'
             }}
-            src={item.thumbnail}
+            src={item.cover}
             alt={item.title}
-            objectFit={'cover'}
             sizes="320 640 750"
-            layout="fill"
+            fill
           />
         </Box>
         <Box p={3} pointerEvents={'none'} cursor="pointer">
-          <Badge mb={2}>{item.category}</Badge>
-          <Text fontSize="sm" color="gray.500">
+          <Badge mb={2}>{item.tag.name}</Badge>
+          {/* <Text fontSize="sm" color="gray.500">
             {moment(item.created_date?.toDate()).format('MMMM Do YYYY')}
-          </Text>
-          <Text noOfLines={2} fontSize={'xl'} fontWeight={'bold'}>{item.title}</Text>
-          <Text noOfLines={3} >{item.description}</Text>
+          </Text> */}
+          <Text noOfLines={2} minH={59} fontSize={'xl'} fontWeight={'bold'}>{item.title}</Text>
+          <Text noOfLines={3} >{item.overview}</Text>
         </Box>
       </Box >
     </Link>

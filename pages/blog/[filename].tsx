@@ -13,6 +13,8 @@ const BlogPage = (props) => {
     data: props.data,
   })
 
+  console.log(data, 'data')
+  
   return (
       <Layout>
         <Heading>

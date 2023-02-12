@@ -13,7 +13,7 @@ import {
   CloseIcon,
 } from '@chakra-ui/icons';
 import Link from "next/link";
-import { Switch } from "components";
+import Switch  from "components/switch";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();

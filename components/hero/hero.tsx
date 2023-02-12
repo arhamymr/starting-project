@@ -24,7 +24,7 @@ export default function Hero() {
           fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}>
           {HERO_TEXT.title}
         </Heading>
-        <Text color={'gray.500'} maxW={600}>
+        <Text color={'gray.500'} maxW={700}>
           {HERO_TEXT.description}
         </Text>
       </Box>
