@@ -20,7 +20,7 @@ const BlogPage = (props) => {
         <Heading>
           {data.post.title}
         </Heading>
-        <ContentSection content={data.post.body}></ContentSection>
+        <TinaMarkdown content={data.post.body}/>
       </Layout>
   )
 }
@@ -34,8 +34,8 @@ export const getStaticProps = async ({ params }) => {
     query = res.query
     data = res.data
     variables = res.variables
-  } catch {
-    // swallow errors related to document creation
+  } catch (e) {
+    console.log("something wrong, error :" + e)
   }
 
   return {
@@ -60,19 +60,3 @@ export const getStaticPaths = async () => {
 
 export default BlogPage
 
-const PageSection = (props) => {
-  return (
-    <>
-      <h2>{props.heading}</h2>
-      <p>{props.content}</p>
-    </>
-  )
-}
-
-const components = {
-  PageSection: PageSection,
-}
-
-const ContentSection = ({ content }) => {
-  return <TinaMarkdown components={components} content={content} />
-}

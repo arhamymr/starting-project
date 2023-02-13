@@ -4,7 +4,6 @@ import {
   Text,
   IconButton,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
   Container,
 } from '@chakra-ui/react';
@@ -14,6 +13,7 @@ import {
 } from '@chakra-ui/icons';
 import Link from "next/link";
 import Switch  from "components/switch";
+import { IconSpeakerphone, IconSquareArrowRight} from '@tabler/icons-react';
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -48,18 +48,14 @@ export default function Navbar() {
           <Flex flex={{ base: 1 }} align={'center'}>
             <Link href={'/'} passHref>
               <Flex gap={2} align={"center"} cursor={'pointer'}>
-                <Text
-                  id="expand"
-                  textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-                  fontFamily={'MigraExtrabold'}
-                  fontSize={'18px'}
-                  color={useColorModeValue('gray.800', 'white')}
-                  _hover={{
-                    color: 'pink.300'
-                  }}
-                >
-                  Arhamymr
+                <Box bg={"yellow.400"} p={1} rounded={"sm"} color={"black"}>
+                  <IconSpeakerphone/>
+                </Box>
+               
+                <Text ml={15}>
+                  <b>Resume</b>, Here 
                 </Text>
+                <IconSquareArrowRight/>
               </Flex>
             </Link>
 
