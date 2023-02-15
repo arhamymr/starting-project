@@ -4,20 +4,28 @@ import { useTina } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import Layout from 'layouts/blog'
 import client from '../../.tina/__generated__/client'
+import { useRouter}  from 'next/router';
 
 const BlogPage = (props) => {
-
+  const router = useRouter()
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
     data: props.data,
   })
 
-  console.log(data, 'data')
-  
   return (
-      <Layout>
-        <Heading>
+      <Layout breadcrumb={[
+        {
+          link: "/blog",
+          name: "Blog"
+        },
+        {
+          link: `/blog/${router.query.filename}`,
+          name: data.post.title
+        }
+      ]}>
+        <Heading as={"h1"} mb={8}>
           {data.post.title}
         </Heading>
         <TinaMarkdown content={data.post.body}/>

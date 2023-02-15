@@ -8,4 +8,10 @@ const Link = defineStyleConfig({
   },
 });
 
-export { Link };
+const Heading = defineStyleConfig({
+  baseStyle: {
+    fontWeight: 600,
+  },
+});
+
+export { Link, Heading };

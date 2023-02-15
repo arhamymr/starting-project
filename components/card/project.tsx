@@ -1,5 +1,5 @@
-import { Badge, Box, useColorModeValue, Text, Link } from '@chakra-ui/react';
-
+import { Badge, Box, useColorModeValue, Text, Link, Flex} from '@chakra-ui/react';
+import { IconBrandGithub, IconBrandJavascript } from '@tabler/icons-react';
 interface IProps {
   item: {
     title: string;
@@ -28,10 +28,14 @@ const Project = ({ item }: IProps) => {
     >
       <Box p={4} cursor="pointer">
         <Link href={item.link} target={"_blank"}>
-          <Box id={'expand'}>
-            <Text id={'expand'} noOfLines={3} fontSize={'2xl'} mb={3} fontWeight={'bold'}>{item.title}</Text>
-            <Text id={'expand'} noOfLines={4} fontSize={'lg'} mb={3}>{item.description}</Text>
-            <Badge my={2} id={'expand'} mr={2}>{item.tag.name}</Badge>
+          <Box>
+            <Flex gap={2} mb={2}>
+              <IconBrandGithub/>
+              <IconBrandJavascript/>
+            </Flex>
+            <Text noOfLines={3} fontSize={'2xl'} mb={1} fontWeight={600}>{item.title}</Text>
+            <Text noOfLines={4} fontSize={'lg'} mb={3}>{item.description}</Text>
+            <Badge mr={2}>{item.tag.name}</Badge>
           </Box>
         </Link>
       </Box>

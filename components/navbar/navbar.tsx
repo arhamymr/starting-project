@@ -13,10 +13,11 @@ import {
 } from '@chakra-ui/icons';
 import Link from "next/link";
 import Switch  from "components/switch";
-import { IconSpeakerphone, IconSquareArrowRight} from '@tabler/icons-react';
+import { IconSpeakerphone, IconSquareArrowRight } from '@tabler/icons-react';
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+  
   return (
     <Box
       bg={useColorModeValue('rgba(255,255,255,.2)', 'rgba(23,25,35, .2)')}

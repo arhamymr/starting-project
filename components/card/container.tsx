@@ -1,6 +1,12 @@
 import { Grid, Heading } from "@chakra-ui/react";
+import { ReactNode } from "react";
 
-export default function Container({ title, children}) {
+interface IProps {
+  title?: string,
+  children: ReactNode
+}
+
+export default function Container({ title, children}:IProps) {
   return (
     <>
       <Heading as={"h2"} mb={12}> {title} </Heading>

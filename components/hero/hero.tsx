@@ -6,14 +6,14 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { HERO_TEXT } from "./hero.constants";
-import { IconArticle, IconUser} from '@tabler/icons-react';
+import { IconArticle, IconUserCircle, IconGrain, IconBuildingStore } from '@tabler/icons-react';
 import Link from 'next/link';
 
 export default function Hero() {
   return (
     <Flex align="center" h={{ base: '600px', md: '100vh' }} >
-      <Box>
-        <Flex mb={100} gap={16}>
+      <Box w={"full"}>
+        <Flex mb={100} gap={16} align={"center"} justify={"space-between"}>
           <Link href={'/'} passHref>
             <Flex align={"center"} cursor={'pointer'}>
               <Text
@@ -29,17 +29,51 @@ export default function Hero() {
               </Text>
             </Flex>
           </Link>
-          <Flex gap={7}>
+          <Flex gap={7} align={"center"}>
+            <Link href={"/store"}>
+              <Flex align={"center"} cursor={"pointer"}>
+                <Box 
+                  p={1.5} 
+                  bg={"yellow.200"} 
+                  rounded={"md"}
+                  color={"blackAlpha.800"}
+                />
+                <Text ml={1.5}> Store </Text>
+              </Flex>
+            </Link>
+
+            <Link href={"/playground"}>
+              <Flex align={"center"} cursor={"pointer"}>
+                <Box 
+                  p={1.5} 
+                  bg={"blue.200"} 
+                  rounded={"md"}
+                  color={"blackAlpha.800"}
+                />
+                <Text ml={1.5}> Playground </Text>
+              </Flex>
+            </Link>
+
             <Link href={"/blog"}>
-              <Flex align={"center"}>
-                <IconArticle/>
+              <Flex align={"center"} cursor={"pointer"}>
+                <Box 
+                  p={1.5} 
+                  bg={"red.200"} 
+                  rounded={"md"}
+                  color={"blackAlpha.800"}
+                />
                 <Text ml={1.5}> Blogs </Text>
               </Flex>
             </Link>
 
             <Link href={"/blog"}>
-              <Flex align={"center"}>
-                <IconUser/>
+            <Flex align={"center"} cursor={"pointer"}>
+                <Box 
+                  p={1.5} 
+                  bg={"purple.200"} 
+                  rounded={"md"}
+                  color={"blackAlpha.800"}
+                />
                 <Text ml={1.5}> About Me </Text>
               </Flex>
             </Link>

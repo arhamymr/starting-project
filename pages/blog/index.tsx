@@ -1,15 +1,16 @@
 
-import { Box, Heading } from '@chakra-ui/react';
 import Layout from 'layouts/blog'
 import client from '.tina/__generated__/client'
 
 import { Card, Container } from "components/card"
-
 const Blogs = ({posts}) => {
   
   return (
-      <Layout>
-        <Container title={"List Article"}>
+      <Layout breadcrumb={[{
+        link: "/blog",
+        name: "Blog"
+      }]}>
+        <Container>
         {posts.map(item => <Card key={item.id} item={item}/>)}
         </Container>
       </Layout>
