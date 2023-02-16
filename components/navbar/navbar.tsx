@@ -81,7 +81,7 @@ export default function Navbar() {
                   color: "pink.300",
                 }}
               >
-                Arhamymr
+                boxinterface
               </Text>
             </Flex>
           </Link>

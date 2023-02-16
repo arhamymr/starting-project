@@ -40,7 +40,7 @@ export default function Hero() {
         >
           {HERO_TEXT.title}
         </Heading>
-        <Text mb={50} color={"gray.500"} maxW={700}>
+        <Text mb={50} fontSize={"2xl"} color={"gray.500"} maxW={700}>
           {HERO_TEXT.description}
         </Text>
       </Box>
