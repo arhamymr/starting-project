@@ -3,14 +3,11 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import ProgressBar from "@badrap/bar-of-progress";
-import { Link, Heading } from "styles/component";
-
-import "styles/global.css";
+import modifyComponent from "styles/component";
 
 const theme = extendTheme({
   components: {
-    Link,
-    Heading,
+    ...modifyComponent,
   },
   fonts: {
     heading: "Inter, sans-serif",
@@ -35,7 +32,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <Head>
-        <title>Arhamymr</title>
+        <title>Project 1</title>
         <meta
           name="description"
           content="Javascript Developer, i build things for the web"

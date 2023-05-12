@@ -1,4 +1,5 @@
 import { defineStyleConfig } from "@chakra-ui/react";
+import { Button } from "./components/button";
 
 const Link = defineStyleConfig({
   baseStyle: {
@@ -14,4 +15,6 @@ const Heading = defineStyleConfig({
   },
 });
 
-export { Link, Heading };
+const Styles = { Link, Heading, Button };
+
+export default Styles;
