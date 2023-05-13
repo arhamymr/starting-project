@@ -1,13 +1,8 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { Button } from "./components/button";
-
-const Link = defineStyleConfig({
-  baseStyle: {
-    _hover: {
-      textDecoration: "none",
-    },
-  },
-});
+import { Link } from "./components/link";
+import { Input } from "./components/input";
+import { Text } from "./components/text";
 
 const Heading = defineStyleConfig({
   baseStyle: {
@@ -15,6 +10,6 @@ const Heading = defineStyleConfig({
   },
 });
 
-const Styles = { Link, Heading, Button };
+const Styles = { Link, Heading, Button, Input, Text };
 
 export default Styles;

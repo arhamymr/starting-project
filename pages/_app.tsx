@@ -6,6 +6,19 @@ import ProgressBar from "@badrap/bar-of-progress";
 import modifyComponent from "styles/component";
 
 const theme = extendTheme({
+  colors: {
+    brand: {
+      100: "#F0F0FC",
+      200: "#797bc8",
+      300: "#5c5fb7",
+      400: "#4245ae",
+      500: "#4045D5",
+      600: "#2428b6",
+      700: "#1419bc",
+      800: "#090fcf",
+      900: "#0007d1",
+    },
+  },
   components: {
     ...modifyComponent,
   },
