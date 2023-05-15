@@ -1,12 +1,10 @@
-import { Box } from "@chakra-ui/react";
-import FormLogin from "components/login/form-login";
+import Hero from "components/home/hero";
+import MainLayout from "layouts/main";
 
-const Home = () => {
+export default function Home() {
   return (
-    <Box>
-      <FormLogin />
-    </Box>
+    <MainLayout>
+      <Hero />
+    </MainLayout>
   );
-};
-
-export default Home;
+}

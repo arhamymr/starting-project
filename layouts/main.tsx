@@ -6,7 +6,7 @@ export default function Main({ children }) {
   return (
     <Box overflow={"hidden"}>
       <Navbar />
-      <Container maxW={"container.xl"}>{children}</Container>
+      {children}
       <Footer />
     </Box>
   );
