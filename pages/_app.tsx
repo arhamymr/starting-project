@@ -45,10 +45,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <Head>
-        <title>Project 1</title>
+        <title>Serpul</title>
         <meta
           name="description"
-          content="Javascript Developer, i build things for the web"
+          content="Nikmati manfaat dan kemudahan dalam membuat aplikasi sesuka hati dengan beragam fitur, add-on dan template yang kami sediakan"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
