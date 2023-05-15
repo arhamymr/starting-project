@@ -7,7 +7,7 @@ export default function Content() {
       <Text fontWeight={"bold"} mb={"14px"}>
         Konten
       </Text>
-      <Text mb={"15px"}>
+      <Text mb={"15px"} textAlign={"justify"}>
         Serpul adalah situs yang dikendalikan oleh PT. SERPUL TEKNOLOGI
         INDONESIA dan Holding PT YUSCORP BISNIS INDONESIA (YUSCORP) Dengan
         mengakses dan mendaftar menjadi anggota, Anda menyadari dan menyetujui
