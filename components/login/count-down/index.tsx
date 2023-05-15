@@ -3,7 +3,6 @@ import { Center, Text, Flex, Box } from "@chakra-ui/react";
 import useCountdown from "./hooks/useCountDown";
 
 const CountDown = () => {
-  // this function call when time
   const callbackCountdown = () => {
     console.log("count end");
   };

@@ -69,7 +69,7 @@ const FormLogin = () => {
 
       <Flex justify={"space-between"} mb={"24px"}>
         <Checkbox>Ingat Saya</Checkbox>
-        <Link as={NextLink} href="/forget-password">
+        <Link as={NextLink} href="/login/forget-password">
           Lupa Password ?
         </Link>
       </Flex>
