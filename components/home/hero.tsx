@@ -12,22 +12,24 @@ const data = [
 export default function Hero() {
   return (
     <Box>
-      <Center flexDirection={"column"} pt={"136px"} pb={"84px"}>
-        <Image
-          src={"/assets/lp/banner.png"}
-          width={681}
-          height={358}
-          alt={"hero banner"}
-        />
-        <Heading mb={"31px"} textAlign={"center"} as={"h2"} maxW={700}>
-          10 Alasan Kamu Harus Membuat Aplikasi di Serpul.co.id
-        </Heading>
-        <Text maxW={"753px"} textAlign={"center"} mb={"40px"}>
-          Nikmati manfaat dan kemudahan dalam membuat aplikasi sesuka hati
-          dengan beragam fitur, add-on dan template yang kami sediakan
-        </Text>
-        <Button>Buat Aplikasi Sekarang!</Button>
-      </Center>
+      <Container maxW="1150px" p={"65px"}>
+        <Center flexDirection={"column"} pt={"136px"} pb={"84px"}>
+          <Image
+            src={"/assets/lp/banner.png"}
+            width={681}
+            height={358}
+            alt={"hero banner"}
+          />
+          <Heading mb={"31px"} textAlign={"center"} as={"h2"} maxW={700}>
+            10 Alasan Kamu Harus Membuat Aplikasi di Serpul.co.id
+          </Heading>
+          <Text maxW={"753px"} textAlign={"center"} mb={"40px"}>
+            Nikmati manfaat dan kemudahan dalam membuat aplikasi sesuka hati
+            dengan beragam fitur, add-on dan template yang kami sediakan
+          </Text>
+          <Button>Buat Aplikasi Sekarang!</Button>
+        </Center>
+      </Container>
       <Box bg={"brand.100"}>
         <Container maxW="1150px" p={"65px"}>
           <Center flexDirection={"column"}>

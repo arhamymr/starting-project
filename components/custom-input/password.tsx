@@ -4,11 +4,13 @@ import {
   FormLabel,
   FormErrorMessage,
   Input,
-  Button,
+  Box,
   InputRightElement,
   InputGroup,
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { UnhideIcon } from "icons/unhide";
+import { HideIcon } from "icons/hide";
 
 const InputPassword = ({ formik, name, label, placeholder }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,12 +32,12 @@ const InputPassword = ({ formik, name, label, placeholder }) => {
           onChange={formik.handleChange}
         />
         <InputRightElement h={"full"}>
-          <Button
-            variant={"ghost"}
+          <Box
+            cursor={"pointer"}
             onClick={() => setShowPassword((showPassword) => !showPassword)}
           >
-            {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-          </Button>
+            {showPassword ? <HideIcon /> : <UnhideIcon />}
+          </Box>
         </InputRightElement>
       </InputGroup>
 
