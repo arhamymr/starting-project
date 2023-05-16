@@ -1,17 +1,15 @@
-import {
-  Box,
-  Heading,
-  Text,
-  Flex,
-  Center,
-  Container,
-  Card,
-} from "@chakra-ui/react";
+import { Text, Card } from "@chakra-ui/react";
 import Image from "next/image";
 
 export default function CardBenefit({ data }) {
   return (
-    <Card minW={"335px"} p={"22px 26px"} bg={"brand.100"}>
+    <Card
+      maxW={"335px"}
+      minH={"445px"}
+      p={"22px 26px"}
+      bg={"brand.100"}
+      m={"0px 33px"}
+    >
       <Image
         quality={100}
         src={data.image}

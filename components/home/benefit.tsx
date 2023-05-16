@@ -1,5 +1,6 @@
 import { Box, Heading, Text, Flex, Center, Container } from "@chakra-ui/react";
 import CardBenefit from "./card/benefit";
+import Slider from "./slider";
 
 const data = [
   {
@@ -12,7 +13,7 @@ const data = [
     title: "Tersedia Dashboard Manajemen",
     image: "/assets/lp/benefit/ben-2.png",
     description:
-      "Atur transaksi, deposit, member,  buat promo dan penagturan  lainnya dalam satu dashboard",
+      "Atur transaksi, deposit, member,  buat promo dan pengaturan  lainnya dalam satu dashboard",
   },
   {
     title: "Pilihan Produk PPOB Terlengkap",
@@ -66,8 +67,8 @@ const data = [
 
 export default function Benefit() {
   return (
-    <Box>
-      <Center flexDirection={"column"} pt={"136px"} pb={"84px"}>
+    <Box pb={"60px"}>
+      <Center flexDirection={"column"} pt={"136px"}>
         <Heading
           fontSize={"30px"}
           mb={"31px"}
@@ -82,20 +83,11 @@ export default function Benefit() {
           dengan beragam fitur, add-on dan template yang kami sediakan
         </Text>
       </Center>
-      <Container bg={"white"} maxW="1150px" p={"65px"}>
-        <Flex
-          w={"full"}
-          justifyContent={"space-between"}
-          flexWrap={"wrap"}
-          alignItems={"center"}
-        >
-          {data.map((item, index) => (
-            <Center key={index} w={"120px"} h={"30px"}>
-              <CardBenefit data={item} />
-            </Center>
-          ))}
-        </Flex>
-      </Container>
+      <Slider>
+        {data.map((item, index) => (
+          <CardBenefit key={index} data={item} />
+        ))}
+      </Slider>
     </Box>
   );
 }
