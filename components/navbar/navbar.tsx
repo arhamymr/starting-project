@@ -9,26 +9,27 @@ import {
   Link,
   Container,
   useDisclosure,
+  Center,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 
-export default function WithSubnavigation() {
+export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box>
+    <Box
+      bg={"white"}
+      zIndex={99}
+      w={"full"}
+      borderBottom={1}
+      borderStyle={"solid"}
+      borderColor={"gray.100"}
+      position={"fixed"}
+    >
       <Box>
-        <Container bg={"white"} maxW="1150px">
-          <Flex
-            bg={"white"}
-            minH={"60px"}
-            py={{ base: 2 }}
-            borderBottom={1}
-            borderStyle={"solid"}
-            borderColor={"gray.100"}
-            align={"center"}
-          >
+        <Container maxW="1440px">
+          <Flex bg={"white"} minH={"60px"} py={{ base: 2 }} align={"center"}>
             <Flex
               flex={{ base: 1, md: "auto" }}
               ml={{ base: -2 }}
@@ -65,11 +66,11 @@ export default function WithSubnavigation() {
             </Flex>
           </Flex>
         </Container>
-      </Box>
 
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
-      </Collapse>
+        <Collapse in={isOpen} animateOpacity>
+          <MobileNav />
+        </Collapse>
+      </Box>
     </Box>
   );
 }
