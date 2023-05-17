@@ -5,14 +5,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-export default function SliderComp({ children }) {
+export default function SliderComp({ children, slide = 4 }) {
   const sliderRef = useRef(null);
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: slide,
     slidesToScroll: 1,
     appendDots: (dots) => {
       return (

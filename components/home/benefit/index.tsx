@@ -1,6 +1,6 @@
-import { Box, Heading, Text, Flex, Center, Container } from "@chakra-ui/react";
-import CardBenefit from "./card/benefit";
-import Slider from "./slider";
+import { Box, Heading, Text, Center, Container } from "@chakra-ui/react";
+import CardBenefit from "./card";
+import Slider from "../slider";
 
 const data = [
   {

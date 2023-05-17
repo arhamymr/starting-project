@@ -9,6 +9,7 @@ export default function CardBenefit({ data }) {
       p={"22px 26px"}
       bg={"brand.100"}
       m={"0px 33px"}
+      rounded={"15px"}
     >
       <Image
         quality={100}
