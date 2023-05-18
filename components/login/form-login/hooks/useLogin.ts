@@ -1,35 +1,37 @@
 import { useState } from "react";
 
-function useLogin() {
-  const [loading, setLoading] = useState(false);
+export function useLogin() {
+  const [isLoading, setLoading] = useState(false);
 
-  const procedLogin = async () => {
+  function checkFirstTimeAccess() {
+    return localStorage.getItem("firstTimeAccess") === null;
+  }
+
+  const handleLogin = async (payload) => {
+    setLoading(true);
+
     try {
-      // fetch api
-
-      // const response = await fetch(api, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(body),
-      // });
-      // if (!response.ok) {
-      //   throw new Error("Network response was not ok");
-      // }
-      // const data = await response.json();
-
-      return "fetch data";
+      const response = await fetch("/api/login", {
+        method: "POST",
+        body: payload,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return {
+        status: "ok",
+        response,
+      };
     } catch (error) {
-      console.error("Error fetching data:", error);
+      throw new Error("Login failed");
+    } finally {
+      setLoading(false);
     }
   };
 
   return {
-    loading,
-    setLoading,
-    procedLogin,
+    checkFirstTimeAccess,
+    handleLogin,
+    isLoading,
   };
 }
-
-export default useLogin;

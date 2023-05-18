@@ -26,7 +26,7 @@ const Navbar = () => {
   const menu = ["Product", "Add-On", "Template", "Deposit"];
 
   return (
-    <Box>
+    <Box id={"services"}>
       <Center
         w={"full"}
         pt={"46px"}

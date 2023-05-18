@@ -77,7 +77,7 @@ export default function Navigation() {
 
 const DesktopNav = () => {
   return (
-    <Flex align={"center"} gap={3}>
+    <Flex align={"center"} gap={"48px"}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Link
@@ -173,26 +173,27 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Benefit",
+    href: "#benefit",
   },
   {
     label: "Product",
-    href: "#",
+    href: "#services",
   },
   {
     label: "Add-On",
-    href: "#",
+    href: "#services",
   },
   {
     label: "Template",
-    href: "#",
+    href: "#services",
   },
   {
     label: "Testimonial",
-    href: "#",
+    href: "#testimonial",
   },
   {
     label: "FAQ",
-    href: "#",
+    href: "#faq",
   },
   {
     label: "Affiliate Program",

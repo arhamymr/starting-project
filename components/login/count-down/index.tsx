@@ -8,7 +8,10 @@ const CountDown = () => {
   };
 
   const COUNTDOWN = 30;
-  const { count, startCountdown } = useCountdown(COUNTDOWN, callbackCountdown);
+  const { count, startCountdown, handleCountDown, isLoading } = useCountdown(
+    COUNTDOWN,
+    callbackCountdown
+  );
 
   useEffect(() => {
     startCountdown();
@@ -35,12 +38,12 @@ const CountDown = () => {
         </Flex>
       ) : (
         <Text
-          onClick={startCountdown}
+          onClick={handleCountDown}
           cursor={"pointer"}
           fontWeight={"bold"}
           color={"brand.500"}
         >
-          Kirim Ulang Kode
+          {isLoading ? "Mengirim ulang kode" : "Kirim Ulang Kode"}
         </Text>
       )}
     </Center>

@@ -6,15 +6,19 @@ import {
   Input,
   Flex,
   Checkbox,
+  Button,
   Link,
+  Box,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import NextLink from "next/link";
 
-import useLogin from "./hooks/useLogin";
-import ModalButton from "./modal";
+import { useLogin } from "./hooks/useLogin";
+import ModalLogin from "./modal";
 import Password from "components/custom-input/password";
+import { useRouter } from "next/router";
 
 const FormSchema = Yup.object().shape({
   email: Yup.string().email().required(),
@@ -22,11 +26,9 @@ const FormSchema = Yup.object().shape({
 });
 
 const FormLogin = () => {
-  const { procedLogin } = useLogin();
-
-  // useEffect(() => {
-  //   getDialCodes();
-  // }, []);
+  const { isLoading, handleLogin, checkFirstTimeAccess } = useLogin();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
 
   const formik = useFormik({
     initialValues: {
@@ -36,45 +38,72 @@ const FormLogin = () => {
     },
     validationSchema: FormSchema,
     onSubmit: async (values) => {
-      window.alert(JSON.stringify(values));
-      procedLogin();
+      const res = await handleLogin(values);
+      if (res.status) {
+        if (checkFirstTimeAccess()) {
+          onOpen();
+        } else {
+          router.push("/login?todashboard=yes");
+        }
+      }
     },
   });
 
-  return (
-    <form onSubmit={formik.handleSubmit}>
-      <FormControl
-        isInvalid={formik.touched.email && Boolean(formik.errors.email)}
-        mb={"24px"}
-      >
-        <FormLabel>Alamat Email</FormLabel>
-        <Input
-          name={"email"}
-          type={"email"}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          placeholder="Masukkan Alamat Email"
-        />
-        {formik.touched.email && formik.errors.email && (
-          <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
-        )}
-      </FormControl>
-      <Password
-        formik={formik}
-        name={"password"}
-        label={"Password"}
-        placeholder={"Masukkan Password"}
-      />
+  const {
+    handleSubmit,
+    dirty,
+    errors,
+    touched,
+    handleBlur,
+    values,
+    handleChange,
+    isValid,
+  } = formik;
 
-      <Flex justify={"space-between"} mb={"24px"}>
-        <Checkbox>Ingat Saya</Checkbox>
-        <Link as={NextLink} href="/login/forget-password">
-          Lupa Password ?
-        </Link>
-      </Flex>
-      <ModalButton />
-    </form>
+  return (
+    <Box>
+      <ModalLogin isOpen={isOpen} onClose={onClose} />
+      <form onSubmit={handleSubmit}>
+        <FormControl
+          isInvalid={touched.email && Boolean(errors.email)}
+          mb={"24px"}
+        >
+          <FormLabel>Alamat Email</FormLabel>
+          <Input
+            name={"email"}
+            type={"email"}
+            onBlur={handleBlur}
+            value={values.email}
+            onChange={handleChange}
+            placeholder="Masukkan Alamat Email"
+          />
+          {touched.email && errors.email && (
+            <FormErrorMessage>{errors.email}</FormErrorMessage>
+          )}
+        </FormControl>
+        <Password
+          formik={formik}
+          name={"password"}
+          label={"Password"}
+          placeholder={"Masukkan Password"}
+        />
+
+        <Flex justify={"space-between"} mb={"24px"}>
+          <Checkbox colorScheme="brand">Ingat Saya</Checkbox>
+          <Link as={NextLink} href="/login/forget-password">
+            Lupa Password ?
+          </Link>
+        </Flex>
+        <Button
+          type={"submit"}
+          w={"full"}
+          isDisabled={!isValid || !dirty}
+          isLoading={isLoading}
+        >
+          Masuk Sekarang
+        </Button>
+      </form>
+    </Box>
   );
 };
 

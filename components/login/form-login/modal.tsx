@@ -19,7 +19,10 @@ import { WhatsappIcon } from "icons/whatsapp";
 import { CheckmarkIcon } from "icons/checkmark";
 import { EmailIcon } from "icons/email";
 
-function ModalComp() {
+import { useRouter } from "next/router";
+
+function ModalComp({ isOpen, onClose }) {
+  const router = useRouter();
   const [switchValue, setSwitchValue] = useState([
     { value: "Whatsapp", active: true },
     { value: "Email", active: false },
@@ -33,17 +36,20 @@ function ModalComp() {
     setSwitchValue(newSwitchValue);
   }
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const currentActiveValue = () => {
+    return switchValue.filter((item) => item.active);
+  };
 
   const selectIcon = (name) => {
     return name == "Whatsapp" ? <WhatsappIcon /> : <EmailIcon />;
   };
 
+  const handleSelect = () => {
+    router.push("/login/otp?type=" + currentActiveValue()[0].value);
+  };
+
   return (
     <>
-      <Button w={"full"} onClick={onOpen}>
-        Masuk Sekarang
-      </Button>
       <Modal size={"sm"} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -96,7 +102,9 @@ function ModalComp() {
               <Button w={"full"} variant={"outline"} onClick={onClose}>
                 Batal
               </Button>
-              <Button w={"full"}>Pilih</Button>
+              <Button w={"full"} onClick={handleSelect}>
+                Pilih
+              </Button>
             </Flex>
           </ModalFooter>
         </ModalContent>

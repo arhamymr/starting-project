@@ -11,6 +11,7 @@ import Image from "next/image";
 export default function CTA() {
   return (
     <Box
+      id={"cta"}
       color={"white"}
       bg={"linear-gradient(180deg, #6368E0 0%, #494DC9 100%)"}
     >

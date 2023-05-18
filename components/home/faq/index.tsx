@@ -68,7 +68,7 @@ const data = [
 ];
 export default function FAQ() {
   return (
-    <Box pb={"60px"}>
+    <Box pb={"60px"} id={"faq"}>
       <Center flexDirection={"column"} pt={"136px"}>
         <Heading
           fontSize={"30px"}
@@ -83,7 +83,13 @@ export default function FAQ() {
       <Container pb={"60px"} maxW="1150px" position={"relative"}>
         <Accordion defaultIndex={[0]} allowMultiple>
           {data.map((item) => (
-            <AccordionItem key={item.ask}>
+            <AccordionItem
+              p={"20px 40px"}
+              mb={"16px"}
+              bg={"brand.100"}
+              rounded={"md"}
+              key={item.ask}
+            >
               <h2>
                 <AccordionButton>
                   <Box as="span" flex="1" textAlign="left">

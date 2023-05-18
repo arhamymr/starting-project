@@ -5,19 +5,24 @@ import * as Yup from "yup";
 
 import CountDown from "../count-down";
 import Password from "components/custom-input/password";
+import useOTP from "./hooks/useOtp";
 
 const FormSchema = Yup.object().shape({
   otp: Yup.string().required(),
 });
 
 const FormOtp = () => {
+  const { handleOTP } = useOTP();
   const formik = useFormik({
     initialValues: {
       otp: "",
     },
     validationSchema: FormSchema,
     onSubmit: async (values) => {
-      alert(JSON.stringify(values));
+      const res = await handleOTP(values);
+      if (res.status) {
+        window.alert(JSON.stringify(values));
+      }
     },
   });
 

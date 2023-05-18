@@ -1,8 +1,20 @@
-import { Box, Container, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  HStack,
+  SimpleGrid,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { ReactNode } from "react";
 import Image from "next/image";
+import { WhatsappFillIcon } from "icons/whatsapp";
+import { EmailIcon } from "icons/email-fill";
 
-const icons = ["test", "test"];
+import { InstagramIcon } from "icons/ig";
+import { FacebookIcon } from "icons/fb";
+import { TelegramIcon } from "icons/telegram";
+import { LinkedinIcon } from "icons/linkedin";
 
 const Logo = () => {
   return (
@@ -57,8 +69,20 @@ export default function Footer() {
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Hubungi Kami</ListHeader>
-            <a href={"#"}>+6281354444604</a>
-            <a href={"#"}>+serpul@yuscorp.co.id</a>
+            <HStack>
+              <WhatsappFillIcon />
+              <a href={"#"}>+6281354444604</a>
+            </HStack>
+            <HStack>
+              <EmailIcon />
+              <a href={"#"}>+serpul@yuscorp.co.id</a>
+            </HStack>
+            <HStack>
+              <InstagramIcon />
+              <FacebookIcon />
+              <TelegramIcon />
+              <LinkedinIcon />
+            </HStack>
           </Stack>
         </SimpleGrid>
       </Container>

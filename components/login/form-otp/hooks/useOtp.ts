@@ -1,42 +1,62 @@
 import { useState } from "react";
 
-function useOTP() {
-  const [loading, setLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+// Custom hook for login
+export function useOTP() {
+  const [isLoading, setLoading] = useState(false);
 
-  const procedOTP = async () => {
+  function setFirstTimeAccess() {
+    localStorage.setItem("firstTimeAccess", "true");
+  }
+
+  const handleOTP = async (payload) => {
+    setLoading(true);
+
     try {
-      // fetch api
-
-      // const response = await fetch(api, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(body),
-      // });
-      // if (!response.ok) {
-      //   throw new Error("Network response was not ok");
-      // }
-      // const data = await response.json();
-
-      return "fetch data";
+      const response = await fetch("/api/login", {
+        method: "POST",
+        body: payload,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setFirstTimeAccess();
+      return {
+        status: "ok",
+        response,
+      };
     } catch (error) {
-      console.error("Error fetching data:", error);
+      throw new Error("Login failed");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const callbackCountdown = () => {
-    console.log("callback");
+  const handleResendOTP = async (payload) => {
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        body: payload,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return {
+        status: "ok",
+        response,
+      };
+    } catch (error) {
+      throw new Error("Login failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return {
-    loading,
-    setLoading,
-    procedOTP,
-    showPassword,
-    setShowPassword,
-    callbackCountdown,
+    handleOTP,
+    handleResendOTP,
+    isLoading,
   };
 }
 

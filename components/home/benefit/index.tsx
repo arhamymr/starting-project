@@ -67,7 +67,7 @@ const data = [
 
 export default function Benefit() {
   return (
-    <Box pb={"60px"}>
+    <Box pb={"60px"} id={"benefit"}>
       <Center flexDirection={"column"} pt={"136px"}>
         <Heading
           fontSize={"30px"}
