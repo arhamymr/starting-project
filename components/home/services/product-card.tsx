@@ -15,6 +15,7 @@ export default function CardBenefit({ data }) {
         quality={100}
         src={data.image}
         width={285}
+        style={{ borderRadius: "15px" }}
         height={204}
         alt={data.title}
       />

@@ -4,55 +4,36 @@ import Image from "next/image";
 import Button from "./button";
 import { motion } from "framer-motion";
 
-const texts = ["First Text", "Second Text", "Third Text"];
+const texts = Array.from(["First Text", "Second Text", "Third Text"], (x) => (
+  <Text fontSize={"40px"} key={x}>
+    {x}
+  </Text>
+));
 
 const AnimatedTextSlider = ({ texts, duration }) => {
-  const container = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
-    }),
-  };
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
-  const child = {
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      x: 20,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
+    }, duration);
+
+    return () => clearInterval(interval);
+  }, [texts, duration]);
 
   return (
-    <motion.div
-      style={{ overflow: "hidden", display: "flex", fontSize: "2rem" }}
-      variants={container}
-      initial="hidden"
-      animate="visible"
-    >
-      {texts.map((word, index) => (
-        <motion.span
-          variants={child}
-          style={{ marginRight: "5px" }}
-          key={index}
-        >
-          {word}
-        </motion.span>
-      ))}
-    </motion.div>
+    <Box height={100} bg={"yellow"}>
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{ y: 10 }}
+        transition={{
+          repeat: Infinity,
+          duration: 1,
+        }}
+      >
+        {texts.filter((word, index) => index === currentTextIndex && { word })}
+      </motion.div>
+    </Box>
   );
 };
 
@@ -74,14 +55,9 @@ export default function Hero() {
             height={358}
             alt={"hero banner"}
           />
-          <Box
-            height="100px"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <AnimatedTextSlider texts={texts} duration={3000} />
-          </Box>
+
+          <AnimatedTextSlider texts={texts} duration={3000} />
+
           <Heading mb={"31px"} textAlign={"center"} as={"h2"} maxW={700}>
             Semua Bisa Memiliki Aplikasi Brand{" "}
             <Box as={"span"} color={"brand.500"}>
