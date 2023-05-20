@@ -7,31 +7,31 @@ const data = {
   pascabayar: [
     {
       name: "PLN Pascabayar",
-      image: "/assets/lp/product/prod-1.png",
+      image: "/assets/lp/product/p-prod-1.png",
     },
     {
       name: "Pulsa Pascabayar",
-      image: "/assets/lp/product/prod-2.png",
+      image: "/assets/lp/product/p-prod-2.png",
     },
     {
       name: "TELKOM",
-      image: "/assets/lp/product/prod-3.png",
+      image: "/assets/lp/product/p-prod-3.png",
     },
     {
       name: "BPJS",
-      image: "/assets/lp/product/prod-4.png",
+      image: "/assets/lp/product/p-prod-4.png",
     },
     {
       name: "PDAM",
-      image: "/assets/lp/product/prod-5.png",
+      image: "/assets/lp/product/p-prod-5.png",
     },
     {
       name: "PGN",
-      image: "/assets/lp/product/prod-6.png",
+      image: "/assets/lp/product/p-prod-6.png",
     },
     {
       name: "TV Pascabayar",
-      image: "/assets/lp/product/prod-7.png",
+      image: "/assets/lp/product/p-prod-7.png",
     },
   ],
   prabayar: [

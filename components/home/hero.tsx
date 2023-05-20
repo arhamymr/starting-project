@@ -1,41 +1,75 @@
-import { useEffect, useState } from "react";
+import React, { useRef } from "react";
 import { Box, Heading, Text, Flex, Center, Container } from "@chakra-ui/react";
 import Image from "next/image";
 import Button from "./button";
-import { motion } from "framer-motion";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { redirect } from "next/dist/server/api-utils";
 
-const texts = Array.from(["First Text", "Second Text", "Third Text"], (x) => (
-  <Text fontSize={"40px"} key={x}>
-    {x}
-  </Text>
-));
+const texts = Array.from(
+  [
+    {
+      text: "Aplikasi Pulsa",
+      color: "linear-gradient(180deg, #595FEB 0%, #2125A7 100%)",
+    },
+    {
+      text: "Aplikasi Koperasi",
+      color: "linear-gradient(180deg, #595FEB 0%, #2125A7 100%)",
+    },
+    {
+      text: "Aplikasi Travel dan Haji",
+      color: "linear-gradient(180deg, #595FEB 0%, #2125A7 100%)",
+    },
+    {
+      text: "Aplikasi Komunitas",
+      color: "linear-gradient(180deg, #595FEB 0%, #2125A7 100%)",
+    },
+    {
+      text: "Aplikasi Pendidikan",
+      color: "linear-gradient(180deg, #595FEB 0%, #2125A7 100%)",
+    },
+    {
+      text: "Aplikasi HRIS",
+      color: "linear-gradient(180deg, #595FEB 0%, #2125A7 100%)",
+    },
+  ],
+  (x) => (
+    <Box as={"span"} key={x.text}>
+      <Box as={"span"} bg={x.color} backgroundClip={"text"}>
+        {x.text}
+      </Box>{" "}
+      Sendiri
+    </Box>
+  )
+);
 
-const AnimatedTextSlider = ({ texts, duration }) => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+function AnimatedTextSlider() {
+  const sliderRef = useRef(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, duration);
-
-    return () => clearInterval(interval);
-  }, [texts, duration]);
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    vertical: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
 
   return (
-    <Box height={100} bg={"yellow"}>
-      <motion.div
-        initial={{ y: 0 }}
-        animate={{ y: 10 }}
-        transition={{
-          repeat: Infinity,
-          duration: 1,
-        }}
-      >
-        {texts.filter((word, index) => index === currentTextIndex && { word })}
-      </motion.div>
+    <Box as={"span"}>
+      <Slider ref={sliderRef} {...settings}>
+        {texts.map((item, index) => (
+          <Box as={"span"} key={index}>
+            {item}
+          </Box>
+        ))}
+      </Slider>
     </Box>
   );
-};
+}
 
 const data = [
   "kioser.png",
@@ -47,7 +81,7 @@ const data = [
 export default function Hero() {
   return (
     <Box>
-      <Container maxW="1150px" p={"65px"}>
+      <Container maxW="1350px" p={"65px"}>
         <Center flexDirection={"column"} pt={"136px"} pb={"84px"}>
           <Image
             src={"/assets/lp/banner.png"}
@@ -56,16 +90,17 @@ export default function Hero() {
             alt={"hero banner"}
           />
 
-          <AnimatedTextSlider texts={texts} duration={3000} />
-
-          <Heading mb={"31px"} textAlign={"center"} as={"h2"} maxW={700}>
-            Semua Bisa Memiliki Aplikasi Brand{" "}
-            <Box as={"span"} color={"brand.500"}>
-              {" "}
-              Aplikasi Pulsa{" "}
-            </Box>
-            Sendiri
-          </Heading>
+          <Flex
+            mb={"31px"}
+            w={"full"}
+            fontWeight={"bold"}
+            textAlign={"center"}
+            maxW={1200}
+            flexDirection={"column"}
+            fontSize={"34px"}
+          >
+            Semua Bisa Memiliki Brand <AnimatedTextSlider />
+          </Flex>
           <Text maxW={"753px"} textAlign={"center"} mb={"40px"}>
             Nikmati kemudahan buat aplikasi custom tanpa harus ngoding dengan
             6.000+ pilihan Produk PPOB, Add-on dan beragam template keren
