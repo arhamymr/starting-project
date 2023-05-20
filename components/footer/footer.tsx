@@ -73,11 +73,11 @@ export default function Footer() {
               <WhatsappFillIcon />
               <a href={"#"}>+6281354444604</a>
             </HStack>
-            <HStack>
+            <HStack mb={"24px"}>
               <EmailIcon />
               <a href={"#"}>+serpul@yuscorp.co.id</a>
             </HStack>
-            <HStack>
+            <HStack gap={"24px"}>
               <InstagramIcon />
               <FacebookIcon />
               <TelegramIcon />

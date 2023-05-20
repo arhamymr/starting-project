@@ -1,7 +1,6 @@
-import { Box, Heading, Text, Flex, Center, Card } from "@chakra-ui/react";
-import ButtonComp from "../button";
-import Image from "next/image";
+import { Box, Heading, Text, Flex, Center } from "@chakra-ui/react";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import Product from "./product";
 import AddOn from "./add-on";
 import Deposit from "./deposit";
@@ -22,9 +21,12 @@ const RenderServices = ({ type }) => {
   }
 };
 const Navbar = () => {
-  const [active, setActive] = useState(0);
+  const router = useRouter();
+
+  const [active, setActive] = useState(router.query.s || 0);
   const menu = ["Product", "Add-On", "Template", "Deposit"];
 
+  console.log(router);
   return (
     <Box id={"services"}>
       <Center
@@ -40,7 +42,12 @@ const Navbar = () => {
               rounded={"40px"}
               bg={active === index && "white"}
               key={item}
-              onClick={() => setActive(index)}
+              onClick={() => {
+                router.push("/?s=" + index, undefined, {
+                  shallow: true,
+                });
+                setActive(index);
+              }}
               color={active !== index && "white"}
               cursor={"pointer"}
             >

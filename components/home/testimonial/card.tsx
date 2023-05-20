@@ -46,7 +46,9 @@ export default function TestimonialCard({ data }) {
         </Box>
         <Box>
           <Text mb={"10px"} fontSize={"15px"}>
+            {'" '}
             {data.text}
+            {' "'}
           </Text>
           <Text>{data.name}</Text>
         </Box>

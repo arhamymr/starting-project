@@ -42,7 +42,7 @@ export default function Steps() {
         </Text>
 
         <Flex gap={"33px"} mb={"77px"}>
-          {data.map((item) => (
+          {data.map((item, index) => (
             <Card
               color={"white"}
               bg={"linear-gradient(180deg, #7D81EC 0%, #2D32AE 100%)"}
@@ -50,7 +50,27 @@ export default function Steps() {
               key={item.title}
               w={"390px"}
               p={"55PX"}
+              position={"relative"}
+              overflow={"hidden"}
             >
+              <Center
+                rounded={"full"}
+                w={"106px"}
+                h={"106px"}
+                bg={"white"}
+                position={"absolute"}
+                top={"-53px"}
+                left={"calc(50% - 53px)"}
+              >
+                <Text
+                  mt={"50px"}
+                  color={"brand.700"}
+                  fontSize={"30px"}
+                  fontWeight={"bold"}
+                >
+                  {index + 1}
+                </Text>
+              </Center>
               <Image
                 quality={100}
                 src={item.image}
