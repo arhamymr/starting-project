@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { fetcher } from "helpers/fetcher";
 // Custom hook for login
 export function useOTP() {
   const [isLoading, setLoading] = useState(false);
@@ -12,13 +12,11 @@ export function useOTP() {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetcher("/api/login", {
         method: "POST",
         body: payload,
-        headers: {
-          "Content-Type": "application/json",
-        },
       });
+
       setFirstTimeAccess();
       return {
         status: "ok",

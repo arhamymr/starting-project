@@ -19,7 +19,7 @@ const Quote = () => (
 export default function TestimonialCard({ data }) {
   return (
     <Center
-      p={"10px 45px"}
+      p={"20px 45px"}
       maxW={"531px"}
       minH={"218px"}
       rounded={"15px"}
@@ -27,7 +27,11 @@ export default function TestimonialCard({ data }) {
       color={"white"}
       m={"0 25px"}
     >
-      <Flex gap={"30px"} align={"center"}>
+      <Flex
+        flexDirection={{ base: "column", md: "row" }}
+        gap={"30px"}
+        align={"center"}
+      >
         <Box position={"relative"}>
           <Box top={-5} left={-5} position={"absolute"}>
             <Quote />

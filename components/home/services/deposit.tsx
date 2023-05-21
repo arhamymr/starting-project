@@ -32,7 +32,11 @@ const data = [
 
 const RenderDeposit = ({ type }) => {
   return (
-    <Grid mb={"127px"} templateColumns="repeat(4, 1fr)" gap={"31px"}>
+    <Grid
+      mb={"127px"}
+      templateColumns={{ base: "1fr", md: "repeat(4, 1fr)" }}
+      gap={"31px"}
+    >
       {data[type].map((item, index) => (
         <DepositCard image={item} key={index} />
       ))}

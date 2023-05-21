@@ -10,10 +10,12 @@ export default function PaymentLayout({ main, sidebar, title }) {
           {title}
         </Text>
         <Flex gap={"35px"}>
-          <Box bg={"white"} flex={1} p={"27px"}>
+          <Box bg={"white"} rounded={"8px"} flex={1} p={"27px"}>
             {main}
           </Box>
-          <Box width={"361px"}>{sidebar}</Box>
+          <Box rounded={"8px "} width={"361px"}>
+            {sidebar}
+          </Box>
         </Flex>
       </Container>
       ;

@@ -8,46 +8,55 @@ import {
   FormErrorMessage,
   Input,
 } from "@chakra-ui/react";
+import { useForgetPassword } from "./hooks/useForgetPassword";
 
 const FormSchema = Yup.object().shape({
-  otp: Yup.string().required(),
+  reset: Yup.string().required(),
 });
 
-const FormOtp = () => {
+const FormResetPassword = () => {
+  const { isLoading, handleForgetPassword } = useForgetPassword();
+
   const formik = useFormik({
     initialValues: {
-      email: "",
+      reset: "",
     },
     validationSchema: FormSchema,
     onSubmit: async (values) => {
       alert(JSON.stringify(values));
+      handleForgetPassword(values);
     },
   });
 
   return (
     <form onSubmit={formik.handleSubmit}>
       <FormControl
-        isInvalid={formik.touched.email && Boolean(formik.errors.email)}
+        isInvalid={formik.touched.reset && Boolean(formik.errors.reset)}
         mb={"24px"}
       >
         <FormLabel>Nomor WhatsApp/Email</FormLabel>
         <Input
-          name={"email"}
-          type={"email"}
+          name={"reset"}
           onBlur={formik.handleBlur}
-          value={formik.values.email}
+          value={formik.values.reset}
           onChange={formik.handleChange}
           placeholder="Masukkan nomor WhatsApp atau Email"
         />
-        {formik.touched.email && formik.errors.email && (
-          <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
+        {formik.touched.reset && formik.errors.reset && (
+          <FormErrorMessage>{formik.errors.reset}</FormErrorMessage>
         )}
       </FormControl>
-      <Button type={"submit"} w={"full"} mb={"12px"}>
-        Kirim OTP
+      <Button
+        isDisabled={!formik.isValid || !formik.dirty}
+        isLoading={isLoading}
+        type={"submit"}
+        w={"full"}
+        mb={"12px"}
+      >
+        Reset Password
       </Button>
     </form>
   );
 };
 
-export default FormOtp;
+export default FormResetPassword;

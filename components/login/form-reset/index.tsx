@@ -15,27 +15,21 @@ import {
 import { useFormik } from "formik";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import * as Yup from "yup";
+import Password from "components/custom-input/password";
 
-import useLogin from "./hooks/useLogin";
+import useReset from "./hooks/useReset";
 
 // icon
 import { UserIcon } from "icons/user";
 const FormSchema = Yup.object().shape({
-  password: Yup.string()
-    .required("Password is required")
-    .min(8, "Password must be at least 8 characters")
-    .max(20, "Password must be at most 20 characters"),
+  password: Yup.string().required("Perlu memasukkan password"),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match")
-    .required("Confirm password is required"),
+    .oneOf([Yup.ref("password"), null], "Password tidak sama")
+    .required("Perlu memasukkan ulang password"),
 });
 
 const FormLogin = () => {
-  const { setShowPassword, showPassword } = useLogin();
-
-  // useEffect(() => {
-  //   getDialCodes();
-  // }, []);
+  const { handleReset } = useReset();
 
   const formik = useFormik({
     initialValues: {
@@ -45,6 +39,7 @@ const FormLogin = () => {
     validationSchema: FormSchema,
     onSubmit: async (values) => {
       window.alert(JSON.stringify(values));
+      handleReset(values);
     },
   });
 
@@ -59,71 +54,19 @@ const FormLogin = () => {
           </Text>
         </Box>
       </Flex>
-      <FormControl
-        isInvalid={formik.touched.password && Boolean(formik.errors.password)}
-        mb={"24px"}
-      >
-        <FormLabel>Masukkan Password</FormLabel>
-        <InputGroup>
-          <Input
-            name={"password"}
-            type={showPassword ? "text" : "password"}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
-            placeholder="Masukkan Password"
-            isInvalid={Boolean(
-              formik.touched.password && formik.errors.password
-            )}
-            onChange={formik.handleChange}
-          />
-          <InputRightElement h={"full"}>
-            <Button
-              variant={"ghost"}
-              onClick={() => setShowPassword((showPassword) => !showPassword)}
-            >
-              {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
 
-        {formik.touched.password && formik.errors.password && (
-          <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
-        )}
-      </FormControl>
-      <FormControl
-        isInvalid={
-          formik.touched.confirmPassword &&
-          Boolean(formik.errors.confirmPassword)
-        }
-        mb={"24px"}
-      >
-        <FormLabel>Masukkan Ulang Password</FormLabel>
-        <InputGroup>
-          <Input
-            name={"confirmPassword"}
-            type={showPassword ? "text" : "password"}
-            onBlur={formik.handleBlur}
-            value={formik.values.confirmPassword}
-            placeholder="Masukkan Password"
-            isInvalid={Boolean(
-              formik.touched.confirmPassword && formik.errors.confirmPassword
-            )}
-            onChange={formik.handleChange}
-          />
-          <InputRightElement h={"full"}>
-            <Button
-              variant={"ghost"}
-              onClick={() => setShowPassword((showPassword) => !showPassword)}
-            >
-              {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-
-        {formik.touched.confirmPassword && formik.errors.confirmPassword && (
-          <FormErrorMessage>{formik.errors.confirmPassword}</FormErrorMessage>
-        )}
-      </FormControl>
+      <Password
+        formik={formik}
+        name={"password"}
+        label={"Masukkan Password"}
+        placeholder={"Masukkan Password"}
+      />
+      <Password
+        formik={formik}
+        name={"confirmPassword"}
+        label={"Masukkan Ulang Password"}
+        placeholder={"Masukkan Password"}
+      />
 
       <Button type={"submit"} w={"full"} mb={"17px"}>
         Reset Password

@@ -18,9 +18,10 @@ const Item = ({ logo, label }) => {
       alignItems={"center"}
     >
       <Flex gap={3} alignItems={"center"} justifyContent={"center"}>
-        <Image src={logo} alt={label} width={69} height={34} />
+        <Image quality={100} src={logo} alt={label} width={108} height={40} />
         <Text>{label}</Text>
       </Flex>
+
       {select ? (
         <Flex width={"60px"} justifyContent={"flex-end"}>
           <CheckIcon color={"green.500"} />

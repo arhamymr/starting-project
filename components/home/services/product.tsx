@@ -113,7 +113,11 @@ const data = {
 const RenderProduct = ({ type }) => {
   const switchType = !type ? "prabayar" : "pascabayar";
   return (
-    <Grid mb={"127px"} templateColumns="repeat(6, 1fr)" gap={"31px"}>
+    <Grid
+      mb={"127px"}
+      templateColumns={{ base: "1fr 1fr", md: "repeat(6, 1fr)" }}
+      gap={"31px"}
+    >
       {data[switchType].map((item, index) => (
         <ProductCard data={item} key={index} />
       ))}

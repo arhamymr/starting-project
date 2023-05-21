@@ -1,15 +1,10 @@
 import { useState } from "react";
 import { fetcher } from "helpers/fetcher";
-export function useLogin() {
+
+function useLogin() {
   const [isLoading, setLoading] = useState(false);
 
-  function checkFirstTimeAccess() {
-    return localStorage.getItem("firstTimeAccess") === null;
-  }
-
-  const handleLogin = async (payload) => {
-    setLoading(true);
-
+  const handleReset = async (payload) => {
     try {
       const response = await fetcher("/api/login", {
         method: "POST",
@@ -21,15 +16,16 @@ export function useLogin() {
         response,
       };
     } catch (error) {
-      throw new Error("Login failed");
+      throw new Error("Error fetching data: " + error);
     } finally {
       setLoading(false);
     }
   };
 
   return {
-    checkFirstTimeAccess,
-    handleLogin,
     isLoading,
+    handleReset,
   };
 }
+
+export default useLogin;

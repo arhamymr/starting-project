@@ -30,7 +30,7 @@ const theme = extendTheme({
 
 const progress = new ProgressBar({
   size: 1.5,
-  color: "#DE1B1B",
+  color: "#4045D5",
   className: "bar-of-progress",
 });
 

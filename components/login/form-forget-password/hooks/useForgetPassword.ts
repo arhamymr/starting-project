@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { fetcher } from "helpers/fetcher";
-export function useLogin() {
+
+export function useForgetPassword() {
   const [isLoading, setLoading] = useState(false);
 
-  function checkFirstTimeAccess() {
-    return localStorage.getItem("firstTimeAccess") === null;
-  }
-
-  const handleLogin = async (payload) => {
+  const handleForgetPassword = async (payload) => {
     setLoading(true);
 
     try {
@@ -28,8 +25,7 @@ export function useLogin() {
   };
 
   return {
-    checkFirstTimeAccess,
-    handleLogin,
+    handleForgetPassword,
     isLoading,
   };
 }

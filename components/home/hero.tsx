@@ -123,6 +123,8 @@ export default function Hero() {
               w={"full"}
               justifyContent={"space-between"}
               alignItems={"center"}
+              flexWrap={"wrap"}
+              gap={"20px"}
             >
               {data.map((item) => (
                 <Center key={item} w={"120px"} h={"30px"}>

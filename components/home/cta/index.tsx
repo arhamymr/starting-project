@@ -16,10 +16,19 @@ export default function CTA() {
       bg={"linear-gradient(180deg, #6368E0 0%, #494DC9 100%)"}
     >
       <Container pb={"60px"} maxW="1150px" position={"relative"}>
-        <Box position={"absolute"} bottom={0} left={-200}>
+        <Box
+          display={{ base: "none", md: "block" }}
+          position={"absolute"}
+          bottom={0}
+          left={-200}
+        >
           <Image src={"/assets/cta.png"} width={707} height={517} alt={"cta"} />
         </Box>
-        <Center flexDirection={"column"} pt={"136px"} mr={-600}>
+        <Center
+          flexDirection={"column"}
+          pt={"136px"}
+          mr={{ base: 0, md: -600 }}
+        >
           <Heading
             fontSize={"28px"}
             mb={"26px"}
@@ -55,7 +64,12 @@ export default function CTA() {
           <Text w={"279px"} mb={"30px"} textAlign={"right"} fontSize={"28px"}>
             /bulan
           </Text>
-          <Button rounded={"full"} bg={"white"} color={"brand.500"}>
+          <Button
+            _hover={{ backgroundColor: "gray.100" }}
+            rounded={"full"}
+            bg={"white"}
+            color={"brand.500"}
+          >
             {" "}
             Buat Aplikasi Sekarang
           </Button>
