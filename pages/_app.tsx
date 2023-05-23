@@ -23,8 +23,8 @@ const theme = extendTheme({
     ...modifyComponent,
   },
   fonts: {
-    heading: "Inter, sans-serif",
-    body: "Inter, sans-serif",
+    heading: "'Plus Jakarta Sans', sans-serif;",
+    body: "'Plus Jakarta Sans', sans-serif;",
   },
 });
 
