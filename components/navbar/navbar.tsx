@@ -29,12 +29,21 @@ export default function Navigation() {
     >
       <Box>
         <Container maxW="1440px">
-          <Flex bg={"white"} minH={"60px"} py={{ base: 2 }} align={"center"}>
-            <Flex
-              flex={{ base: 1, md: "auto" }}
-              ml={{ base: -2 }}
-              display={{ base: "flex", md: "none" }}
-            >
+          <Flex
+            justify={"space-between"}
+            bg={"white"}
+            minH={"60px"}
+            py={{ base: 2 }}
+            align={"center"}
+          >
+            <Image
+              src={"/assets/logo.png"}
+              width={132}
+              height={28}
+              alt="logo"
+            />
+
+            <Box display={{ base: "flex", md: "none" }}>
               <IconButton
                 onClick={onToggle}
                 icon={
@@ -47,15 +56,7 @@ export default function Navigation() {
                 variant={"ghost"}
                 aria-label={"Toggle Navigation"}
               />
-            </Flex>
-            <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-              <Image
-                src={"/assets/logo.png"}
-                width={132}
-                height={28}
-                alt="logo"
-              />
-            </Flex>
+            </Box>
 
             <Flex
               flex={{ base: 1, md: 0 }}

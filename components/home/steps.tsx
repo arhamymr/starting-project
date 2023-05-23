@@ -37,8 +37,8 @@ export default function Steps() {
       <Container maxW="1350px" p={"65px"}>
         <Center flexDirection={"column"} pt={"136px"}>
           <Heading
-            fontSize={"30px"}
-            mb={"51px"}
+            fontSize={{ base: "12px", md: "30px" }}
+            mb={{ base: "12px", md: "51px" }}
             textAlign={"center"}
             as={"h2"}
             maxW={700}
@@ -47,9 +47,9 @@ export default function Steps() {
           </Heading>
           <Text
             maxW={"753px"}
-            fontSize={"20px"}
+            fontSize={{ base: "9px", md: "20px" }}
             textAlign={"center"}
-            mb={"90px"}
+            mb={{ base: "32px", md: "90px" }}
           >
             Tidak perlu skill koding hanya klik dan klik, siapapun bisa buat
             aplikasi dengan serpul.co.id. Yuk mulai dengan 3 langkah mudah!
@@ -57,7 +57,7 @@ export default function Steps() {
 
           <Flex
             gap={"33px"}
-            mb={"77px"}
+            mb={{ base: "40px", md: "77px" }}
             p={"16px"}
             flexDirection={{ base: "column", md: "row" }}
           >
@@ -67,46 +67,59 @@ export default function Steps() {
                 bg={"linear-gradient(180deg, #7D81EC 0%, #2D32AE 100%)"}
                 rounded={"12px"}
                 key={item.title}
-                w={"390px"}
-                p={"55PX"}
+                w={{ base: "181px", md: "390px" }}
+                p={{ base: "12px", md: "55px" }}
                 position={"relative"}
                 overflow={"hidden"}
               >
                 <Center
                   rounded={"full"}
-                  w={"106px"}
-                  h={"106px"}
+                  w={{ base: "35px", md: "106px" }}
+                  h={{ base: "35px", md: "106px" }}
                   bg={"white"}
                   position={"absolute"}
-                  top={"-53px"}
-                  left={"calc(50% - 53px)"}
+                  top={{ base: "-17px", md: "-53px" }}
+                  left={{ base: "calc(50% - 17px)", md: "calc(50% - 53px)" }}
                 >
                   <Text
-                    mt={"50px"}
+                    mt={{ base: "15px", md: "50px" }}
                     color={"brand.700"}
-                    fontSize={"30px"}
+                    fontSize={{ base: "12px", md: "30px" }}
                     fontWeight={"bold"}
                   >
                     {index + 1}
                   </Text>
                 </Center>
-                <Image
-                  quality={100}
-                  src={item.image}
-                  width={281}
-                  height={172}
-                  alt={item.title}
-                />
+                <Center>
+                  <Box
+                    width={{ base: "110px", md: "281px" }}
+                    height={{ base: "110px", md: "172px" }}
+                    position={"relative"}
+                  >
+                    <Image
+                      quality={100}
+                      fill
+                      style={{ objectFit: "contain" }}
+                      src={item.image}
+                      alt={item.title}
+                    />
+                  </Box>
+                </Center>
+
                 <Text
-                  mt={"21px"}
+                  mt={{ base: 0, md: "21px" }}
                   textAlign={"center"}
-                  mb={"22px"}
+                  mb={{ base: "10px", md: "22px" }}
                   fontWeight={"bold"}
-                  fontSize={"20px"}
+                  fontSize={{ base: "14px", md: "20px" }}
                 >
                   {item.title}
                 </Text>
-                <Text textAlign={"center"} fontSize={"16px"}>
+                <Text
+                  textAlign={"center"}
+                  mb={"10px"}
+                  fontSize={{ base: "9px", md: "16px" }}
+                >
                   {item.description}
                 </Text>
               </Card>
