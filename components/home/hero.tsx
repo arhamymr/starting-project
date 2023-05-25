@@ -5,7 +5,6 @@ import Button from "./button";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { redirect } from "next/dist/server/api-utils";
 
 const texts = Array.from(
   [
@@ -15,23 +14,23 @@ const texts = Array.from(
     },
     {
       text: "Aplikasi Koperasi",
-      color: "linear-gradient(180deg, #595FEB 0%, #2125A7 100%)",
+      color: "linear-gradient(180deg, #A843E6 0%, #691DCD 100%)",
     },
     {
       text: "Aplikasi Travel dan Haji",
-      color: "linear-gradient(180deg, #595FEB 0%, #2125A7 100%)",
+      color: "linear-gradient(180deg, #5EA9FA 0%, #2C7ACF 100%)",
     },
     {
       text: "Aplikasi Komunitas",
-      color: "linear-gradient(180deg, #595FEB 0%, #2125A7 100%)",
+      color: "linear-gradient(180deg, #E3CA10 0%, #D78E02 100%)",
     },
     {
       text: "Aplikasi Pendidikan",
-      color: "linear-gradient(180deg, #595FEB 0%, #2125A7 100%)",
+      color: "linear-gradient(180deg, #28A745 0%, #0B8A28 100%)",
     },
     {
       text: "Aplikasi HRIS",
-      color: "linear-gradient(180deg, #595FEB 0%, #2125A7 100%)",
+      color: "linear-gradient(180deg, #E66300 0%, #BE5403 100%)",
     },
   ],
   (x) => (
@@ -56,10 +55,11 @@ function AnimatedTextSlider() {
     vertical: true,
     autoplay: true,
     autoplaySpeed: 2000,
+    arrows: false,
   };
 
   return (
-    <Box as={"span"}>
+    <Box w={{ base: "370px", md: "550px" }} h={{ base: "35px", md: "50px" }}>
       <Slider ref={sliderRef} {...settings}>
         {texts.map((item, index) => (
           <Box as={"span"} key={index}>
@@ -73,11 +73,15 @@ function AnimatedTextSlider() {
 
 const data = [
   "kioser.png",
+  "m-pulsa.png",
   "serpay.png",
   "indosat.png",
   "kiosfin.png",
   "indopay.png",
+  "bimasakti.png",
+  "dflash.png",
 ];
+
 export default function Hero() {
   return (
     <Box>
@@ -92,14 +96,21 @@ export default function Hero() {
 
           <Flex
             mb={"31px"}
-            w={"full"}
+            align={"center"}
             fontWeight={"bold"}
-            textAlign={"center"}
-            maxW={1200}
-            flexDirection={"column"}
-            fontSize={"34px"}
+            fontSize={{ base: "25px", md: "34px" }}
+            flexDirection={{ base: "column", md: "row" }}
           >
-            Semua Bisa Memiliki Brand <AnimatedTextSlider />
+            <Text
+              fontSize={{ base: "25px", md: "34px" }}
+              whiteSpace={"nowrap"}
+              mr={"12px"}
+              ml={{ base: 0, md: "100px" }}
+              mt={"4px"}
+            >
+              Semua Bisa Memiliki Brand{" "}
+            </Text>
+            <AnimatedTextSlider />
           </Flex>
           <Text maxW={"753px"} textAlign={"center"} mb={"40px"}>
             Nikmati kemudahan buat aplikasi custom tanpa harus ngoding dengan
@@ -133,6 +144,9 @@ export default function Hero() {
                     alt={item}
                     width={120}
                     height={27}
+                    style={{
+                      objectFit: "contain",
+                    }}
                   />
                 </Center>
               ))}

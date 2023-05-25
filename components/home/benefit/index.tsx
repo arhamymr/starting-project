@@ -71,23 +71,29 @@ export default function Benefit() {
       <Center flexDirection={"column"} pt={"136px"}>
         <Heading
           fontSize={"30px"}
-          mb={"31px"}
+          mb={{ base: "20px", md: "31px" }}
           textAlign={"center"}
           as={"h2"}
           maxW={700}
         >
           10 Alasan Kamu Harus Membuat Aplikasi di Serpul.co.id
         </Heading>
-        <Text maxW={"753px"} textAlign={"center"} mb={"90px"}>
+        <Text
+          maxW={"753px"}
+          textAlign={"center"}
+          mb={{ base: "40px", md: "90px" }}
+        >
           Nikmati manfaat dan kemudahan dalam membuat aplikasi sesuka hati
           dengan beragam fitur, add-on dan template yang kami sediakan
         </Text>
       </Center>
-      <Slider>
-        {data.map((item, index) => (
-          <CardBenefit key={index} data={item} />
-        ))}
-      </Slider>
+      <Container maxW={"1439px"}>
+        <Slider>
+          {data.map((item, index) => (
+            <CardBenefit key={index} data={item} />
+          ))}
+        </Slider>
+      </Container>
     </Box>
   );
 }

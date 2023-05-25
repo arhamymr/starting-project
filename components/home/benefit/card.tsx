@@ -8,7 +8,7 @@ export default function CardBenefit({ data }) {
       minH={"445px"}
       p={"22px 26px"}
       bg={"brand.100"}
-      m={"0px 33px"}
+      m={"0px 16px"}
       rounded={"15px"}
     >
       <Image
