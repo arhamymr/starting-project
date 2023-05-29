@@ -5,6 +5,7 @@ import Button from "./button";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Marquee from "./marquee";
 
 const texts = Array.from(
   [
@@ -130,27 +131,30 @@ export default function Hero() {
               dengan 600+ Aplikasi yang telah kami buat untuk pebisnis pulsa dan
               lainnya
             </Text>
-            <Flex
-              w={"full"}
-              justifyContent={"space-between"}
-              alignItems={"center"}
-              flexWrap={"wrap"}
-              gap={"20px"}
-            >
-              {data.map((item) => (
-                <Center key={item} w={"120px"} h={"30px"}>
-                  <Image
-                    src={"/assets/lp/" + item}
-                    alt={item}
-                    width={120}
-                    height={27}
-                    style={{
-                      objectFit: "contain",
-                    }}
-                  />
-                </Center>
-              ))}
-            </Flex>
+            <Marquee>
+              <Flex
+                w={"full"}
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                flexWrap={"wrap"}
+                gap={"30px"}
+              >
+                {data.map((item) => (
+                  <Center key={item} w={"135px"} h={"54px"}>
+                    <Image
+                      src={"/assets/lp/" + item}
+                      alt={item}
+                      width={135}
+                      height={54}
+                      quality={100}
+                      style={{
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Center>
+                ))}
+              </Flex>
+            </Marquee>
           </Center>
         </Container>
       </Box>
