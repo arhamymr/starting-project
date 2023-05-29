@@ -1,31 +1,49 @@
-import React from "react";
-import { Box, IconButton, useBreakpointValue } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Center, IconButton } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // And react-slick as our Carousel Lib
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Settings for the slider
-const settings = {
-  dots: true,
-  arrows: false,
-  fade: true,
-  infinite: true,
-  autoplay: true,
-  speed: 500,
-  autoplaySpeed: 5000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
 
 export default function Carousel() {
-  // As we have used custom buttons, we need a reference variable to
-  // change the state
-  const [slider, setSlider] = React.useState<Slider | null>(null);
+  const [slider, setSlider] = useState<Slider | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // These are the breakpoints which changes the position of the
-  // buttons as the screen size changes
-  const top = useBreakpointValue({ base: "90%", md: "50%" });
-  const side = useBreakpointValue({ base: "30%", md: "10px" });
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    afterChange: (index) => {
+      setCurrentIndex(index);
+    },
+    appendDots: (dots) => {
+      return (
+        <Center gap={"22px"} bottom={"450px"}>
+          {dots.map((item, index) => (
+            <Box
+              key={index}
+              rounded={"full"}
+              bg={
+                item.props.className !== "slick-active"
+                  ? "brand.100"
+                  : "brand.500"
+              }
+              w={item.props.className === "slick-active" ? "60px" : "10px"}
+              h={"10px"}
+            />
+          ))}
+        </Center>
+      );
+    },
+  };
+
+  const top = "50%";
+  const side = "10px";
 
   // These are the images used in the slide
   const cards = [
@@ -38,56 +56,44 @@ export default function Carousel() {
     <Box
       position={"relative"}
       h={"100vh"}
-      width={"calc(100vw / 2)"}
+      width={{ base: "full", md: "calc(100vw / 2)" }}
       overflow={"hidden"}
     >
-      {/* CSS files for react-slick */}
-      <link
-        rel="stylesheet"
-        type="text/css"
-        charSet="UTF-8"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-      />
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-      />
-      {/* Left Icon */}
-      <IconButton
-        aria-label="left-arrow"
-        colorScheme="brand"
-        borderRadius="15px"
-        position="absolute"
-        left={side}
-        top={top}
-        transform={"translate(0%, -50%)"}
-        zIndex={2}
-        onClick={() => slider?.slickPrev()}
-      >
-        <ChevronLeftIcon />
-      </IconButton>
-      {/* Right Icon */}
-      <IconButton
-        aria-label="right-arrow"
-        colorScheme="brand"
-        borderRadius="15px"
-        position="absolute"
-        right={side}
-        top={top}
-        transform={"translate(0%, -50%)"}
-        zIndex={2}
-        onClick={() => slider?.slickNext()}
-      >
-        <ChevronRightIcon />
-      </IconButton>
-      {/* Slider */}
+      {currentIndex !== 0 && (
+        <IconButton
+          aria-label="left-arrow"
+          colorScheme="brand"
+          borderRadius="15px"
+          position="absolute"
+          left={side}
+          top={top}
+          transform={"translate(0%, -50%)"}
+          zIndex={2}
+          onClick={() => slider?.slickPrev()}
+        >
+          <ChevronLeftIcon />
+        </IconButton>
+      )}
+      {currentIndex !== cards.length - 1 && (
+        <IconButton
+          aria-label="right-arrow"
+          colorScheme="brand"
+          borderRadius="15px"
+          position="absolute"
+          right={side}
+          top={top}
+          transform={"translate(0%, -50%)"}
+          zIndex={2}
+          onClick={() => slider?.slickNext()}
+        >
+          <ChevronRightIcon />
+        </IconButton>
+      )}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((url, index) => (
           <Box
             key={index}
             height={"6xl"}
-            position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
