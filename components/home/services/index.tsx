@@ -30,12 +30,17 @@ const Navbar = () => {
   return (
     <Box id={"services"}>
       <Center
-        w={"full"}
+        maxW={"full"}
         pt={"46px"}
         pb={"30px"}
         bg={"linear-gradient(180deg, #6B6FE1 0%, #5559D0 100%)"}
       >
-        <Flex gap={"100px"}>
+        <Flex
+          px={{ base: 20, md: 0 }}
+          gap={"100px"}
+          overflowX={"auto"}
+          whiteSpace={"nowrap"}
+        >
           {menu.map((item, index) => (
             <Text
               p={"8px 16px"}

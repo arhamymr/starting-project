@@ -116,7 +116,8 @@ const RenderProduct = ({ type }) => {
     <Grid
       mb={"127px"}
       templateColumns={{ base: "1fr 1fr", md: "repeat(6, 1fr)" }}
-      gap={"31px"}
+      gap={{ base: "16px", md: "31px" }}
+      p={4}
     >
       {data[switchType].map((item, index) => (
         <ProductCard data={item} key={index} />

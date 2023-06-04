@@ -56,7 +56,11 @@ const data = [
 
 const RenderProduct = ({ type }) => {
   return (
-    <Grid mb={"127px"} templateColumns="repeat(4, 1fr)" gap={"31px"}>
+    <Grid
+      mb={"127px"}
+      templateColumns={{ base: "1fr 1fr", md: "repeat(4, 1fr)" }}
+      gap={"31px"}
+    >
       {data.map((item, index) => (
         <AddOnCard data={item} key={index} />
       ))}
@@ -77,8 +81,8 @@ const Product = () => {
 
   return (
     <Box>
-      <Center w={"full"} pt={"46px"} pb={"30px"}>
-        <Flex gap={"69px"}>
+      <Center pt={"46px"} pb={"30px"}>
+        <Flex gap={"69px"} overflowX={"auto"} whiteSpace={"nowrap"}>
           {menu.map((item, index) => (
             <Text
               p={"8px 16px"}
