@@ -8,7 +8,7 @@ export default function StepperComp() {
   const { context } = useContext(PaymentContext);
   const max = steps.length - 1;
   const progressPercent = ((context.currentStep - 1) / max) * 100;
-  console.log(progressPercent, context);
+
   return (
     <Box mb={"22px"} position={"relative"}>
       <Flex justifyContent={"space-between"} position={"relative"} zIndex={3}>

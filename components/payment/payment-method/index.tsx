@@ -1,18 +1,32 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Flex, Box, Text, Divider, Center } from "@chakra-ui/react";
 
 import { data } from "./data";
 import Image from "next/image";
 
 import { CheckIcon } from "@chakra-ui/icons";
+import { PaymentContext } from "contents/payment/context";
 
-const Item = ({ logo, label }) => {
-  const [select, setSelected] = useState(false);
+const Item = ({ logo, label, title }) => {
+  const { context, setContext } = useContext(PaymentContext);
+
+  const handleSelect = () => {
+    setContext({
+      ...context,
+      paymentDetail: {
+        ...context.paymentDetail,
+        paymentMethod: {
+          segment: title,
+          bankName: label,
+        },
+      },
+    });
+  };
 
   return (
     <Flex
       cursor={"pointer"}
-      onClick={() => setSelected(!select)}
+      onClick={handleSelect}
       py={"18px"}
       justifyContent={"space-between"}
       alignItems={"center"}
@@ -22,7 +36,8 @@ const Item = ({ logo, label }) => {
         <Text>{label}</Text>
       </Flex>
 
-      {select ? (
+      {context?.paymentDetail.paymentMethod.bankName === label &&
+      context?.paymentDetail.paymentMethod.segment === title ? (
         <Flex width={"60px"} justifyContent={"flex-end"}>
           <CheckIcon color={"green.500"} />
         </Flex>
@@ -103,7 +118,7 @@ const PaymentList = ({ data }) => {
       <Box mb={"22px"} bg={"gray.100"} rounded={"lg"} px={6}>
         {data.items.map((item, index) => (
           <Box key={item.label}>
-            <Item logo={item.logo} label={item.label} />
+            <Item logo={item.logo} title={data.title} label={item.label} />
             {index !== data.items.length - 1 && <Divider />}
           </Box>
         ))}

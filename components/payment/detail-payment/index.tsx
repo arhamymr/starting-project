@@ -4,12 +4,23 @@ import StepperComp from "./stepper";
 import { PaymentContext } from "contents/payment/context";
 import CountDown from "./countdown";
 import Detail from "./detail";
+import usePayment from "./hooks/usePayment";
 
 export default function DetailPayment() {
   const { context, setContext } = useContext(PaymentContext);
+  const { pay } = usePayment();
 
   const handleNextPayment = () => {
     setContext({ ...context, currentStep: context.currentStep + 1 });
+  };
+
+  const handlePay = async () => {
+    try {
+      await pay(context?.paymentDetail.package);
+      handleNextPayment();
+    } catch (error) {
+      window.alert("cause:" + error);
+    }
   };
 
   const stepRender = (step) => {
@@ -45,7 +56,7 @@ export default function DetailPayment() {
         </Button>
       )}
       {context.currentStep === 2 && (
-        <Button w={"full"} onClick={handleNextPayment}>
+        <Button w={"full"} onClick={handlePay}>
           Bayar Sekarang
         </Button>
       )}

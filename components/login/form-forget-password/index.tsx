@@ -23,8 +23,13 @@ const FormResetPassword = () => {
     },
     validationSchema: FormSchema,
     onSubmit: async (values) => {
-      alert(JSON.stringify(values));
-      handleForgetPassword(values);
+      const formData = new FormData();
+      formData.append("reset", values.reset);
+      try {
+        await handleForgetPassword(formData);
+      } catch (error) {
+        window.alert("cause" + error.message);
+      }
     },
   });
 

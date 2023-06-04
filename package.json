@@ -15,6 +15,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@tabler/icons-react": "^2.3.0",
+    "axios": "^1.4.0",
     "formik": "^2.2.9",
     "framer-motion": "^9.0.2",
     "moment": "^2.29.3",

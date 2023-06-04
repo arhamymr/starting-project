@@ -3,8 +3,12 @@ import React, { useState } from "react";
 const initialData: any = {
   currentStep: 1,
   paymentDetail: {
-    package: "",
-    paymentmethod: "",
+    package: [],
+    paymentMethod: {
+      segment: "",
+      bankName: "",
+    },
+    discount: 0,
   },
 };
 

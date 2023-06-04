@@ -1,4 +1,4 @@
-export const data = [
+export const datas = [
   {
     name: "Jasa Desain Logo",
     description:

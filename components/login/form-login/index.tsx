@@ -38,13 +38,22 @@ const FormLogin = () => {
     },
     validationSchema: FormSchema,
     onSubmit: async (values) => {
-      const res = await handleLogin(values);
-      if (res.status) {
-        if (checkFirstTimeAccess()) {
-          onOpen();
-        } else {
-          router.push("/login?todashboard=yes");
+      const formData = new FormData();
+      formData.append("email", values.email);
+      formData.append("password", values.password);
+
+      try {
+        const res = await handleLogin(formData);
+
+        if (res.status) {
+          if (checkFirstTimeAccess()) {
+            onOpen();
+          } else {
+            router.push("/login?todashboard=yes");
+          }
         }
+      } catch (error) {
+        window.alert("cause: " + error.message);
       }
     },
   });

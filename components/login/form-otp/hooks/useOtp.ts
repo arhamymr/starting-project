@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { fetcher } from "helpers/fetcher";
+import fetchData from "api/axios";
+
 // Custom hook for login
 export function useOTP() {
   const [isLoading, setLoading] = useState(false);
@@ -8,13 +9,14 @@ export function useOTP() {
     localStorage.setItem("firstTimeAccess", "true");
   }
 
-  const handleOTP = async (payload) => {
+  const handleOTP = async (formData) => {
     setLoading(true);
 
     try {
-      const response = await fetcher("/api/login", {
+      const response = await fetchData({
         method: "POST",
-        body: payload,
+        body: formData,
+        url: "/auth/otp",
       });
 
       setFirstTimeAccess();

@@ -17,7 +17,7 @@ import ModalSuccess from "./modal";
 const FormSchema = Yup.object().shape({
   name: Yup.string().required(),
   email: Yup.string().email().required(),
-  phoneNumber: Yup.number().required(),
+  phone: Yup.number().required(),
 });
 
 const FormRegister = () => {
@@ -28,13 +28,21 @@ const FormRegister = () => {
     initialValues: {
       name: "",
       email: "",
-      phoneNumber: "",
+      phone: "",
     },
     validationSchema: FormSchema,
     onSubmit: async (values) => {
-      window.alert(JSON.stringify(values));
-      procedRegister();
-      onOpen();
+      const formData = new FormData();
+      Object.entries(values).forEach(([key, value]) =>
+        formData.append(key, value)
+      );
+      try {
+        const data = await procedRegister(formData);
+        console.log(data);
+        onOpen();
+      } catch (error) {
+        window.alert("Ops error");
+      }
     },
   });
 
@@ -78,21 +86,19 @@ const FormRegister = () => {
         </FormControl>
 
         <FormControl
-          isInvalid={
-            formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)
-          }
+          isInvalid={formik.touched.phone && Boolean(formik.errors.phone)}
           mb={"24px"}
         >
           <FormLabel>Nomor WhatsApp</FormLabel>
           <Input
-            name={"phoneNumber"}
+            name={"phone"}
             onBlur={formik.handleBlur}
-            value={formik.values.phoneNumber}
+            value={formik.values.phone}
             onChange={formik.handleChange}
             placeholder="Masukan nomor WhatsApp Aktif"
           />
-          {formik.touched.phoneNumber && formik.errors.phoneNumber && (
-            <FormErrorMessage>{formik.errors.phoneNumber}</FormErrorMessage>
+          {formik.touched.phone && formik.errors.phone && (
+            <FormErrorMessage>{formik.errors.phone}</FormErrorMessage>
           )}
         </FormControl>
         <Button type={"submit"} w={"full"} mb={"12px"}>

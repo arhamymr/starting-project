@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { fetcher } from "helpers/fetcher";
+import fetchData from "api/axios";
 
 export function useForgetPassword() {
   const [isLoading, setLoading] = useState(false);
 
-  const handleForgetPassword = async (payload) => {
+  const handleForgetPassword = async (formData) => {
     setLoading(true);
 
     try {
-      const response = await fetcher("/api/login", {
+      const response = await fetchData({
         method: "POST",
-        body: payload,
+        body: formData,
+        url: "/auth/forget-password",
       });
 
       return {

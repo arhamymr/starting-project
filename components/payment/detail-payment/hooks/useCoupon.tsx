@@ -1,17 +1,19 @@
 import { useState } from "react";
 import fetchData from "api/axios";
 
-function useRegister() {
+function useCoupon() {
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
 
-  const procedRegister = async (formData) => {
+  const validateCoupon = async (formData) => {
     try {
       const options = {
         method: "POST",
         data: formData,
-        url: "/auth/register",
+        url: "/validate-discount",
       };
       const response = await fetchData(options);
+      setData(response.data);
       return response.data;
     } catch (error) {
       throw new Error("Error fetching data:", error);
@@ -21,8 +23,9 @@ function useRegister() {
   return {
     loading,
     setLoading,
-    procedRegister,
+    validateCoupon,
+    data,
   };
 }
 
-export default useRegister;
+export default useCoupon;

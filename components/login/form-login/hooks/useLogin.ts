@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { fetcher } from "helpers/fetcher";
+import fetchData from "api/axios";
 export function useLogin() {
   const [isLoading, setLoading] = useState(false);
 
@@ -7,13 +8,14 @@ export function useLogin() {
     return localStorage.getItem("firstTimeAccess") === null;
   }
 
-  const handleLogin = async (payload) => {
+  const handleLogin = async (formData) => {
     setLoading(true);
 
     try {
-      const response = await fetcher("/api/login", {
+      const response = await fetchData({
         method: "POST",
-        body: payload,
+        data: formData,
+        url: "/auth/login",
       });
 
       return {

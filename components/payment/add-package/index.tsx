@@ -1,8 +1,9 @@
 import { Center, Box, Flex } from "@chakra-ui/react";
 
-import { data } from "./data";
 import Card from "../card";
-
+import usePackage from "./hooks/usePackage";
+import { useEffect } from "react";
+import { datas } from "./data";
 const NavNumber = ({ children, active = false }) => {
   return (
     <Center
@@ -20,6 +21,13 @@ const NavNumber = ({ children, active = false }) => {
 };
 
 export default function CardList() {
+  const { data, getPackage } = usePackage();
+
+  useEffect(() => {
+    getPackage();
+  }, []);
+
+  console.log(data, "data");
   return (
     <Center
       borderRadius={"20px"}
@@ -30,7 +38,7 @@ export default function CardList() {
       px={"41px"}
     >
       <Center gap={12}>
-        {data.map((item) => (
+        {datas.map((item) => (
           <Card
             key={item.name}
             name={item.name}

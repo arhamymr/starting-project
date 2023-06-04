@@ -6,7 +6,7 @@ function useLogin() {
 
   const handleReset = async (payload) => {
     try {
-      const response = await fetcher("/api/login", {
+      const response = await fetcher("/auth/reset", {
         method: "POST",
         body: payload,
       });

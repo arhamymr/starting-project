@@ -7,132 +7,68 @@ import {
   Button,
   IconButton,
   Link,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import StepperComp from "./stepper";
 import { Divider } from "@chakra-ui/react";
 import { CheckIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
 import { PaymentContext } from "contents/payment/context";
-import { CouponSuccesIcon } from "icons/coupon-success";
-import { CouponFailedIcon } from "icons/coupon-failed";
+import Coupon from "./coupon";
 
 function formatPrice(price) {
   const formattedPrice = new Intl.NumberFormat("id-ID").format(price);
   return formattedPrice;
 }
 
-const ButtonCoupon = () => {
-  const [validated, setValidated] = useState(false);
-  const [value, setValue] = useState("");
+export default function DetailPayment() {
+  const { context } = useContext(PaymentContext);
 
-  const handleChange = (e) => {
-    setValue(e.target.value.toUpperCase());
+  const getTotalPrice = () => {
+    return context?.paymentDetail?.package?.reduce(
+      (accumulator, currentObject) => {
+        console.log(accumulator, currentObject, "test");
+        return accumulator + currentObject.price;
+      },
+      0
+    );
   };
 
-  return (
-    <Flex mb={"16px"} gap={"14px"} justifyContent={"space-between"}>
-      <Input
-        placeholder={"Kode Kupon (Opsional)"}
-        fontSize={"14px"}
-        fontWeight={!value ? "normal" : "bold"}
-        onChange={handleChange}
-        value={value}
-      />
-      {!validated ? (
-        <Button
-          onClick={() => setValidated(!validated)}
-          fontSize={"14px"}
-          width={"155px"}
-        >
-          {" "}
-          Gunakan{" "}
-        </Button>
-      ) : (
-        <IconButton
-          onClick={() => setValidated(!validated)}
-          width={"180px"}
-          colorScheme="green"
-          aria-label="validated"
-          icon={<CheckIcon />}
-        />
-      )}
-    </Flex>
-  );
-};
-
-export default function DetailPayment() {
-  const { context, setContext } = useContext(PaymentContext);
-
-  console.log(context);
   return (
     <Box>
       <Text mb={"14px"} fontSize={"17px"} fontWeight={600}>
         Rincian Pembayaran
       </Text>
 
-      <Flex justifyContent={"space-between"}>
-        <Text>Biaya Pembuatan Aplikasi</Text>
-        <Text fontWeight={600}>Rp. {formatPrice(12000000)}</Text>
-      </Flex>
-      <Flex justifyContent={"space-between"}>
-        <Text>Biaya Langganan/bulan</Text>
-        <Text fontWeight={600}>Rp. {formatPrice(49000)}</Text>
-      </Flex>
-      <Flex justifyContent={"space-between"}>
-        <Text>Paket Branding</Text>
-        <Text fontWeight={600}>Rp. {formatPrice(1500000)}</Text>
-      </Flex>
-      <Flex justifyContent={"space-between"}>
-        <Text>Pajak 11% & Biaya Tambahan</Text>
-        <Text fontWeight={600}>Rp. {formatPrice(10000)}</Text>
-      </Flex>
+      {context?.paymentDetail?.package.map((item, index) => {
+        return (
+          <SimpleGrid key={index} spacing={2} columns={2} mb={1}>
+            <Text>{item.name}</Text>
+            <Flex justify={"space-between"} align={"flex-end"}>
+              <Text>Rp. </Text>
+              <Text fontWeight={600}>{formatPrice(item.price)}</Text>
+            </Flex>
+          </SimpleGrid>
+        );
+      })}
+
       <Divider mt={"13px"} mb={"16px"} />
-
-      <ButtonCoupon />
-
-      <Flex
-        alignItems={"center"}
-        mb={"16px"}
-        bg={"red.100"}
-        rounded={"md"}
-        py={2.5}
-        px={2}
-        gap={2}
-      >
-        <CouponFailedIcon />
-        <Text fontSize={"12px"}>
-          Kode kupon tidak tersedia. SIlahkan coba lagi!
-        </Text>
-      </Flex>
-
-      <Flex
-        alignItems={"center"}
-        mb={"16px"}
-        bg={"orange.100"}
-        rounded={"md"}
-        py={2.5}
-        px={2}
-        gap={2}
-      >
-        <CouponSuccesIcon />
-        <Text fontSize={"12px"}>
-          Yeay! Kamu berhasil menghemat Rp 10.451.000
-        </Text>
-      </Flex>
-
+      <Coupon />
       <Flex justifyContent={"space-between"}>
         <Text>Diskon</Text>
         <Text>Rp. -{formatPrice(100000)}</Text>
       </Flex>
 
-      <Flex mb={"16px"} justifyContent={"space-between"}>
+      <SimpleGrid spacing={2} columns={2} mb={1}>
         <Text>Metode Pembayaran</Text>
-        <Text>Belum Dipilih</Text>
-      </Flex>
+        <Text textAlign={"right"}>
+          {context?.paymentDetail?.paymentMethod?.bankName || "Belum Dipilih"}{" "}
+        </Text>
+      </SimpleGrid>
 
       <Flex mb={"16px"} fontWeight={600} justifyContent={"space-between"}>
         <Text fontSize={"17px"}>Total Pembayaran</Text>
-        <Text fontSize={"17px"}>Rp. {formatPrice(1500000)}</Text>
+        <Text fontSize={"17px"}>Rp. {formatPrice(getTotalPrice())}</Text>
       </Flex>
 
       <Text>

@@ -19,9 +19,15 @@ const FormOtp = () => {
     },
     validationSchema: FormSchema,
     onSubmit: async (values) => {
-      const res = await handleOTP(values);
-      if (res.status) {
-        window.alert(JSON.stringify(values));
+      const formData = new FormData();
+      formData.append("otp", values.otp);
+      try {
+        const res = await handleOTP(formData);
+        if (res.status) {
+          window.alert(JSON.stringify(values));
+        }
+      } catch (error) {
+        window.alert("cause" + error.message);
       }
     },
   });

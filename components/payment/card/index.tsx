@@ -1,10 +1,59 @@
 import { Box, Center, Text, Stack, Button } from "@chakra-ui/react";
+import { PaymentContext } from "contents/payment/context";
 import { formatPrice, applyDiscount } from "helpers/payment";
+import { useContext, useState } from "react";
 
 export default function Card({ name, description, discount, price }) {
+  const { context, setContext } = useContext(PaymentContext);
+  const [clicked, setClicked] = useState(false);
+
+  const rmPackage = () => {
+    setContext({
+      ...context,
+      paymentDetail: {
+        ...context.paymentDetail,
+        package: context.paymentDetail.package.filter(
+          (item) => item.name !== name
+        ),
+      },
+    });
+  };
+
+  const addPackage = () => {
+    setContext({
+      ...context,
+      paymentDetail: {
+        ...context.paymentDetail,
+        package: [
+          ...context.paymentDetail.package,
+          {
+            name,
+            discount,
+            price: applyDiscount(price, discount),
+          },
+        ],
+      },
+    });
+  };
+
+  const handleAdd = () => {
+    addPackage();
+    setClicked(!clicked);
+  };
+
+  const handleRm = () => {
+    rmPackage();
+    setClicked(!clicked);
+  };
   return (
     <Center py={6}>
-      <Box maxW={"190px"} boxShadow={"xl"} rounded={"md"} overflow={"hidden"}>
+      <Box
+        bg={"white"}
+        maxW={"190px"}
+        boxShadow={"xl"}
+        rounded={"md"}
+        overflow={"hidden"}
+      >
         <Center mb={"13px"} p={"10px"} bg={"green.500"} minHeight={"59px"}>
           <Text
             textAlign={"center"}
@@ -31,9 +80,25 @@ export default function Card({ name, description, discount, price }) {
             {" "}
             Rp. {formatPrice(applyDiscount(price, discount))}
           </Text>
-          <Button size={"sm"} w={"full"}>
-            Pilih Paket
-          </Button>
+          {!clicked ? (
+            <Button
+              colorScheme={"brand"}
+              size={"sm"}
+              onClick={handleAdd}
+              w={"full"}
+            >
+              Pilih Paket
+            </Button>
+          ) : (
+            <Button
+              colorScheme={"gray"}
+              size={"sm"}
+              onClick={handleRm}
+              w={"full"}
+            >
+              Cancel
+            </Button>
+          )}
         </Box>
       </Box>
     </Center>

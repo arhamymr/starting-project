@@ -1,28 +1,29 @@
 import { useState } from "react";
 import fetchData from "api/axios";
 
-function useRegister() {
+function usePackage() {
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
 
-  const procedRegister = async (formData) => {
+  const getPackage = async () => {
     try {
       const options = {
-        method: "POST",
-        data: formData,
-        url: "/auth/register",
+        method: "GET",
+        url: "/product",
       };
       const response = await fetchData(options);
-      return response.data;
+      setData(response.data);
     } catch (error) {
-      throw new Error("Error fetching data:", error);
+      console.error("Error fetching data:", error);
     }
   };
 
   return {
     loading,
     setLoading,
-    procedRegister,
+    getPackage,
+    data,
   };
 }
 
-export default useRegister;
+export default usePackage;
