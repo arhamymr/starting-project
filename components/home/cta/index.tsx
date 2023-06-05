@@ -7,6 +7,7 @@ import {
   Container,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CTA() {
   return (
@@ -64,15 +65,17 @@ export default function CTA() {
           <Text w={"279px"} mb={"30px"} textAlign={"right"} fontSize={"28px"}>
             /bulan
           </Text>
-          <Button
-            _hover={{ backgroundColor: "gray.100" }}
-            rounded={"full"}
-            bg={"white"}
-            color={"brand.500"}
-          >
-            {" "}
-            Buat Aplikasi Sekarang
-          </Button>
+          <Link href={"/register"}>
+            <Button
+              _hover={{ backgroundColor: "gray.100" }}
+              rounded={"full"}
+              bg={"white"}
+              color={"brand.500"}
+            >
+              {" "}
+              Buat Aplikasi Sekarang
+            </Button>
+          </Link>
         </Center>
       </Container>
     </Box>

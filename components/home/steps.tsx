@@ -112,7 +112,7 @@ export default function Steps() {
               </Card>
             ))}
           </Flex>
-          <ButtonComp>Akses Demo Aplikasi</ButtonComp>
+          <ButtonComp isDisabled={true}>Akses Demo Aplikasi</ButtonComp>
         </Center>
       </Container>
     </Box>

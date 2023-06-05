@@ -63,7 +63,7 @@ export default function DetailPayment() {
       {context.currentStep === 1 && (
         <Button
           w={"full"}
-          isDisabled={!context?.paymentDetail?.package.length}
+          // isDisabled={!context?.paymentDetail?.package.length}
           onClick={handleNextPayment}
         >
           Lanjut ke Pembayaran

@@ -34,7 +34,7 @@ function FloatingButton() {
         onHoverEnd={() => setHover(false)}
         rightIcon={
           <Image
-            src="/assets/lp/wa-icon.png" // Replace with your actual icon image path
+            src="/assets/ic_whatsapp.png" // Replace with your actual icon image path
             alt="WhatsApp"
             width={26} // Adjust the width and height to match your icon's dimensions
             height={26}
