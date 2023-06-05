@@ -50,7 +50,6 @@ export default function DetailPayment() {
     });
   }, [fee]);
 
-  console.log(context);
   return (
     <Box>
       <Text mb={"14px"} fontSize={"17px"} fontWeight={600}>
