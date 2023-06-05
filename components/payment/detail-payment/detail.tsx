@@ -26,6 +26,10 @@ export default function DetailPayment() {
     );
   };
 
+  const getTax = () => {
+    return (getTotalPrice() * 11) / 100;
+  };
+
   useEffect(() => {
     getFee();
   }, []);
@@ -82,6 +86,13 @@ export default function DetailPayment() {
           </SimpleGrid>
         );
       })}
+      <SimpleGrid spacing={2} columns={2} mb={1}>
+        <Text>Pajak 11% & Biaya Tambahan</Text>
+        <Flex justify={"space-between"} align={"flex-end"}>
+          <Text>Rp. </Text>
+          <Text fontWeight={600}>{formatPrice(getTax())}</Text>
+        </Flex>
+      </SimpleGrid>
 
       <Divider mt={"13px"} mb={"16px"} />
       {/* <Coupon />
@@ -99,7 +110,9 @@ export default function DetailPayment() {
 
       <Flex mb={"16px"} fontWeight={600} justifyContent={"space-between"}>
         <Text fontSize={"17px"}>Total Pembayaran</Text>
-        <Text fontSize={"17px"}>Rp. {formatPrice(getTotalPrice())}</Text>
+        <Text fontSize={"17px"}>
+          Rp. {formatPrice(getTotalPrice() + getTax())}
+        </Text>
       </Flex>
 
       <Text>
