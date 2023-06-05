@@ -126,7 +126,7 @@ const PaymentList = () => {
       ...context,
       paymentMethod: data,
     });
-  }, [data]);
+  }, []);
 
   return (
     <Box mb={"422px"}>
