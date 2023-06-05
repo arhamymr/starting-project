@@ -1,9 +1,11 @@
-import { Text, Box, Progress, Center, Flex } from "@chakra-ui/react";
+import { Text, Center, Flex } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
-function CountdownTimer({ hours }) {
-  const [timeRemaining, setTimeRemaining] = useState(hours * 3600 * 1000); // Convert hours to milliseconds
+function CountdownTimer({ hours, minutes, seconds }) {
+  const [timeRemaining, setTimeRemaining] = useState(
+    hours * 60 * 60 * 1000 + minutes * 60 * 1000 + seconds * 1000
+  ); // Convert hours to milliseconds
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -75,7 +77,21 @@ function CountdownTimer({ hours }) {
   );
 }
 
-export default function CountDown() {
+export default function CountDown({ expired }) {
+  let now = new Date();
+
+  // Target date and time
+  let target = new Date(expired);
+
+  // Calculate the difference in milliseconds
+  let difference = target.getTime() - now.getTime();
+
+  // Convert milliseconds to minutes and seconds
+  let hours = Math.floor(difference / (1000 * 60 * 60));
+
+  let minutes = Math.floor(difference / (1000 * 60));
+  let seconds = Math.floor((difference / 1000) % 60);
+
   return (
     <Center flexDirection={"column"}>
       <Image
@@ -87,7 +103,7 @@ export default function CountDown() {
       <Text mb={"31px"} fontSize={"15px"} textAlign={"center"} fontWeight={600}>
         Yuk bayar sebelum!
       </Text>
-      <CountdownTimer hours={6} />
+      <CountdownTimer hours={hours} minutes={minutes} seconds={seconds} />
       <Text mt={"27px"} maxW={"214px"} textAlign={"center"}>
         Harap segera lakukan pembayaran sebelum batas waktu yang ditentukan yah!
       </Text>

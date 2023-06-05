@@ -3,7 +3,7 @@ import PaymentLayout from "layouts/payment";
 import DetailPayment from "components/payment/detail-payment";
 import ConfigPackage from "./config-package";
 import PaymentMethod from "components/payment/payment-method";
-import PaymentFulfilment from "components/payment/payment-fulfillment";
+// import PaymentFulfilment from "components/payment/payment-fulfillment";
 // import QrisPaymentFulfillment from "components/payment/qris-payment-fulfillment";
 import PaymentProvider, { PaymentContext } from "./context";
 
@@ -13,8 +13,8 @@ const SelectStep = (step) => {
       return <ConfigPackage />;
     case 2:
       return <PaymentMethod />;
-    case 3:
-      return <PaymentFulfilment />;
+    // case 3:
+    //   return <PaymentFulfilment />;
     default:
       return <ConfigPackage />;
   }

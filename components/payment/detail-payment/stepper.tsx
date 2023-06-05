@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Text, Box, Progress, Flex } from "@chakra-ui/react";
 import { PaymentContext } from "contents/payment/context";
 

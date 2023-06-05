@@ -97,7 +97,7 @@ export default function Carousel() {
             bg={"brand.500"}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
-            backgroundSize="contain"
+            backgroundSize="cover"
             backgroundImage={`url(${url})`}
           />
         ))}

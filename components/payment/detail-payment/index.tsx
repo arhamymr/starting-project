@@ -47,8 +47,8 @@ export default function DetailPayment() {
         return <Detail />;
       case 2:
         return <Detail />;
-      case 3:
-        return <CountDown />;
+      // case 3:
+      //   return <CountDown />;
       default:
         return <p>nothing</p>;
     }

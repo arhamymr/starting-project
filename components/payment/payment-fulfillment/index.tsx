@@ -1,19 +1,10 @@
-import {
-  ListItem,
-  OrderedList,
-  Box,
-  Text,
-  Button,
-  Flex,
-} from "@chakra-ui/react";
+import { Box, Text, Flex } from "@chakra-ui/react";
 import Image from "next/image";
 import { formatPrice, copyToClipboard } from "helpers/payment";
 import { CopyIcon } from "@chakra-ui/icons";
 import Modal from "./modal";
-import { useEffect } from "react";
 import ReactHtmlParser from "react-html-parser";
-import usePayment from "./hooks/usePayment";
-import { useRouter } from "next/router";
+
 const content = [
   // {
   //   label: "Total Pembayaran",
@@ -68,24 +59,7 @@ const ValueRender = ({ type, value }) => {
   }
 };
 
-export default function PaymentFulfilment() {
-  const { data, payConf } = usePayment();
-  const router = useRouter();
-
-  // const getTotalPrice = () => {
-  //   return (
-  //     49000 +
-  //     [].reduce((accumulator, currentObject) => {
-  //       return accumulator + currentObject.price;
-  //     }, 0)
-  //   );
-  // };
-
-  useEffect(() => {
-    payConf(router.query.invoice_id);
-  }, []);
-
-  console.log(data, "data");
+export default function PaymentFulfilment({ data }) {
   return (
     <Box>
       <Box
