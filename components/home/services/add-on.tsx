@@ -11,46 +11,45 @@ const data = [
       "Kamu dapat memperoleh laporan harian setiap pemasukan dan pengeluaran",
   },
   {
-    name: "Laporan Keuangan Internal",
+    name: "Downline",
+    image: "/assets/lp/add-on/add-on-1.png",
+    description:
+      "Promosikan aplikasi dengan lebih mudah menggunakan fitur downline",
+  },
+  {
+    name: "Transfer Saldo Antar Member",
+    image: "/assets/lp/add-on/add-on-1.png",
+    description: "Rasakan kemudahan dalam melakukan transfer antar member ",
+  },
+  {
+    name: "Notifikasi Aplikasi",
+    image: "/assets/lp/add-on/add-on-1.png",
+    description:
+      "Nyalakan notifikasi aplikasimu agar tidak kehilangan informasi",
+  },
+  {
+    name: "Produk Manual & Voucher",
     image: "/assets/lp/add-on/add-on-1.png",
     description:
       "Kamu dapat memperoleh laporan harian setiap pemasukan dan pengeluaran",
   },
   {
-    name: "Laporan Keuangan Internal",
+    name: "Print Struk Bluetooth",
     image: "/assets/lp/add-on/add-on-1.png",
     description:
-      "Kamu dapat memperoleh laporan harian setiap pemasukan dan pengeluaran",
+      "Catat setiap bukti transaksi dengan print struk lewat bluetooth",
   },
   {
-    name: "Laporan Keuangan Internal",
+    name: "Multi Vendor",
     image: "/assets/lp/add-on/add-on-1.png",
     description:
-      "Kamu dapat memperoleh laporan harian setiap pemasukan dan pengeluaran",
+      "Aktifkan add-on multivendor untuk memilih beragam tempat suplier produk",
   },
   {
-    name: "Laporan Keuangan Internal",
+    name: "OTP Sender",
     image: "/assets/lp/add-on/add-on-1.png",
     description:
-      "Kamu dapat memperoleh laporan harian setiap pemasukan dan pengeluaran",
-  },
-  {
-    name: "Laporan Keuangan Internal",
-    image: "/assets/lp/add-on/add-on-1.png",
-    description:
-      "Kamu dapat memperoleh laporan harian setiap pemasukan dan pengeluaran",
-  },
-  {
-    name: "Laporan Keuangan Internal",
-    image: "/assets/lp/add-on/add-on-1.png",
-    description:
-      "Kamu dapat memperoleh laporan harian setiap pemasukan dan pengeluaran",
-  },
-  {
-    name: "Laporan Keuangan Internal",
-    image: "/assets/lp/add-on/add-on-1.png",
-    description:
-      "Kamu dapat memperoleh laporan harian setiap pemasukan dan pengeluaran",
+      "Kirim kode verifikasi kini semakin mudah lewat OTP sender WhatsApp dan SMS",
   },
 ];
 
