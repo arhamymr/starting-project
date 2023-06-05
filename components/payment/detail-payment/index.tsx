@@ -5,11 +5,12 @@ import { PaymentContext } from "contents/payment/context";
 import CountDown from "./countdown";
 import Detail from "./detail";
 import usePayment from "./hooks/usePayment";
+import { useRouter } from "next/router";
 
 export default function DetailPayment() {
   const { context, setContext } = useContext(PaymentContext);
   const { pay } = usePayment();
-
+  const router = useRouter();
   const handleNextPayment = (payment = {}) => {
     setContext({ ...context, payment, currentStep: context.currentStep + 1 });
   };
@@ -34,7 +35,7 @@ export default function DetailPayment() {
       };
       // console.log(payload);
       const data = await pay(payload);
-      handleNextPayment(data);
+      router.push("/payment-fullfilment?invoice_id=" + data.invoice_id);
     } catch (error) {
       window.alert("cause:" + error);
     }

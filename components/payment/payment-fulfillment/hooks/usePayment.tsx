@@ -3,17 +3,19 @@ import fetchData from "api/axios";
 
 function usePayment() {
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({
+    total_price: 0,
+  });
 
-  const payConf = async (payload) => {
+  const payConf = async (invoice_id) => {
     setLoading(true);
     try {
       const options = {
         method: "GET",
-        data: payload,
-        url: "/pay?invoice_id=" + payload.invoice_id,
+        url: "/pay?invoice_id=" + invoice_id,
       };
       const response = await fetchData(options);
-
+      setData(response.data);
       return response.data;
     } catch (error) {
       throw new Error("Error fetching data:", error);
@@ -25,6 +27,7 @@ function usePayment() {
   return {
     loading,
     setLoading,
+    data,
     payConf,
   };
 }

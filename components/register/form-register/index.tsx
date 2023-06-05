@@ -13,6 +13,7 @@ import * as Yup from "yup";
 
 import useRegister from "./hooks/useRegister";
 import ModalSuccess from "./modal";
+import { useRouter } from "next/router";
 
 const FormSchema = Yup.object().shape({
   name: Yup.string().required(),
@@ -22,7 +23,7 @@ const FormSchema = Yup.object().shape({
 
 const FormRegister = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const router = useRouter();
   const { procedRegister } = useRegister();
   const formik = useFormik({
     initialValues: {
@@ -40,6 +41,9 @@ const FormRegister = () => {
         const data = await procedRegister(formData);
         localStorage.setItem("at", data.access_token);
         localStorage.setItem("customer_id", data?.account?.customer_id);
+        if (!!data.invoice_id) {
+          router.push("payment-fullfilment?invoice_id=" + data.invoice_id);
+        }
         onOpen();
       } catch (error) {
         window.alert("Ops error :");

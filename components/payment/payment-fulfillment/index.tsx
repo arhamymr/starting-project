@@ -10,10 +10,10 @@ import Image from "next/image";
 import { formatPrice, copyToClipboard } from "helpers/payment";
 import { CopyIcon } from "@chakra-ui/icons";
 import Modal from "./modal";
-import { PaymentContext } from "contents/payment/context";
-import { useContext } from "react";
+import { useEffect } from "react";
 import ReactHtmlParser from "react-html-parser";
-
+import usePayment from "./hooks/usePayment";
+import { useRouter } from "next/router";
 const content = [
   // {
   //   label: "Total Pembayaran",
@@ -69,17 +69,23 @@ const ValueRender = ({ type, value }) => {
 };
 
 export default function PaymentFulfilment() {
-  const { context } = useContext(PaymentContext);
+  const { data, payConf } = usePayment();
+  const router = useRouter();
 
-  const getTotalPrice = () => {
-    return (
-      49000 +
-      context?.paymentDetail?.package?.reduce((accumulator, currentObject) => {
-        return accumulator + currentObject.price;
-      }, 0)
-    );
-  };
+  // const getTotalPrice = () => {
+  //   return (
+  //     49000 +
+  //     [].reduce((accumulator, currentObject) => {
+  //       return accumulator + currentObject.price;
+  //     }, 0)
+  //   );
+  // };
 
+  useEffect(() => {
+    payConf(router.query.invoice_id);
+  }, []);
+
+  console.log(data, "data");
   return (
     <Box>
       <Box
@@ -99,7 +105,7 @@ export default function PaymentFulfilment() {
         >
           <Text flex={1}>Total Pembayaran</Text>
           <Box flex={1}>
-            <Text>Rp. {formatPrice(getTotalPrice())}</Text>
+            <Text>Rp. {formatPrice(data?.total_price)}</Text>
           </Box>
         </Flex>
         {content?.map((item, index) => (
@@ -122,7 +128,9 @@ export default function PaymentFulfilment() {
       </Text> */}
 
       <Box px={5} mb={2}>
-        {ReactHtmlParser(context.paymentMethod[0].how_to_use)}
+        {ReactHtmlParser(
+          "<p><strong>Cara Pembayaran Melalui Bank Transfer (ATM) :</strong></p><ol><li>ATM BRI terdekat di kota anda.</li><li>Masukkan kartu ATM ke dalam mesin ATM seperti biasa.</li><li>Sesuaikan bahasa yang akan digunakan.</li><li>Masukkan nomor PIN ATM BRI anda.</li><li>Pilih Transaksi Lain.</li><li>Pilih Transfer.</li><li>Pilih BRI.</li><li>Masukkan nomor rekening BRI&nbsp;<strong>005001005261301 </strong>atas nama<strong> CV. Qiosfin Multipayment Indonesia</strong>, lalu pilih benar (jika rekening sudah benar).</li><li>Masukkan nominal transfer yang di minta (nominal transfer harus sesuai dengan yang di minta, termasuk 3 angka untuk di belakang nominal), pilih benar (pastikan jumlah nominal transfersudah benar).</li><li>Akan muncul informasi transfer, jika sudah benar selesaikan pembayaran anda.</li><li>Transfer Sukses.</li><li>Transfer Berhasil,&nbsp;selanjutnya konfirmasi pembayaran anda di detail deposit saldo larakost pulsa anda.</li><li>Saldo Qiosfin anda akan otomatis bertambah.</li></ol><p><strong>Cara Pembayaran Melalui Aplikasi BRIMO :</strong></p><ol><li>Buka Aplikasi Brimo</li><li>Masuk ke Menu “Transfer”</li><li>Pilih “Tambah Penerima”</li><li>Pilih Bank Tujuan “Bank BRI”</li><li>Masukkan nomor rekening BRI&nbsp;<strong>005001005261301 </strong>atas nama<strong> CV. Qiosfin Multipayment Indonesia</strong>, lalu pilih lanjutkan (jika rekening sudah benar).</li><li>Masukkan nominal transfer yang di minta (nominal transfer harus sesuai dengan yang di minta, termasuk 3 angka untuk di belakang nominal), pilih Transfer (pastikan jumlah nominal transfer sudah benar).</li><li>Transfer Sukses.</li><li>Transfer Berhasil,&nbsp;selanjutnya konfirmasi pembayaran anda di detail deposit saldo larakost pulsa anda.</li><li>Saldo Qiosfin anda akan otomatis bertambah.</li></ol><p><strong>Catatan Penting :</strong></p><ol><li>Deposit akan diproses secara otomatis oleh sistem jika dana sudah terbaca di mutasi rekening BRI.</li><li>Rata-rata proses deposit adalah kurang dari 15 menit (Pada Jam Normal Bank).</li><li>Deposit Saldo melalui Mesin EDC / BRILink akan H+1 (Keesokan harinya) setelah mengirimkan bukti pembayaran</li></ol>"
+        )}
       </Box>
       {/* <OrderedList mb={"28px"} fontSize={"13px"}>
         {data.map((item, index) => {
