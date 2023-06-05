@@ -4,6 +4,7 @@ import { formatPrice, copyToClipboard } from "helpers/payment";
 import { CopyIcon } from "@chakra-ui/icons";
 import Modal from "./modal";
 import ReactHtmlParser from "react-html-parser";
+import { useState } from "react";
 
 const content = [
   // {
@@ -29,6 +30,7 @@ const content = [
 ];
 
 const ValueRender = ({ type, value }) => {
+  const [copied, setCopied] = useState(false);
   switch (type) {
     case "text":
       return <Text>{value}</Text>;
@@ -40,7 +42,10 @@ const ValueRender = ({ type, value }) => {
           <Text>{value}</Text>
           <Flex
             cursor={"pointer"}
-            onClick={() => copyToClipboard(value)}
+            onClick={() => {
+              copyToClipboard(value);
+              setCopied(true);
+            }}
             gap={1}
             p={1.5}
             rounded={"lg"}
@@ -48,7 +53,7 @@ const ValueRender = ({ type, value }) => {
             color={"white"}
           >
             <CopyIcon />
-            <Box fontSize={"11px"}>Salin</Box>
+            <Box fontSize={"11px"}>{!copied ? "Salin" : "Tersalin"}</Box>
           </Flex>
         </Flex>
       );
