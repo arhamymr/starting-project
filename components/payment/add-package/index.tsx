@@ -56,6 +56,7 @@ export default function CardList() {
     );
   };
 
+  console.log(data, "data");
   return (
     <Center
       borderRadius={"20px"}
@@ -68,7 +69,8 @@ export default function CardList() {
       <Center gap={12}>
         {data?.data?.map((item) => (
           <Card
-            key={item.title}
+            key={item.id}
+            id={item.id}
             title={item.title}
             description={item.description}
             discount={item.discount}

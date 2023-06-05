@@ -4,6 +4,7 @@ import { formatPrice, applyDiscount } from "helpers/payment";
 import { useContext, useState } from "react";
 
 export default function Card({
+  id,
   selected,
   title,
   description,
@@ -18,9 +19,7 @@ export default function Card({
       ...context,
       paymentDetail: {
         ...context.paymentDetail,
-        package: context.paymentDetail.package.filter(
-          (item) => item.title !== title
-        ),
+        package: context.paymentDetail.package.filter((item) => item.id !== id),
       },
     });
   };
@@ -33,6 +32,7 @@ export default function Card({
         package: [
           ...context.paymentDetail.package,
           {
+            id,
             title,
             discount,
             price: applyDiscount(price, discount),

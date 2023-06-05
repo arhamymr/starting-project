@@ -14,15 +14,19 @@ export default function DetailPayment() {
     setContext({ ...context, currentStep: context.currentStep + 1 });
   };
 
+  const getCustomerId = () => {
+    return localStorage.getItem("customer_id");
+  };
+
   const handlePay = async () => {
     try {
       const payload = {
-        customer_id: 1,
+        customer_id: getCustomerId(),
         payment_id: context?.paymentDetail?.paymentMethod?.payment_id,
         item: context?.paymentDetail.package,
       };
-      console.log(payload);
-      // await pay(payload);
+      // console.log(payload);
+      await pay(payload);
       handleNextPayment();
     } catch (error) {
       window.alert("cause:" + error);

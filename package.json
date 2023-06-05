@@ -26,6 +26,7 @@
     "react-icons": "^4.8.0",
     "react-marquee-slider": "^1.1.5",
     "react-slick": "^0.29.0",
+    "sharp": "^0.32.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.11",
     "swr": "^2.1.5",

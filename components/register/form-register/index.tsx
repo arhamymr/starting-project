@@ -39,7 +39,7 @@ const FormRegister = () => {
       try {
         const data = await procedRegister(formData);
         localStorage.setItem("at", data.access_token);
-        localStorage.setItem("customer_id", data.customer_id);
+        localStorage.setItem("customer_id", data?.account?.customer_id);
         onOpen();
       } catch (error) {
         window.alert("Ops error :");
