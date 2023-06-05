@@ -52,7 +52,7 @@ export default function CardList() {
 
   const checkNameExists = (nameToCheck) => {
     return context?.paymentDetail?.package?.some(
-      (obj) => obj.title === nameToCheck
+      (obj) => obj.name === nameToCheck
     );
   };
 
