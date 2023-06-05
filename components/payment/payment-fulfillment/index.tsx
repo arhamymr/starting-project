@@ -9,24 +9,26 @@ import {
 import Image from "next/image";
 import { formatPrice, copyToClipboard } from "helpers/payment";
 import { CopyIcon } from "@chakra-ui/icons";
-import { data } from "./data";
 import Modal from "./modal";
+import { PaymentContext } from "contents/payment/context";
+import { useContext } from "react";
+import ReactHtmlParser from "react-html-parser";
 
 const content = [
-  {
-    label: "Total Pembayaran",
-    type: "price",
-    value: 1549000,
-  },
+  // {
+  //   label: "Total Pembayaran",
+  //   type: "price",
+  //   value: 1549000,
+  // },
   {
     label: "Metode Pembayaran",
     type: "image",
-    value: "/assets/payment/mandiri.png",
+    value: "/assets/payment/BRI_1685497356.png",
   },
   {
     label: "Nomor Rekening",
     type: "copy",
-    value: "0442282828222",
+    value: "005001005261301",
   },
   {
     label: "Atas Nama",
@@ -67,8 +69,15 @@ const ValueRender = ({ type, value }) => {
 };
 
 export default function PaymentFulfilment() {
-  const handlePayment = () => {
-    console.log("ok");
+  const { context } = useContext(PaymentContext);
+
+  const getTotalPrice = () => {
+    return (
+      49000 +
+      context?.paymentDetail?.package?.reduce((accumulator, currentObject) => {
+        return accumulator + currentObject.price;
+      }, 0)
+    );
   };
 
   return (
@@ -83,6 +92,16 @@ export default function PaymentFulfilment() {
         fontSize={"16px"}
         fontWeight={600}
       >
+        <Flex
+          mb={"16px"}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+        >
+          <Text flex={1}>Total Pembayaran</Text>
+          <Box flex={1}>
+            <Text>Rp. {formatPrice(getTotalPrice())}</Text>
+          </Box>
+        </Flex>
         {content?.map((item, index) => (
           <Flex
             alignItems={"center"}
@@ -98,11 +117,14 @@ export default function PaymentFulfilment() {
         ))}
       </Box>
 
-      <Text mb={"15px"} fontSize={"17px"} fontWeight={600}>
+      {/* <Text mb={"15px"} fontSize={"17px"} fontWeight={600}>
         Petunjuk Pembayaran
-      </Text>
+      </Text> */}
 
-      <OrderedList mb={"28px"} fontSize={"13px"}>
+      <Box px={5} mb={2}>
+        {ReactHtmlParser(context.paymentMethod[0].how_to_use)}
+      </Box>
+      {/* <OrderedList mb={"28px"} fontSize={"13px"}>
         {data.map((item, index) => {
           return (
             <>
@@ -110,7 +132,7 @@ export default function PaymentFulfilment() {
             </>
           );
         })}
-      </OrderedList>
+      </OrderedList> */}
       <Modal />
     </Box>
   );

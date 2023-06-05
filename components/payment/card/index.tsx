@@ -33,7 +33,7 @@ export default function Card({
           ...context.paymentDetail.package,
           {
             id,
-            title,
+            name: title,
             discount,
             price: applyDiscount(price, discount),
           },

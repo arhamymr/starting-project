@@ -119,10 +119,14 @@ const Item = ({ logo, label, payment_id }) => {
 
 const PaymentList = () => {
   const { data, getPaymenyMethod } = usePayment();
-
+  const { context, setContext } = useContext(PaymentContext);
   useEffect(() => {
     getPaymenyMethod();
-  }, []);
+    setContext({
+      ...context,
+      paymentMethod: data,
+    });
+  }, [data]);
 
   return (
     <Box mb={"422px"}>
@@ -133,7 +137,7 @@ const PaymentList = () => {
         {data.map((item, index) => (
           <Box key={index}>
             <Item
-              payment_id={item.payment_id}
+              payment_id={item.id}
               logo={item.payment_logo}
               label={item.payment_name}
             />

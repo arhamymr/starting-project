@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Marquee from "./marquee";
+import Link from "next/link";
 
 const texts = Array.from(
   [
@@ -118,7 +119,9 @@ export default function Hero() {
             6.000+ pilihan Produk PPOB, Add-on dan beragam template keren
             lainnya
           </Text>
-          <Button>Buat Aplikasi Sekarang!</Button>
+          <Link href={"/register"}>
+            <Button>Buat Aplikasi Sekarang!</Button>
+          </Link>
         </Center>
       </Container>
       <Box bg={"brand.100"}>
