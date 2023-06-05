@@ -23,7 +23,14 @@ export default function DetailPayment() {
       const payload = {
         customer_id: getCustomerId(),
         payment_id: context?.paymentDetail?.paymentMethod?.payment_id,
-        item: context?.paymentDetail.package,
+        item: [
+          ...context?.paymentDetail.package,
+          {
+            name: "subs_fee",
+            discount: 0,
+            price: 49000,
+          },
+        ],
       };
       // console.log(payload);
       await pay(payload);
