@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -10,13 +10,33 @@ import {
   Center,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import { PaymentContext } from "contents/payment/context";
+import usePayment from "./hooks/usePayment";
+import Link from "next/link";
 
 function ModalComp() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { context } = useContext(PaymentContext);
+  const { payConf } = usePayment();
 
+  const handleClick = async () => {
+    const payload = {
+      customer_id: localStorage.getItem("customer_id"),
+      payment_id: context.paymentDetail.paymentMethod.payment_id,
+      invoice_id: context.payment.invoice_id,
+    };
+    try {
+      await payConf(payload);
+      onOpen();
+    } catch (error) {
+      console.log("something wrong", error);
+    }
+  };
+
+  console.log(context, "cont");
   return (
     <>
-      <Button w={"full"} onClick={onOpen}>
+      <Button w={"full"} onClick={handleClick}>
         Saya Sudah Bayar
       </Button>
       <Modal size={"md"} isOpen={isOpen} onClose={onClose}>
@@ -49,9 +69,11 @@ function ModalComp() {
                 dashboard tenant paling lambat 1x24 jam di Email dan WhatsAppmu.
                 Jangan lupa dicek secara berkala yah!
               </Text>
-              <Button width={"252px"} onClick={onClose}>
-                Ok, Mengerti
-              </Button>
+              <Link href={"/"}>
+                <Button width={"252px"} onClick={onClose}>
+                  Ok, Mengerti
+                </Button>
+              </Link>
             </Center>
           </ModalBody>
         </ModalContent>

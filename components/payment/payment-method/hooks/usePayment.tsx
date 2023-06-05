@@ -5,7 +5,7 @@ function usePayment() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
-  const getPaymenyMethod = async () => {
+  const getPaymenyMethod = async (callback) => {
     setLoading(true);
     try {
       const options = {
@@ -14,6 +14,7 @@ function usePayment() {
       };
       const response = await fetchData(options);
       setData(response.data);
+      callback(response.data);
     } catch (error) {
       throw new Error("Error fetching data:", error);
     } finally {

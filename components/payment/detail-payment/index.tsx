@@ -10,8 +10,8 @@ export default function DetailPayment() {
   const { context, setContext } = useContext(PaymentContext);
   const { pay } = usePayment();
 
-  const handleNextPayment = () => {
-    setContext({ ...context, currentStep: context.currentStep + 1 });
+  const handleNextPayment = (payment = {}) => {
+    setContext({ ...context, payment, currentStep: context.currentStep + 1 });
   };
 
   const getCustomerId = () => {
@@ -33,8 +33,8 @@ export default function DetailPayment() {
         ],
       };
       // console.log(payload);
-      await pay(payload);
-      handleNextPayment();
+      const data = await pay(payload);
+      handleNextPayment(data);
     } catch (error) {
       window.alert("cause:" + error);
     }

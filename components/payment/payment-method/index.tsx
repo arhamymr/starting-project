@@ -120,14 +120,17 @@ const Item = ({ logo, label, payment_id }) => {
 const PaymentList = () => {
   const { data, getPaymenyMethod } = usePayment();
   const { context, setContext } = useContext(PaymentContext);
+
   useEffect(() => {
-    getPaymenyMethod();
-    setContext({
-      ...context,
-      paymentMethod: data,
+    getPaymenyMethod((d) => {
+      setContext({
+        ...context,
+        paymentMethod: d,
+      });
     });
   }, []);
 
+  console.log(context);
   return (
     <Box mb={"422px"}>
       <Text mb={"22px"} fontWeight={600}>
