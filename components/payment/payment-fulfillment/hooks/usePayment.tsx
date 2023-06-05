@@ -5,7 +5,7 @@ function usePayment() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     total_price: 0,
-    expired_date: "",
+    expired_time: "",
   });
 
   const payConf = async (invoice_id) => {

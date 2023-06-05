@@ -66,8 +66,6 @@ const Payment = () => {
     }
   }, [router.query.invoice_id]);
 
-  console.log(data.expired_date, "route");
-
   return (
     <PaymentLayout
       title={"Selesaikan Pembayaran"}
@@ -83,7 +81,7 @@ const Payment = () => {
           fontSize={"14px"}
         >
           <StepperComp />
-          {data?.expired_date && <CountDown expired={data.expired_date} />}
+          {data?.expired_time && <CountDown expired={data.expired_time} />}
         </Box>
       }
     />
