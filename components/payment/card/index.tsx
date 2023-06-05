@@ -103,7 +103,7 @@ export default function Card({
               onClick={handleRm}
               w={"full"}
             >
-              Cancel
+              Batalkan
             </Button>
           )}
         </Box>
