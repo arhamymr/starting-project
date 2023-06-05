@@ -1,20 +1,11 @@
-import { useState, useContext } from "react";
-import {
-  Box,
-  Input,
-  Text,
-  Flex,
-  Button,
-  IconButton,
-  Link,
-  SimpleGrid,
-} from "@chakra-ui/react";
-import StepperComp from "./stepper";
+import { useContext } from "react";
+import { Box, Text, Flex, Link, SimpleGrid } from "@chakra-ui/react";
+// import StepperComp from "./stepper";
 import { Divider } from "@chakra-ui/react";
-import { CheckIcon } from "@chakra-ui/icons";
+// import { CheckIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
 import { PaymentContext } from "contents/payment/context";
-import Coupon from "./coupon";
+// import Coupon from "./coupon";
 
 function formatPrice(price) {
   const formattedPrice = new Intl.NumberFormat("id-ID").format(price);
@@ -27,7 +18,6 @@ export default function DetailPayment() {
   const getTotalPrice = () => {
     return context?.paymentDetail?.package?.reduce(
       (accumulator, currentObject) => {
-        console.log(accumulator, currentObject, "test");
         return accumulator + currentObject.price;
       },
       0
@@ -43,7 +33,7 @@ export default function DetailPayment() {
       {context?.paymentDetail?.package.map((item, index) => {
         return (
           <SimpleGrid key={index} spacing={2} columns={2} mb={1}>
-            <Text>{item.name}</Text>
+            <Text>{item.title}</Text>
             <Flex justify={"space-between"} align={"flex-end"}>
               <Text>Rp. </Text>
               <Text fontWeight={600}>{formatPrice(item.price)}</Text>
@@ -53,11 +43,11 @@ export default function DetailPayment() {
       })}
 
       <Divider mt={"13px"} mb={"16px"} />
-      <Coupon />
+      {/* <Coupon />
       <Flex justifyContent={"space-between"}>
         <Text>Diskon</Text>
         <Text>Rp. -{formatPrice(100000)}</Text>
-      </Flex>
+      </Flex> */}
 
       <SimpleGrid spacing={2} columns={2} mb={1}>
         <Text>Metode Pembayaran</Text>

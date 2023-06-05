@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -11,6 +10,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 
 function ModalComp({ isOpen, onClose }) {
   return (
@@ -27,7 +27,7 @@ function ModalComp({ isOpen, onClose }) {
                 <Image
                   width={91}
                   height={84}
-                  src="/assets/logo.png"
+                  src="/assets/envelope.png"
                   alt="register success"
                 />
               </Box>
@@ -41,9 +41,11 @@ function ModalComp({ isOpen, onClose }) {
 
           <ModalFooter>
             <Center w={"full"}>
-              <Button w={"full"} onClick={onClose}>
-                Lanjutkan
-              </Button>
+              <Link href={"/payment"}>
+                <Button w={"full"} onClick={onClose}>
+                  Lanjutkan
+                </Button>
+              </Link>
             </Center>
           </ModalFooter>
         </ModalContent>

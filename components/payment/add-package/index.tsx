@@ -2,9 +2,10 @@ import { Center, Box, Flex } from "@chakra-ui/react";
 
 import Card from "../card";
 import usePackage from "./hooks/usePackage";
-import { useEffect } from "react";
-import { datas } from "./data";
-const NavNumber = ({ children, active = false }) => {
+import { useEffect, useState, useContext } from "react";
+import { PaymentContext } from "contents/payment/context";
+
+const NavNumber = ({ children, active = false, onClick }) => {
   return (
     <Center
       h={"24px"}
@@ -12,6 +13,7 @@ const NavNumber = ({ children, active = false }) => {
       w={"24px"}
       rounded={"md"}
       cursor={"pointer"}
+      onClick={onClick}
       boxShadow={"md"}
       bg={active ? "white" : "brand.500"}
     >
@@ -22,12 +24,38 @@ const NavNumber = ({ children, active = false }) => {
 
 export default function CardList() {
   const { data, getPackage } = usePackage();
+  const [currentPage, setCurrentPage] = useState(1);
+  const { context } = useContext(PaymentContext);
 
   useEffect(() => {
-    getPackage();
-  }, []);
+    getPackage(currentPage);
+  }, [currentPage]);
 
-  console.log(data, "data");
+  const handleChangePage = (p) => {
+    setCurrentPage(p);
+  };
+
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= data.last_page; i++) {
+      pageNumbers.push(
+        <NavNumber
+          onClick={() => handleChangePage(i)}
+          active={currentPage !== i ? false : true}
+        >
+          {i}
+        </NavNumber>
+      );
+    }
+    return pageNumbers;
+  };
+
+  const checkNameExists = (nameToCheck) => {
+    return context?.paymentDetail?.package?.some(
+      (obj) => obj.title === nameToCheck
+    );
+  };
+
   return (
     <Center
       borderRadius={"20px"}
@@ -38,20 +66,20 @@ export default function CardList() {
       px={"41px"}
     >
       <Center gap={12}>
-        {datas.map((item) => (
+        {data?.data?.map((item) => (
           <Card
-            key={item.name}
-            name={item.name}
+            key={item.title}
+            title={item.title}
             description={item.description}
             discount={item.discount}
             price={item.price}
+            selected={checkNameExists(item.title)}
           />
         ))}
       </Center>
 
       <Flex gap={"11px"} fontSize={"12px"}>
-        <NavNumber active>1</NavNumber>
-        <NavNumber>2</NavNumber>
+        {renderPageNumbers()?.map((item) => item)}
       </Flex>
     </Center>
   );

@@ -16,7 +16,13 @@ export default function DetailPayment() {
 
   const handlePay = async () => {
     try {
-      await pay(context?.paymentDetail.package);
+      const payload = {
+        customer_id: 1,
+        payment_id: context?.paymentDetail?.paymentMethod?.payment_id,
+        item: context?.paymentDetail.package,
+      };
+      console.log(payload);
+      // await pay(payload);
       handleNextPayment();
     } catch (error) {
       window.alert("cause:" + error);
@@ -51,12 +57,20 @@ export default function DetailPayment() {
         {stepRender(context.currentStep)}
       </Box>
       {context.currentStep === 1 && (
-        <Button w={"full"} onClick={handleNextPayment}>
+        <Button
+          w={"full"}
+          isDisabled={!context?.paymentDetail?.package.length}
+          onClick={handleNextPayment}
+        >
           Lanjut ke Pembayaran
         </Button>
       )}
       {context.currentStep === 2 && (
-        <Button w={"full"} onClick={handlePay}>
+        <Button
+          w={"full"}
+          isDisabled={!context?.paymentDetail?.paymentMethod?.payment_id}
+          onClick={handlePay}
+        >
           Bayar Sekarang
         </Button>
       )}

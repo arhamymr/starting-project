@@ -38,10 +38,11 @@ const FormRegister = () => {
       );
       try {
         const data = await procedRegister(formData);
-        console.log(data);
+        localStorage.setItem("at", data.access_token);
+        localStorage.setItem("customer_id", data.customer_id);
         onOpen();
       } catch (error) {
-        window.alert("Ops error");
+        window.alert("Ops error :");
       }
     },
   });

@@ -3,7 +3,13 @@ import { PaymentContext } from "contents/payment/context";
 import { formatPrice, applyDiscount } from "helpers/payment";
 import { useContext, useState } from "react";
 
-export default function Card({ name, description, discount, price }) {
+export default function Card({
+  selected,
+  title,
+  description,
+  discount,
+  price,
+}) {
   const { context, setContext } = useContext(PaymentContext);
   const [clicked, setClicked] = useState(false);
 
@@ -13,7 +19,7 @@ export default function Card({ name, description, discount, price }) {
       paymentDetail: {
         ...context.paymentDetail,
         package: context.paymentDetail.package.filter(
-          (item) => item.name !== name
+          (item) => item.title !== title
         ),
       },
     });
@@ -27,7 +33,7 @@ export default function Card({ name, description, discount, price }) {
         package: [
           ...context.paymentDetail.package,
           {
-            name,
+            title,
             discount,
             price: applyDiscount(price, discount),
           },
@@ -45,6 +51,7 @@ export default function Card({ name, description, discount, price }) {
     rmPackage();
     setClicked(!clicked);
   };
+
   return (
     <Center py={6}>
       <Box
@@ -61,7 +68,7 @@ export default function Card({ name, description, discount, price }) {
             color={"white"}
             fontWeight={600}
           >
-            {name}
+            {title}
           </Text>
         </Center>
 
@@ -80,7 +87,7 @@ export default function Card({ name, description, discount, price }) {
             {" "}
             Rp. {formatPrice(applyDiscount(price, discount))}
           </Text>
-          {!clicked ? (
+          {!selected ? (
             <Button
               colorScheme={"brand"}
               size={"sm"}

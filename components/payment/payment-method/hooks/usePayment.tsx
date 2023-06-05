@@ -1,29 +1,32 @@
 import { useState } from "react";
 import fetchData from "api/axios";
 
-function usePackage() {
+function usePayment() {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState({ last_page: 1, data: [] });
+  const [data, setData] = useState([]);
 
-  const getPackage = async (page = 1) => {
+  const getPaymenyMethod = async () => {
+    setLoading(true);
     try {
       const options = {
         method: "GET",
-        url: "/product?size=3&page=" + page,
+        url: "/payment-method",
       };
       const response = await fetchData(options);
       setData(response.data);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      throw new Error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return {
     loading,
     setLoading,
-    getPackage,
+    getPaymenyMethod,
     data,
   };
 }
 
-export default usePackage;
+export default usePayment;
