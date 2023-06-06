@@ -28,7 +28,9 @@ export default function DetailPayment() {
       };
       // console.log(payload);
       const data = await pay(payload);
-      router.push("/payment-fullfilment?invoice_id=" + data.invoice_id);
+      if (data?.invoice_id) {
+        router.push("/payment-fullfilment?invoice_id=" + data?.invoice_id);
+      }
     } catch (error) {
       window.alert("cause:" + error);
     }
