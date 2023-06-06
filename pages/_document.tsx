@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { Global } from "@emotion/react";
 
 export default function Document() {
   return (
