@@ -17,6 +17,9 @@ export default function AddOnCard({ data }) {
         width={298}
         height={202}
         alt={data.title}
+        style={{
+          borderRadius: "12px",
+        }}
       />
       <Text mt={"21px"} mb={"22px"} fontSize={"22px"}>
         {data.name}

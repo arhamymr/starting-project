@@ -6,48 +6,48 @@ import AddOnCard from "./add-on-card";
 const data = [
   {
     name: "Laporan Keuangan Internal",
-    image: "/assets/lp/add-on/add-on-1.png",
+    image: "/assets/lp/add-on/Addons-06.jpg",
     description:
       "Kamu dapat memperoleh laporan harian setiap pemasukan dan pengeluaran",
   },
   {
     name: "Downline",
-    image: "/assets/lp/add-on/add-on-1.png",
+    image: "/assets/lp/add-on/Addons-05.jpg",
     description:
       "Promosikan aplikasi dengan lebih mudah menggunakan fitur downline",
   },
   {
     name: "Transfer Saldo Antar Member",
-    image: "/assets/lp/add-on/add-on-1.png",
+    image: "/assets/lp/add-on/Addons-03.jpg",
     description: "Rasakan kemudahan dalam melakukan transfer antar member ",
   },
   {
     name: "Notifikasi Aplikasi",
-    image: "/assets/lp/add-on/add-on-1.png",
+    image: "/assets/lp/add-on/Addons-02.jpg",
     description:
       "Nyalakan notifikasi aplikasimu agar tidak kehilangan informasi",
   },
   {
     name: "Produk Manual & Voucher",
-    image: "/assets/lp/add-on/add-on-1.png",
+    image: "/assets/lp/add-on/Addons-09.jpg",
     description:
       "Kamu dapat memperoleh laporan harian setiap pemasukan dan pengeluaran",
   },
   {
     name: "Print Struk Bluetooth",
-    image: "/assets/lp/add-on/add-on-1.png",
+    image: "/assets/lp/add-on/Addons-01.jpg",
     description:
       "Catat setiap bukti transaksi dengan print struk lewat bluetooth",
   },
   {
     name: "Multi Vendor",
-    image: "/assets/lp/add-on/add-on-1.png",
+    image: "/assets/lp/add-on/Addons-11.jpg",
     description:
       "Aktifkan add-on multivendor untuk memilih beragam tempat suplier produk",
   },
   {
     name: "OTP Sender",
-    image: "/assets/lp/add-on/add-on-1.png",
+    image: "/assets/lp/add-on/Addons-07.jpg",
     description:
       "Kirim kode verifikasi kini semakin mudah lewat OTP sender WhatsApp dan SMS",
   },
