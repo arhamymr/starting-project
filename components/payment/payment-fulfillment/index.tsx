@@ -7,6 +7,7 @@ import ReactHtmlParser from "react-html-parser";
 import { useState } from "react";
 
 const content = (data) => {
+  console.log(data);
   return [
     // {
     //   label: "Total Pembayaran",
@@ -16,7 +17,8 @@ const content = (data) => {
     {
       label: "Metode Pembayaran",
       type: "image",
-      value: "/assets/payment/BRI_1685497356.png",
+      value:
+        "https://dev-asset.serpul.co.id" + data.payment_method.payment_logo,
     },
     {
       label: "Nomor Rekening",
