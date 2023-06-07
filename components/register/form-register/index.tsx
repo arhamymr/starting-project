@@ -18,9 +18,7 @@ import { useRouter } from "next/router";
 const FormSchema = Yup.object().shape({
   name: Yup.string().required("Nama wajib di isi"),
   email: Yup.string().email().required("Email wajib di isi"),
-  phone: Yup.string()
-    .matches(/^\d+$/, "Format salah, gunakan 628XXX atau 08XXXXXX")
-    .required("Nomor Whatsapp wajib di isi"),
+  phone: Yup.number().required("Nomor Whatsapp wajib di isi"),
 });
 
 const FormRegister = () => {
@@ -99,7 +97,7 @@ const FormRegister = () => {
           <FormLabel>Nomor WhatsApp</FormLabel>
           <Input
             name={"phone"}
-            type={"number"}
+            type={"tel"}
             onBlur={formik.handleBlur}
             value={formik.values.phone}
             onChange={formik.handleChange}
