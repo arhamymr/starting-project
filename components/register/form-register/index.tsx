@@ -51,6 +51,18 @@ const FormRegister = () => {
     },
   });
 
+  function containsOnlyNumericCharacters(str) {
+    return /^\d+$/.test(str);
+  }
+  const handlePhoneChange = (e) => {
+    if (
+      containsOnlyNumericCharacters(e.target.value) ||
+      e.target.value === ""
+    ) {
+      formik.handleChange(e);
+    }
+  };
+
   return (
     <Box>
       <ModalSuccess isOpen={isOpen} onClose={onClose} />
@@ -97,10 +109,10 @@ const FormRegister = () => {
           <FormLabel>Nomor WhatsApp</FormLabel>
           <Input
             name={"phone"}
-            type={"number"}
+            type={"tel"}
             onBlur={formik.handleBlur}
             value={formik.values.phone}
-            onChange={formik.handleChange}
+            onChange={handlePhoneChange}
             placeholder="Masukan nomor WhatsApp Aktif"
           />
           {formik.touched.phone && formik.errors.phone && (

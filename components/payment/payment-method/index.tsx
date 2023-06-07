@@ -35,7 +35,7 @@ const Item = ({ logo, label, payment_id }) => {
       <Flex gap={3} alignItems={"center"} justifyContent={"center"}>
         <Image
           quality={100}
-          src={"/assets/payment/" + logo}
+          src={"https://dev-asset.serpul.co.id/" + logo}
           alt={label}
           width={108}
           height={40}

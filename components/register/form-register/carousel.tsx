@@ -17,13 +17,14 @@ export default function Carousel() {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
+    autoPlay: true,
     slidesToScroll: 1,
     afterChange: (index) => {
       setCurrentIndex(index);
     },
     appendDots: (dots) => {
       return (
-        <Center gap={"22px"} bottom={"100px"}>
+        <Center gap={"22px"} bottom={{ base: "10px", md: "100px" }}>
           {dots.map((item, index) => (
             <Box
               key={index}
@@ -55,7 +56,7 @@ export default function Carousel() {
   return (
     <Box
       position={"relative"}
-      h={"100vh"}
+      h={{ base: "300px", md: "100vh" }}
       width={{ base: "full", md: "calc(100vw / 2)" }}
       overflow={"hidden"}
     >
@@ -93,11 +94,11 @@ export default function Carousel() {
         {cards.map((url, index) => (
           <Box
             key={index}
-            height={"100vh"}
+            h={{ base: "300px", md: "100vh" }}
             bg={"brand.500"}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
-            backgroundSize="cover"
+            backgroundSize={{ base: "cover", md: "cover" }}
             backgroundImage={`url(${url})`}
           />
         ))}

@@ -9,7 +9,7 @@ export default function PaymentLayout({ main, sidebar, title }) {
         <Text mt={"20px"} mb={"24px"} fontSize={"20px"} fontWeight={600}>
           {title}
         </Text>
-        <Flex gap={"35px"}>
+        <Flex gap={"35px"} direction={{ base: "column", md: "row" }}>
           <Box bg={"white"} rounded={"8px"} flex={1} p={"27px"}>
             {main}
           </Box>
@@ -18,7 +18,6 @@ export default function PaymentLayout({ main, sidebar, title }) {
           </Box>
         </Flex>
       </Container>
-      ;
     </Box>
   );
 }

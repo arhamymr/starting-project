@@ -65,7 +65,7 @@ export default function CardList() {
       py={"28px"}
       px={"41px"}
     >
-      <Center gap={12}>
+      <Center gap={12} flexDirection={{ base: "column", md: "row" }}>
         {data?.data?.map((item) => (
           <Card
             key={item.id}

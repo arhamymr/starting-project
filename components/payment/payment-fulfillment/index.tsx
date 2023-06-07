@@ -91,8 +91,9 @@ export default function PaymentFulfilment({ data }) {
           >
             <Flex
               mb={"16px"}
-              alignItems={"center"}
+              alignItems={{ base: "left", md: "center" }}
               justifyContent={"space-between"}
+              direction={{ base: "column", md: "row" }}
             >
               <Text flex={1}>Total Pembayaran</Text>
               <Box flex={1}>
@@ -101,10 +102,11 @@ export default function PaymentFulfilment({ data }) {
             </Flex>
             {content(data)?.map((item, index) => (
               <Flex
-                alignItems={"center"}
+                alignItems={{ base: "left", md: "center" }}
                 mb={index === content.length - 1 ? "0px" : "16px"}
                 key={item.label}
                 justifyContent={"space-between"}
+                direction={{ base: "column", md: "row" }}
               >
                 <Text flex={1}>{item.label}</Text>
                 <Box flex={1}>
