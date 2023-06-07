@@ -3,19 +3,19 @@ export const data = [
     title: "1. Transfer Bank",
     items: [
       {
-        logo: "/assets/payment/bri.png",
+        logo: "assets/payment/bri.png",
         label: "Bank Rakyat Indonesia (BRI)",
       },
       {
-        logo: "/assets/payment/bni.png",
+        logo: "assets/payment/bni.png",
         label: "Bank Negara Indonesia (BNI)",
       },
       {
-        logo: "/assets/payment/mandiri.png",
+        logo: "assets/payment/mandiri.png",
         label: "Bank Mandiri",
       },
       {
-        logo: "/assets/payment/bca.png",
+        logo: "assets/payment/bca.png",
         label: "Bank BCA",
       },
     ],
