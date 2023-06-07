@@ -99,6 +99,7 @@ const FormRegister = () => {
           <FormLabel>Nomor WhatsApp</FormLabel>
           <Input
             name={"phone"}
+            type={"number"}
             onBlur={formik.handleBlur}
             value={formik.values.phone}
             onChange={formik.handleChange}
