@@ -1,4 +1,4 @@
-import { Center, Box, Flex } from "@chakra-ui/react";
+import { Center, Flex } from "@chakra-ui/react";
 
 import Card from "../card";
 import usePackage from "./hooks/usePackage";
@@ -56,7 +56,6 @@ export default function CardList() {
     );
   };
 
-  console.log(data, "data");
   return (
     <Center
       borderRadius={"20px"}
