@@ -16,9 +16,11 @@ import ModalSuccess from "./modal";
 import { useRouter } from "next/router";
 
 const FormSchema = Yup.object().shape({
-  name: Yup.string().required(),
-  email: Yup.string().email().required(),
-  phone: Yup.number().required(),
+  name: Yup.string().required("Nama wajib di isi"),
+  email: Yup.string().email().required("Email wajib di isi"),
+  phone: Yup.string()
+    .matches(/^\d+$/, "Format salah, gunakan 628XXX atau 08XXXXXX")
+    .required("Nomor Whatsapp wajib di isi"),
 });
 
 const FormRegister = () => {
