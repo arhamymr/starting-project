@@ -6,12 +6,14 @@ import CountDown from "./countdown";
 import Detail from "./detail";
 import usePayment from "./hooks/usePayment";
 import { useRouter } from "next/router";
+import { slideUp } from "helpers/dom";
 
 export default function DetailPayment() {
   const { context, setContext } = useContext(PaymentContext);
-  const { pay } = usePayment();
+  const { loading, pay } = usePayment();
   const router = useRouter();
   const handleNextPayment = (payment = {}) => {
+    slideUp();
     setContext({ ...context, payment, currentStep: context.currentStep + 1 });
   };
 
@@ -32,7 +34,7 @@ export default function DetailPayment() {
         router.push("/payment-fullfilment?invoice_id=" + data?.invoice_id);
       }
     } catch (error) {
-      window.alert("cause:" + error);
+      window.alert("Terjadi Kesalahan" + error);
     }
   };
 
@@ -75,6 +77,9 @@ export default function DetailPayment() {
       {context.currentStep === 2 && (
         <Button
           w={"full"}
+          isLoading={loading}
+          loadingText="Loading"
+          spinnerPlacement="start"
           isDisabled={!context?.paymentDetail?.paymentMethod?.payment_id}
           onClick={handlePay}
         >

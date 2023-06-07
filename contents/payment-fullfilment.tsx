@@ -81,7 +81,11 @@ const Payment = () => {
           fontSize={"14px"}
         >
           <StepperComp />
-          {data?.expired_time && <CountDown expired={data.expired_time} />}
+          {data?.expired_time ? (
+            <CountDown expired={data.expired_time} />
+          ) : (
+            <Text> Payment Sudah Expired </Text>
+          )}
         </Box>
       }
     />

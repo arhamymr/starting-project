@@ -41,8 +41,8 @@ const Navbar = () => {
         bg={"linear-gradient(180deg, #6B6FE1 0%, #5559D0 100%)"}
       >
         <Flex
-          px={{ base: 20, md: 0 }}
-          gap={"100px"}
+          px={{ base: 5, md: 0 }}
+          gap={{ base: "20px", md: "100px" }}
           overflowX={"auto"}
           whiteSpace={"nowrap"}
         >

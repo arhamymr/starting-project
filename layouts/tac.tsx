@@ -10,8 +10,8 @@ export default function TACLayout({ main, sidebar, title }) {
         <Text mt={"20px"} fontWeight={"bold"} fontSize={"20px"} mb={"24px"}>
           {title}
         </Text>
-        <Flex gap={"35px"}>
-          <Box width={"252px"}>{sidebar}</Box>
+        <Flex gap={"35px"} direction={{ base: "column", md: "row" }}>
+          <Box width={{ base: "full", md: "252px" }}>{sidebar}</Box>
           <Box bg={"white"} flex={1} p={"27px"}>
             {main}
           </Box>

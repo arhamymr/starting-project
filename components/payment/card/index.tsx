@@ -53,10 +53,10 @@ export default function Card({
   };
 
   return (
-    <Center py={6}>
+    <Center py={{ base: 2, md: 6 }}>
       <Box
         bg={"white"}
-        maxW={"190px"}
+        maxW={{ base: "full", md: "190px" }}
         boxShadow={"xl"}
         rounded={"md"}
         overflow={"hidden"}

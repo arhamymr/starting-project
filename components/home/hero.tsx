@@ -125,7 +125,7 @@ export default function Hero() {
         </Center>
       </Container>
       <Box bg={"brand.100"}>
-        <Container maxW="1649px" p={"65px"}>
+        <Container maxW="1649px" p={{ base: "40px 0", md: "65px" }}>
           <Center flexDirection={"column"}>
             <Text mb="45px" textAlign={"center"} maxW={"690px"}>
               {" "}
