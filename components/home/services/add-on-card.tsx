@@ -9,7 +9,7 @@ export default function AddOnCard({ data }) {
       p={"12px 14px"}
       rounded={"15px"}
       boxShadow={"0px 5px 20px 5px #C7C7C740"}
-      mb={"49px"}
+      mb={{ base: "0px", md: "49px" }}
     >
       <Image
         quality={100}

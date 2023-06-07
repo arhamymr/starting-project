@@ -26,7 +26,12 @@ const Navbar = () => {
   const [active, setActive] = useState(router.query.s || 0);
   const menu = ["Product", "Add-On", "Template", "Deposit"];
 
-  console.log(router);
+  const disableList = (menu) => {
+    if (menu === "Template" || menu === "Deposit") {
+      return false;
+    }
+    return true;
+  };
   return (
     <Box id={"services"}>
       <Center
@@ -47,14 +52,10 @@ const Navbar = () => {
               rounded={"40px"}
               bg={active === index && "white"}
               key={item}
-              onClick={() => {
-                router.push("/?s=" + index, undefined, {
-                  shallow: true,
-                });
-                setActive(index);
-              }}
+              onClick={() => disableList(item) && setActive(index)}
               color={active !== index && "white"}
-              cursor={"pointer"}
+              opacity={disableList(item) ? "1" : "0.5"}
+              cursor={disableList(item) ? "pointer" : "not-allowed"}
             >
               {item}
             </Text>

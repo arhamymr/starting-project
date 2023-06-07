@@ -58,7 +58,8 @@ const RenderProduct = ({ type }) => {
     <Grid
       mb={"127px"}
       templateColumns={{ base: "1fr 1fr", md: "repeat(4, 1fr)" }}
-      gap={"31px"}
+      gap={{ base: "16px", md: "31px" }}
+      p={4}
     >
       {data.map((item, index) => (
         <AddOnCard data={item} key={index} />
@@ -78,9 +79,16 @@ const Product = () => {
     "Organisasi",
   ];
 
+  const enableList = (menu) => {
+    if (menu === "Semua") {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <Box>
-      <Center pt={"46px"} pb={"30px"}>
+      <Center w={"100vw"} pt={"46px"} pb={"30px"}>
         <Flex gap={"69px"} overflowX={"auto"} whiteSpace={"nowrap"}>
           {menu.map((item, index) => (
             <Text
@@ -88,8 +96,9 @@ const Product = () => {
               rounded={"40px"}
               fontWeight={active === index && "bold"}
               key={item}
-              cursor={"pointer"}
-              onClick={() => setActive(index)}
+              opacity={enableList(item) ? "1" : "0.5"}
+              cursor={!enableList(item) ? "not-allowed" : "pointer"}
+              onClick={() => enableList(item) && setActive(index)}
             >
               {item}
             </Text>
