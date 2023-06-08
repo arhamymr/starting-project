@@ -24,7 +24,12 @@ export default function Content() {
         {data.map((item, index) => {
           return (
             <>
-              <ListItem fontWeight={"bold"} key={index} mb={"14px"}>
+              <ListItem
+                textAlign={"justify"}
+                fontWeight={"bold"}
+                key={index}
+                mb={"14px"}
+              >
                 {item.name}
               </ListItem>
               <OrderedList mb={"14px"}>
@@ -32,14 +37,19 @@ export default function Content() {
                   item.content.map((item, index) => {
                     return (
                       <>
-                        <ListItem listStyleType="none" key={index}>
+                        <ListItem
+                          textAlign={"justify"}
+                          listStyleType="none"
+                          key={index}
+                          mb={2}
+                        >
                           {item}
                         </ListItem>
                       </>
                     );
                   })
                 ) : (
-                  <Text>{item.content}</Text>
+                  <Text textAlign={"justify"}>{item.content}</Text>
                 )}
               </OrderedList>
             </>

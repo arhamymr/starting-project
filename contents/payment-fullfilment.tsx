@@ -39,7 +39,7 @@ function StepperComp() {
         top="4.5px"
         zIndex={2}
       />
-      <Flex justifyContent={"space-between"}>
+      <Flex mt={"7px"} justifyContent={"space-between"}>
         {steps.map((item, index) => (
           <Text
             minW={"90px"}

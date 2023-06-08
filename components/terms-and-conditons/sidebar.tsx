@@ -18,7 +18,11 @@ export default function Sidebar() {
       </Text>
       <OrderedList>
         {data.map((item, index) => {
-          return <ListItem key={index}>{item.name}</ListItem>;
+          return (
+            <ListItem mb={2} key={index}>
+              {item.name}
+            </ListItem>
+          );
         })}
       </OrderedList>
     </Box>

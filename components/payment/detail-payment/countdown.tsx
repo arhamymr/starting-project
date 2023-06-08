@@ -11,9 +11,8 @@ function CountdownTimer({ expired }) {
         setTimeRemaining((prevTimeRemaining) => prevTimeRemaining - 1000); // Subtract one second from timeRemaining every second
       }
     }, 1000);
-
     return () => clearInterval(intervalId);
-  }, []);
+  }, [expired, timeRemaining]);
 
   useEffect(() => {
     setTimeRemaining(expired);
