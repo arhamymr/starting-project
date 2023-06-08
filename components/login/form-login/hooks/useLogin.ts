@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { fetcher } from "helpers/fetcher";
-import fetchData from "api/axios";
+import fetchData from "config/axios";
 export function useLogin() {
   const [isLoading, setLoading] = useState(false);
 

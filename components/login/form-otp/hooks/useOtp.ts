@@ -1,5 +1,5 @@
 import { useState } from "react";
-import fetchData from "api/axios";
+import fetchData from "config/axios";
 
 // Custom hook for login
 export function useOTP() {

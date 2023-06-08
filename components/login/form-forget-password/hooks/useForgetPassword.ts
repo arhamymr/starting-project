@@ -1,5 +1,5 @@
 import { useState } from "react";
-import fetchData from "api/axios";
+import fetchData from "config/axios";
 
 export function useForgetPassword() {
   const [isLoading, setLoading] = useState(false);
