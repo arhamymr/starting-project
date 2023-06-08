@@ -7,17 +7,23 @@ function CountdownTimer({ expired }) {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTimeRemaining((prevTimeRemaining) => prevTimeRemaining - 1000); // Subtract one second from timeRemaining every second
+      if (timeRemaining > 0) {
+        setTimeRemaining((prevTimeRemaining) => prevTimeRemaining - 1000); // Subtract one second from timeRemaining every second
+      }
     }, 1000);
 
-    return () => clearInterval(intervalId); // Cleanup function to clear the interval when the component unmounts
+    return () => clearInterval(intervalId);
   }, []);
 
-  const remainingHours = Math.floor(timeRemaining / (1000 * 60 * 60));
-  const remainingMinutes = Math.floor(
+  useEffect(() => {
+    setTimeRemaining(expired);
+  }, [expired]);
+
+  let remainingHours = Math.floor(timeRemaining / (1000 * 60 * 60));
+  let remainingMinutes = Math.floor(
     (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
   );
-  const remainingSeconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+  let remainingSeconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
   return (
     <Flex gap={"27px"} alignItems={"center"}>
@@ -31,7 +37,7 @@ function CountdownTimer({ expired }) {
           bg={"gray.100"}
           mb={"7px"}
         >
-          {remainingHours}
+          {!!expired ? remainingHours : "00"}
         </Text>
         <Text fontWeight={600} fontSize={"13px"}>
           Jam
@@ -48,7 +54,7 @@ function CountdownTimer({ expired }) {
           color={"red.500"}
           mb={"7px"}
         >
-          {remainingMinutes}
+          {!!expired ? remainingMinutes : "00"}
         </Text>
         <Text fontWeight={600} fontSize={"13px"}>
           Menit
@@ -65,7 +71,7 @@ function CountdownTimer({ expired }) {
           mb={"7px"}
           color={"red.500"}
         >
-          {remainingSeconds}
+          {!!expired ? remainingSeconds : "00"}
         </Text>
         <Text fontWeight={600} fontSize={"13px"}>
           Detik

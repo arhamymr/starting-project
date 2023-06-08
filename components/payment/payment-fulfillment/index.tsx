@@ -1,10 +1,11 @@
-import { Box, Text, Flex, Spinner, Center } from "@chakra-ui/react";
+import { Box, Text, Flex, Spinner, Center, Button } from "@chakra-ui/react";
 import Image from "next/image";
 import { formatPrice, copyToClipboard } from "helpers/payment";
 import { CopyIcon } from "@chakra-ui/icons";
 import Modal from "./modal";
 import ReactHtmlParser from "react-html-parser";
 import { useState } from "react";
+import Link from "next/link";
 
 const content = (data) => {
   console.log(data);
@@ -72,7 +73,7 @@ const ValueRender = ({ type, value }) => {
 };
 
 export default function PaymentFulfilment({ data }) {
-  console.log(data);
+  console.log(data, "data");
   return (
     <Box>
       {!data.total_price ? (
@@ -117,24 +118,16 @@ export default function PaymentFulfilment({ data }) {
               </Flex>
             ))}
           </Box>
-
-          {/* <Text mb={"15px"} fontSize={"17px"} fontWeight={600}>
-      Petunjuk Pembayaran
-    </Text> */}
-
           <Box px={5} mb={8}>
             {ReactHtmlParser(data?.payment_method?.how_to_use)}
           </Box>
-          {/* <OrderedList mb={"28px"} fontSize={"13px"}>
-      {data.map((item, index) => {
-        return (
-          <>
-            <ListItem key={index}>{item}</ListItem>
-          </>
-        );
-      })}
-    </OrderedList> */}
-          <Modal />
+          {!!data?.expired_time ? (
+            <Modal />
+          ) : (
+            <Link href={"/payment"}>
+              <Button w={"full"}>Daftar Ulang Paket</Button>
+            </Link>
+          )}
         </Box>
       )}
     </Box>
