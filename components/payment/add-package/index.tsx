@@ -37,7 +37,7 @@ export default function CardList() {
 
   const renderPageNumbers = () => {
     const pageNumbers = [];
-    for (let i = 1; i <= data.last_page; i++) {
+    for (let i = 1; i <= data?.last_page; i++) {
       pageNumbers.push(
         <NavNumber
           onClick={() => handleChangePage(i)}

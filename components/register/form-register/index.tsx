@@ -14,6 +14,8 @@ import * as Yup from "yup";
 import useRegister from "./hooks/useRegister";
 import ModalSuccess from "./modal";
 import { useRouter } from "next/router";
+import { data } from "components/terms-and-conditons/data";
+import { useToast } from "@chakra-ui/react";
 
 const FormSchema = Yup.object().shape({
   name: Yup.string().required("Nama wajib di isi"),
@@ -23,8 +25,9 @@ const FormSchema = Yup.object().shape({
 
 const FormRegister = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const router = useRouter();
   const { procedRegister } = useRegister();
+  const toast = useToast();
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -38,15 +41,24 @@ const FormRegister = () => {
         formData.append(key, value)
       );
       try {
-        const data = await procedRegister(formData);
-        localStorage.setItem("at", data.access_token);
-        localStorage.setItem("customer_id", data?.account?.customer_id);
-        if (!!data.invoice_id) {
-          router.push("payment-fullfilment?invoice_id=" + data.invoice_id);
-        }
+        const response = await procedRegister(formData);
+        localStorage.setItem("at", response.data.access_token);
         onOpen();
       } catch (error) {
-        window.alert("Ops error :");
+        if (error.data.code === 400) {
+          return toast({
+            description: error.data.message,
+            status: "warning",
+            duration: 9000,
+            isClosable: true,
+          });
+        }
+        return toast({
+          description: "Data ",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
       }
     },
   });

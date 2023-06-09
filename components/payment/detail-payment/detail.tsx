@@ -40,11 +40,11 @@ export default function DetailPayment() {
       additional: {
         apps_fee: {
           label: "Biaya Pembuatan Aplikasi",
-          value: fee?.apps_fee,
+          value: fee?.data.apps_fee,
         },
         subs_fee: {
           label: "Biaya Langganan/bulan",
-          value: fee?.subs_fee,
+          value: fee?.data.subs_fee,
         },
       },
     });
@@ -56,19 +56,19 @@ export default function DetailPayment() {
         Rincian Pembayaran
       </Text>
 
-      <SimpleGrid spacing={2} columns={2} mb={1}>
+      <SimpleGrid spacing={2} columns={2} mb={4}>
         <Text>{context?.additional?.apps_fee?.label}</Text>
-        <Flex justify={"space-between"} align={"flex-end"}>
-          <Text>Rp. </Text>
+        <Flex justify={"space-between"}>
+          <Text ml={6}>Rp. </Text>
           <Text fontWeight={600}>
             <s>{formatPrice(context?.additional?.apps_fee?.value)}</s>
           </Text>
         </Flex>
       </SimpleGrid>
-      <SimpleGrid spacing={2} columns={2} mb={1}>
+      <SimpleGrid spacing={2} columns={2} mb={4}>
         <Text>{context?.additional?.subs_fee?.label}</Text>
-        <Flex justify={"space-between"} align={"flex-end"}>
-          <Text>Rp. </Text>
+        <Flex justify={"space-between"}>
+          <Text ml={6}>Rp. </Text>
           <Text fontWeight={600}>
             {formatPrice(context?.additional?.subs_fee?.value)}
           </Text>
@@ -76,19 +76,19 @@ export default function DetailPayment() {
       </SimpleGrid>
       {context?.paymentDetail?.package.map((item, index) => {
         return (
-          <SimpleGrid key={index} spacing={2} columns={2} mb={1}>
+          <SimpleGrid key={index} spacing={2} columns={2} mb={4}>
             <Text>{item.name}</Text>
-            <Flex justify={"space-between"} align={"flex-end"}>
-              <Text>Rp. </Text>
+            <Flex justify={"space-between"}>
+              <Text ml={6}>Rp. </Text>
               <Text fontWeight={600}>{formatPrice(item.price)}</Text>
             </Flex>
           </SimpleGrid>
         );
       })}
-      <SimpleGrid spacing={2} columns={2} mb={1}>
+      <SimpleGrid spacing={2} columns={2} mb={4}>
         <Text>Pajak 11% & Biaya Tambahan</Text>
-        <Flex justify={"space-between"} align={"flex-end"}>
-          <Text>Rp. </Text>
+        <Flex justify={"space-between"}>
+          <Text ml={6}>Rp. </Text>
           <Text fontWeight={600}>{formatPrice(getTax())}</Text>
         </Flex>
       </SimpleGrid>

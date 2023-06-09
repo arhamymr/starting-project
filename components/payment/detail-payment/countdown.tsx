@@ -90,11 +90,13 @@ export default function CountDown({ expired }) {
         height={180}
       />
       <Text mb={"31px"} fontSize={"15px"} textAlign={"center"} fontWeight={600}>
-        Yuk bayar sebelum!
+        {!!expired ? "Yuk bayar sebelum!" : "Status Pembayaran Expired"}
       </Text>
       <CountdownTimer expired={expired} />
       <Text mt={"27px"} maxW={"214px"} textAlign={"center"}>
-        Harap segera lakukan pembayaran sebelum batas waktu yang ditentukan yah!
+        {!!expired
+          ? "Harap segera lakukan pembayaran sebelum batas waktu yang ditentukan yah!"
+          : "Batas waktu tiket pembayaramu telah berakhir. Yuk daftar llang paketmu!"}
       </Text>
     </Center>
   );

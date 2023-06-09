@@ -14,7 +14,7 @@ function useRegister() {
       const response = await fetchData(options);
       return response.data;
     } catch (error) {
-      throw new Error("Error fetching data:", error);
+      throw error.response;
     }
   };
 

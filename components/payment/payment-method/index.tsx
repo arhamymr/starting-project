@@ -33,13 +33,7 @@ const Item = ({ logo, label, payment_id }) => {
       alignItems={"center"}
     >
       <Flex gap={3} alignItems={"center"} justifyContent={"center"}>
-        <Image
-          quality={100}
-          src={"https://dev-asset.serpul.co.id/" + logo}
-          alt={label}
-          width={108}
-          height={40}
-        />
+        <Image quality={100} src={logo} alt={label} width={108} height={40} />
         <Text>{label}</Text>
       </Flex>
 
@@ -130,14 +124,14 @@ const PaymentList = () => {
     });
   }, []);
 
-  console.log(context);
+  console.log(data);
   return (
     <Box mb={"422px"}>
       <Text mb={"22px"} fontWeight={600}>
         1. Transfer Bank
       </Text>
       <Box mb={"22px"} bg={"gray.100"} rounded={"lg"} px={6}>
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <Box key={index}>
             <Item
               payment_id={item.id}

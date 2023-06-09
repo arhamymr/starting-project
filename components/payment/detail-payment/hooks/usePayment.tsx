@@ -5,8 +5,10 @@ function usePayment() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [fee, setFee] = useState({
-    apps_fee: 0,
-    subs_fee: 0,
+    data: {
+      apps_fee: 0,
+      subs_fee: 0,
+    },
   });
 
   const getFee = async () => {
@@ -38,7 +40,7 @@ function usePayment() {
       setData(response.data);
       return response.data;
     } catch (error) {
-      throw new Error("Error fetching data:", error);
+      throw error.response;
     } finally {
       setLoading(false);
     }

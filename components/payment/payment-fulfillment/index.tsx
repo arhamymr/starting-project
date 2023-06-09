@@ -8,18 +8,11 @@ import { useState } from "react";
 import Link from "next/link";
 
 const content = (data) => {
-  console.log(data);
   return [
-    // {
-    //   label: "Total Pembayaran",
-    //   type: "price",
-    //   value: 1549000,
-    // },
     {
       label: "Metode Pembayaran",
       type: "image",
-      value:
-        "https://dev-asset.serpul.co.id" + data.payment_method.payment_logo,
+      value: data.payment_method.payment_logo,
     },
     {
       label: "Nomor Rekening",
@@ -73,7 +66,6 @@ const ValueRender = ({ type, value }) => {
 };
 
 export default function PaymentFulfilment({ data }) {
-  console.log(data, "data");
   return (
     <Box>
       {!data.total_price ? (

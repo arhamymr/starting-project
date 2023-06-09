@@ -1,11 +1,4 @@
-import {
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  Box,
-  Text,
-} from "@chakra-ui/react";
+import { ListItem, OrderedList, Box, Text } from "@chakra-ui/react";
 
 import { data } from "./data";
 

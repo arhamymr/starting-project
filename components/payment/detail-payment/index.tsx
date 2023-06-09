@@ -7,34 +7,36 @@ import Detail from "./detail";
 import usePayment from "./hooks/usePayment";
 import { useRouter } from "next/router";
 import { slideUp } from "helpers/dom";
+import { useToast } from "@chakra-ui/react";
 
 export default function DetailPayment() {
   const { context, setContext } = useContext(PaymentContext);
   const { loading, pay } = usePayment();
+  const toast = useToast();
+
   const router = useRouter();
   const handleNextPayment = (payment = {}) => {
     slideUp();
     setContext({ ...context, payment, currentStep: context.currentStep + 1 });
   };
 
-  const getCustomerId = () => {
-    return localStorage.getItem("customer_id");
-  };
-
   const handlePay = async () => {
     try {
       const payload = {
-        customer_id: getCustomerId(),
         payment_id: context?.paymentDetail?.paymentMethod?.payment_id,
         item: context?.paymentDetail.package,
       };
-      // console.log(payload);
-      const data = await pay(payload);
-      if (data?.invoice_id) {
-        router.push("/payment-fullfilment?invoice_id=" + data?.invoice_id);
-      }
+
+      await pay(payload);
+      router.push("/payment-fullfilment");
     } catch (error) {
-      window.alert("Terjadi Kesalahan" + error);
+      toast({
+        // title: "",
+        description: "Mohon maaf, Sedang terjadi gangguan",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
     }
   };
 

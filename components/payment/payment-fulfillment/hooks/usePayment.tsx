@@ -8,18 +8,17 @@ function usePayment() {
     expired_time: "",
   });
 
-  const payConf = async (invoice_id) => {
+  const payConf = async () => {
     setLoading(true);
     try {
       const options = {
         method: "GET",
-        url: "/pay?invoice_id=" + invoice_id,
+        url: "/pay",
       };
       const response = await fetchData(options);
-      setData(response.data);
-      return response.data;
+      setData(response.data.data);
     } catch (error) {
-      throw new Error("Error fetching data:", error);
+      throw error.response;
     } finally {
       setLoading(false);
     }

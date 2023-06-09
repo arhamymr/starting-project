@@ -13,10 +13,10 @@ function usePayment() {
         url: "/payment-method",
       };
       const response = await fetchData(options);
-      setData(response.data);
-      callback(response.data);
+      setData(response.data.data);
+      callback(response.data.data);
     } catch (error) {
-      throw new Error("Error fetching data:", error);
+      throw error;
     } finally {
       setLoading(false);
     }

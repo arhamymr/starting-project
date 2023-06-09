@@ -2,7 +2,6 @@ import PaymentLayout from "layouts/payment";
 import PaymentFulfilment from "components/payment/payment-fulfillment";
 import CountDown from "components/payment/detail-payment/countdown";
 import { Box, Flex, Text, Progress } from "@chakra-ui/react";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 import usePayment from "components/payment/payment-fulfillment/hooks/usePayment";
 
@@ -58,14 +57,12 @@ function StepperComp() {
 
 const Payment = () => {
   const { data, payConf } = usePayment();
-  const router = useRouter();
 
   useEffect(() => {
-    if (router.query.invoice_id) {
-      payConf(router.query.invoice_id);
-    }
-  }, [router.query.invoice_id]);
+    payConf();
+  }, []);
 
+  console.log(data, "data");
   return (
     <PaymentLayout
       title={"Selesaikan Pembayaran"}
