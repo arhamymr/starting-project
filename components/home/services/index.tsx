@@ -30,7 +30,6 @@ const Navbar = () => {
     "#add-on": 1,
   };
 
-  console.log(activeNavItem, "console");
   useEffect(() => {
     setActive(mapNav[activeNavItem] === undefined ? 0 : mapNav[activeNavItem]);
   }, [activeNavItem]);
