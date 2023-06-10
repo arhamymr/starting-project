@@ -140,7 +140,7 @@ export default function Hero() {
                 justifyContent={"space-between"}
                 alignItems={"center"}
                 flexWrap={"wrap"}
-                gap={"30px"}
+                gap={"20px"}
               >
                 {data.map((item) => (
                   <Center key={item} w={"135px"} h={"54px"}>

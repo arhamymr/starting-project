@@ -124,9 +124,8 @@ const PaymentList = () => {
     });
   }, []);
 
-  console.log(data);
   return (
-    <Box mb={"422px"}>
+    <Box mb={{ base: 0, md: "422px" }}>
       <Text mb={"22px"} fontWeight={600}>
         1. Transfer Bank
       </Text>

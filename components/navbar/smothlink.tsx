@@ -1,27 +1,39 @@
-import React, { useEffect } from "react";
-import { Link } from "@chakra-ui/react";
+import React, { useContext, useEffect, useRef } from "react";
+import { Text } from "@chakra-ui/react";
+import { NavbarContext } from "layouts/main";
 function SmoothScrollLink({ targetId, label }) {
+  const linkRef = useRef(null);
+  const { setActiveNavItem } = useContext(NavbarContext);
+
   useEffect(() => {
     const handleClick = (event) => {
       event.preventDefault();
       const targetElement = document.querySelector(targetId);
-      targetElement.scrollIntoView({ behavior: "smooth" });
+      targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
     };
 
-    const link = document.querySelector(`a[href="${targetId}"]`);
-    link?.addEventListener("click", handleClick);
+    if (linkRef.current) {
+      linkRef.current.addEventListener("click", handleClick);
+    }
 
     return () => {
-      link?.removeEventListener("click", handleClick);
+      if (linkRef.current) {
+        linkRef.current.removeEventListener("click", handleClick);
+      }
     };
   }, [targetId]);
 
+  const handleClick = (target) => {
+    setActiveNavItem(target);
+  };
   return (
-    <Link
-      p={2}
-      href={targetId}
+    <Text
+      p={{ base: 0, md: 2 }}
+      className={targetId}
       fontSize={"sm"}
+      ref={linkRef}
       fontWeight={500}
+      onClick={() => handleClick(targetId)}
       color={
         label === "Affiliate Program" || label === "Template"
           ? "gray.300"
@@ -31,7 +43,7 @@ function SmoothScrollLink({ targetId, label }) {
       cursor={
         label === "Affiliate Program" || label === "Template"
           ? "not-allowed"
-          : "cursor"
+          : "pointer"
       }
       _hover={{
         textDecoration: "none",
@@ -42,7 +54,7 @@ function SmoothScrollLink({ targetId, label }) {
       }}
     >
       {label}
-    </Link>
+    </Text>
   );
 }
 

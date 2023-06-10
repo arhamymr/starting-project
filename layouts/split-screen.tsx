@@ -3,7 +3,7 @@ import Carousel from "components/register/form-register/carousel";
 
 export default function SplitScreen({ children, isCarousel = false }) {
   return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
+    <Stack minH={"100vh"} direction={{ base: "column-reverse", md: "row" }}>
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
         {children}
       </Flex>

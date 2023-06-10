@@ -69,7 +69,7 @@ export default function Navigation() {
         </Container>
 
         <Collapse in={isOpen} animateOpacity>
-          <MobileNav />
+          <MobileNav onToggle={onToggle} />
         </Collapse>
       </Box>
     </Box>
@@ -88,62 +88,22 @@ const DesktopNav = () => {
   );
 };
 
-const MobileNav = () => {
+const MobileNav = ({ onToggle }) => {
   return (
     <Stack bg={"white"} p={4} display={{ md: "none" }}>
       {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+        <MobileNavItem onToggle={onToggle} key={navItem.label} {...navItem} />
       ))}
     </Stack>
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
-  const { isOpen, onToggle } = useDisclosure();
-
+const MobileNavItem = ({ label, onToggle, href }: NavItem) => {
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
-      <Flex
-        py={2}
-        as={Link}
-        href={href ?? "#"}
-        justify={"space-between"}
-        align={"center"}
-        _hover={{
-          textDecoration: "none",
-        }}
-      >
-        <Text fontWeight={600} color={"gray.600"}>
-          {label}
-        </Text>
-        {children && (
-          <Icon
-            as={ChevronDownIcon}
-            transition={"all .25s ease-in-out"}
-            transform={isOpen ? "rotate(180deg)" : ""}
-            w={6}
-            h={6}
-          />
-        )}
-      </Flex>
-
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
-        <Stack
-          mt={2}
-          pl={4}
-          borderLeft={1}
-          borderStyle={"solid"}
-          borderColor={"gray.600"}
-          align={"start"}
-        >
-          {children &&
-            children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
-                {child.label}
-              </Link>
-            ))}
-        </Stack>
-      </Collapse>
+    <Stack spacing={4} onClick={onToggle}>
+      <Box py={2}>
+        <SmoothScrollLink key={label} targetId={href} label={label} />
+      </Box>
     </Stack>
   );
 };
@@ -151,8 +111,9 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
 interface NavItem {
   label: string;
   subLabel?: string;
-  children?: Array<NavItem>;
+  onToggle?: any;
   href?: string;
+  query?: string;
 }
 
 const NAV_ITEMS: Array<NavItem> = [
@@ -166,15 +127,16 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Product",
-    href: "#services",
+    href: "#product",
+    query: "product",
   },
   {
     label: "Add-On",
-    href: "#services",
+    href: "#add-on",
   },
   {
     label: "Template",
-    href: "#services",
+    href: "#template",
   },
   {
     label: "Testimonial",

@@ -10,7 +10,13 @@ export default function PaymentLayout({ main, sidebar, title }) {
           {title}
         </Text>
         <Flex gap={"35px"} direction={{ base: "column", md: "row" }}>
-          <Box bg={"white"} mb={300} rounded={"8px"} flex={1} p={"27px"}>
+          <Box
+            bg={"white"}
+            mb={{ base: 0, md: 300 }}
+            rounded={"8px"}
+            flex={1}
+            p={"27px"}
+          >
             {main}
           </Box>
           <Box mb={20} rounded={"8px "} width={{ base: "full", md: "361px" }}>

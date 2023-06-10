@@ -32,7 +32,7 @@ export default function DetailPayment() {
     } catch (error) {
       toast({
         // title: "",
-        description: "Mohon maaf, Sedang terjadi gangguan",
+        description: error.data.message,
         status: "error",
         duration: 9000,
         isClosable: true,

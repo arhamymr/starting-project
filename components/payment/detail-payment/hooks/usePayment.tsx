@@ -8,6 +8,7 @@ function usePayment() {
     data: {
       apps_fee: 0,
       subs_fee: 0,
+      other_fee: 0,
     },
   });
 

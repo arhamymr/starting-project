@@ -20,6 +20,7 @@ export default function DetailPayment() {
   const getTotalPrice = () => {
     return (
       49000 +
+      context?.additional?.other_fee.value +
       context?.paymentDetail?.package?.reduce((accumulator, currentObject) => {
         return accumulator + currentObject.price;
       }, 0)
@@ -45,6 +46,9 @@ export default function DetailPayment() {
         subs_fee: {
           label: "Biaya Langganan/bulan",
           value: fee?.data.subs_fee,
+        },
+        other_fee: {
+          value: fee?.data.other_fee,
         },
       },
     });

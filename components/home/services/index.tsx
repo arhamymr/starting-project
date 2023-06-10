@@ -1,10 +1,11 @@
 import { Box, Heading, Text, Flex, Center } from "@chakra-ui/react";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Product from "./product";
 import AddOn from "./add-on";
 import Deposit from "./deposit";
 import Template from "./template";
+import { NavbarContext } from "layouts/main";
 
 const RenderServices = ({ type }) => {
   switch (type) {
@@ -17,13 +18,22 @@ const RenderServices = ({ type }) => {
     case 3:
       return <Deposit />;
     default:
-      return <p> product not available </p>;
+      return <Product />;
   }
 };
 const Navbar = () => {
-  const router = useRouter();
+  const [active, setActive] = useState(0);
+  const { activeNavItem } = useContext(NavbarContext);
 
-  const [active, setActive] = useState(router.query.s || 0);
+  const mapNav = {
+    "#product": 0,
+    "#add-on": 1,
+  };
+  useEffect(() => {
+    setActive(mapNav[activeNavItem] && active);
+  }, [activeNavItem]);
+
+  console.log(activeNavItem, "tes");
   const menu = ["Product", "Add-On", "Template", "Deposit"];
 
   const disableList = (menu) => {
@@ -33,7 +43,7 @@ const Navbar = () => {
     return true;
   };
   return (
-    <Box id={"services"}>
+    <Box>
       <Center
         maxW={"full"}
         pt={"46px"}
@@ -48,6 +58,7 @@ const Navbar = () => {
         >
           {menu.map((item, index) => (
             <Text
+              id={item.toLowerCase()}
               p={"8px 16px"}
               rounded={"40px"}
               bg={active === index && "white"}

@@ -17,7 +17,7 @@ export default function Carousel() {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    autoPlay: true,
+    autoplay: true,
     slidesToScroll: 1,
     afterChange: (index) => {
       setCurrentIndex(index);
@@ -30,9 +30,7 @@ export default function Carousel() {
               key={index}
               rounded={"full"}
               bg={
-                item.props.className !== "slick-active"
-                  ? "brand.100"
-                  : "brand.500"
+                item.props.className !== "slick-active" ? "white" : "brand.500"
               }
               w={item.props.className === "slick-active" ? "60px" : "10px"}
               h={"10px"}
@@ -70,6 +68,7 @@ export default function Carousel() {
           top={top}
           transform={"translate(0%, -50%)"}
           zIndex={2}
+          boxShadow={"inner"}
           onClick={() => slider?.slickPrev()}
         >
           <ChevronLeftIcon />
@@ -82,6 +81,7 @@ export default function Carousel() {
           borderRadius="15px"
           position="absolute"
           right={side}
+          boxShadow={"inner"}
           top={top}
           transform={"translate(0%, -50%)"}
           zIndex={2}
