@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <Head>
-        <title>Serpul</title>
+        <title>Serpul.co.id</title>
         <meta
           name="description"
           content="Nikmati manfaat dan kemudahan dalam membuat aplikasi sesuka hati dengan beragam fitur, add-on dan template yang kami sediakan"

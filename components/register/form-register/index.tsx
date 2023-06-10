@@ -54,7 +54,7 @@ const FormRegister = () => {
           });
         }
         return toast({
-          description: "Data ",
+          description: error.data.message,
           status: "error",
           duration: 9000,
           isClosable: true,

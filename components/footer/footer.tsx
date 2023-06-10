@@ -15,6 +15,7 @@ import { InstagramIcon } from "icons/ig";
 import { FacebookIcon } from "icons/fb";
 import { TelegramIcon } from "icons/telegram";
 import { LinkedinIcon } from "icons/linkedin";
+import Link from "next/link";
 
 const Logo = () => {
   return (
@@ -57,8 +58,8 @@ export default function Footer() {
           <Stack align={"flex-start"}>
             <ListHeader>Perusahaan</ListHeader>
             <a href={"#"}>Tentang</a>
-            <a href={"#"}>FAQ</a>
-            <a href={"#"}>Syarat dan Ketentuan</a>
+            <a href={"#faq"}>FAQ</a>
+            <Link href={"/terms-and-conditions"}>Syarat dan Ketentuan</Link>
             <a href={"#"}>Loker</a>
             <a href={"#"}>Blog</a>
           </Stack>
@@ -67,21 +68,41 @@ export default function Footer() {
             <a href={"#"}>Produk</a>
             <a href={"#"}>Add-On</a>
           </Stack>
-          <Stack align={"flex-start"}>
+          <Stack align={"flex-start"} gap={1}>
             <ListHeader>Hubungi Kami</ListHeader>
             <HStack>
               <WhatsappFillIcon />
-              <a href={"#"}>+6281354444604</a>
+              <a
+                href={
+                  "https://api.whatsapp.com/send/?phone=6281354444604&text&type=phone_number&app_absent=0"
+                }
+                target="_blank"
+              >
+                +6281354444604
+              </a>
             </HStack>
-            <HStack mb={"24px"}>
+            <HStack>
               <EmailIcon />
-              <a href={"#"}>+serpul@yuscorp.co.id</a>
+              <a target="_blank" href={"mailto:serpul@yuscorp.co.id"}>
+                serpul@yuscorp.co.id
+              </a>
             </HStack>
             <HStack gap={"24px"}>
-              <InstagramIcon />
-              <FacebookIcon />
-              <TelegramIcon />
-              <LinkedinIcon />
+              <a href={"https://www.instagram.com/serpulcoid/"} target="_blank">
+                <InstagramIcon />
+              </a>
+              <a href={"https://www.facebook.com/serpulcoid/"} target="_blank">
+                <FacebookIcon />
+              </a>
+              <a href={"https://t.me/sahabatserpul"} target="_blank">
+                <TelegramIcon />
+              </a>
+              <a
+                href={"https://www.linkedin.com/company/yuscorp"}
+                target="_blank"
+              >
+                <LinkedinIcon />
+              </a>
             </HStack>
           </Stack>
         </SimpleGrid>

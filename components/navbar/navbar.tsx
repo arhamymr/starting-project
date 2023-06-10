@@ -9,10 +9,10 @@ import {
   Link,
   Container,
   useDisclosure,
-  Center,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import Image from "next/image";
+import SmoothScrollLink from "./smothlink";
 
 export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -81,20 +81,7 @@ const DesktopNav = () => {
     <Flex align={"center"} gap={"48px"}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
-          <Link
-            p={2}
-            href={navItem.href ?? "#"}
-            fontSize={"sm"}
-            fontWeight={500}
-            color={"gray.500"}
-            whiteSpace={"nowrap"}
-            _hover={{
-              textDecoration: "none",
-              color: "black",
-            }}
-          >
-            {navItem.label}
-          </Link>
+          <SmoothScrollLink targetId={navItem.href} label={navItem.label} />
         </Box>
       ))}
     </Flex>
@@ -171,6 +158,7 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
+    href: "#hero",
   },
   {
     label: "Benefit",
@@ -198,6 +186,5 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Affiliate Program",
-    href: "#",
   },
 ];

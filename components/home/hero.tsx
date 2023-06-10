@@ -86,7 +86,7 @@ const data = [
 
 export default function Hero() {
   return (
-    <Box>
+    <Box id={"hero"}>
       <Container maxW="1350px" p={"65px"}>
         <Center flexDirection={"column"} pt={"136px"} pb={"84px"}>
           <Image
@@ -136,7 +136,7 @@ export default function Hero() {
             </Text>
             <Marquee>
               <Flex
-                w={"full"}
+                w={"1440px"}
                 justifyContent={"space-between"}
                 alignItems={"center"}
                 flexWrap={"wrap"}

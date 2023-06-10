@@ -35,10 +35,19 @@ export default function SliderComp({ children, slide = 4 }) {
     },
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1300,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },

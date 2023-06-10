@@ -22,7 +22,7 @@ function usePayment() {
       setFee(response.data);
       return response.data;
     } catch (error) {
-      throw new Error("Error fetching data:", error);
+      throw error.response;
     } finally {
       setLoading(false);
     }

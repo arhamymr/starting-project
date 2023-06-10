@@ -1,4 +1,13 @@
-import { Box, Heading, Text, Center, Container } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  Center,
+  Container,
+  Divider,
+  Flex,
+  Spacer,
+} from "@chakra-ui/react";
 
 import {
   Accordion,
@@ -81,10 +90,10 @@ export default function FAQ() {
         </Heading>
       </Center>
       <Container pb={"60px"} maxW="1150px" position={"relative"}>
-        <Accordion defaultIndex={[0]} allowMultiple>
+        <Accordion allowMultiple>
           {data.map((item) => (
             <AccordionItem
-              p={"20px 40px"}
+              p={"10px"}
               mb={"16px"}
               bg={"brand.100"}
               rounded={"md"}
@@ -92,13 +101,19 @@ export default function FAQ() {
             >
               <h2>
                 <AccordionButton>
-                  <Box as="span" flex="1" textAlign="left">
-                    {item.ask}
-                  </Box>
-                  <AccordionIcon />
+                  <Flex w={"full"} align={"center"}>
+                    <Text as={"div"} textAlign="left" fontWeight={500}>
+                      {item.ask}
+                    </Text>
+                    <Spacer />
+                    <AccordionIcon fontSize={"30"} color={"brand.500"} />
+                  </Flex>
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>{item.answer}</AccordionPanel>
+              <AccordionPanel pb={4}>
+                <Divider />
+                <Text as={"div"}>{item.answer}</Text>
+              </AccordionPanel>
             </AccordionItem>
           ))}
         </Accordion>

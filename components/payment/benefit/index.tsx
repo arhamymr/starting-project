@@ -18,7 +18,6 @@ const Benefit = () => {
           >
             <CheckIcon fontSize={"11px"} />
           </Center>
-
           <Text fontSize={"14px"} fontWeight={600}>
             {item}
           </Text>

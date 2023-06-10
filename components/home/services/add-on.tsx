@@ -57,7 +57,11 @@ const RenderProduct = ({ type }) => {
   return (
     <Grid
       mb={"127px"}
-      templateColumns={{ base: "1fr 1fr", md: "repeat(4, 1fr)" }}
+      templateColumns={{
+        base: "1fr 1fr",
+        xl: "repeat(3, 1fr)",
+        "2xl": "repeat(4, 1fr)",
+      }}
       gap={{ base: "16px", md: "31px" }}
       p={4}
     >
@@ -88,7 +92,7 @@ const Product = () => {
 
   return (
     <Box>
-      <Center w={"100vw"} pt={"46px"} pb={"30px"}>
+      <Center w={"full"} pt={"46px"} pb={"30px"}>
         <Flex gap={"69px"} overflowX={"auto"} whiteSpace={"nowrap"}>
           {menu.map((item, index) => (
             <Text

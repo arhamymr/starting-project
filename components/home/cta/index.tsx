@@ -21,9 +21,9 @@ export default function CTA() {
           display={{ base: "none", md: "block" }}
           position={"absolute"}
           bottom={0}
-          left={-200}
+          left={-100}
         >
-          <Image src={"/assets/cta.png"} width={707} height={517} alt={"cta"} />
+          <Image src={"/assets/cta.png"} width={607} height={517} alt={"cta"} />
         </Box>
         <Center
           flexDirection={"column"}
