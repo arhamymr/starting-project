@@ -29,11 +29,13 @@ const Navbar = () => {
     "#product": 0,
     "#add-on": 1,
   };
+
+  console.log(activeNavItem, "console");
   useEffect(() => {
-    setActive(mapNav[activeNavItem] && active);
+    setActive(mapNav[activeNavItem] === undefined ? 0 : mapNav[activeNavItem]);
   }, [activeNavItem]);
 
-  console.log(activeNavItem, "tes");
+  console.log(active, "active");
   const menu = ["Product", "Add-On", "Template", "Deposit"];
 
   const disableList = (menu) => {

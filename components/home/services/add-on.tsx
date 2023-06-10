@@ -92,7 +92,7 @@ const Product = () => {
 
   return (
     <Box>
-      <Center w={"full"} pt={"46px"} pb={"30px"}>
+      <Center w={"100vw"} maxW={"1440px"} pt={"46px"} pb={"30px"}>
         <Flex gap={"69px"} overflowX={"auto"} whiteSpace={"nowrap"}>
           {menu.map((item, index) => (
             <Text
