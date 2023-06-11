@@ -8,12 +8,18 @@ import { CheckIcon } from "@chakra-ui/icons";
 import { PaymentContext } from "contents/payment/context";
 import usePayment from "./hooks/usePayment";
 
-const Item = ({ logo, label, payment_id }) => {
+const Item = ({ logo, label, payment_id, service_fee }) => {
   const { context, setContext } = useContext(PaymentContext);
 
   const handleSelect = () => {
     setContext({
       ...context,
+      additional: {
+        ...context.additional,
+        other_fee: {
+          value: service_fee,
+        },
+      },
       paymentDetail: {
         ...context.paymentDetail,
         paymentMethod: {
@@ -112,11 +118,11 @@ const Item = ({ logo, label, payment_id }) => {
 // };
 
 const PaymentList = () => {
-  const { data, getPaymenyMethod } = usePayment();
+  const { data, getPaymentMethod } = usePayment();
   const { context, setContext } = useContext(PaymentContext);
 
   useEffect(() => {
-    getPaymenyMethod((d) => {
+    getPaymentMethod((d) => {
       setContext({
         ...context,
         paymentMethod: d,
@@ -136,6 +142,7 @@ const PaymentList = () => {
               payment_id={item.id}
               logo={item.payment_logo}
               label={item.payment_name}
+              service_fee={item.biaya_layanan}
             />
             {/* {index !== data.items.length - 1 && <Divider />} */}
           </Box>

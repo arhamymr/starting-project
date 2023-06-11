@@ -2,6 +2,19 @@ import React, { useState } from "react";
 
 const initialData: any = {
   currentStep: 1,
+  additional: {
+    apps_fee: {
+      label: "Biaya Pembuatan Aplikasi",
+      value: 0,
+    },
+    subs_fee: {
+      label: "Biaya Langganan/bulan",
+      value: 0,
+    },
+    other_fee: {
+      value: 0,
+    },
+  },
   paymentDetail: {
     package: [],
     paymentMethod: {

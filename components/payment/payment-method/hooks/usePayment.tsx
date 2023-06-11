@@ -5,7 +5,7 @@ function usePayment() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
-  const getPaymenyMethod = async (callback) => {
+  const getPaymentMethod = async (callback) => {
     setLoading(true);
     try {
       const options = {
@@ -25,7 +25,7 @@ function usePayment() {
   return {
     loading,
     setLoading,
-    getPaymenyMethod,
+    getPaymentMethod,
     data,
   };
 }
