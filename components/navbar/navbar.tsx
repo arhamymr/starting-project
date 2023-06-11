@@ -10,7 +10,7 @@ import {
   Container,
   useDisclosure,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import SmoothScrollLink from "./smothlink";
 
@@ -36,12 +36,14 @@ export default function Navigation() {
             py={{ base: 2 }}
             align={"center"}
           >
-            <Image
-              src={"/assets/logo.png"}
-              width={132}
-              height={28}
-              alt="logo"
-            />
+            <Link href={"#"}>
+              <Image
+                src={"/assets/logo.png"}
+                width={132}
+                height={28}
+                alt="logo"
+              />
+            </Link>
 
             <Box display={{ base: "flex", md: "none" }}>
               <IconButton
@@ -128,7 +130,6 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Product",
     href: "#product",
-    query: "product",
   },
   {
     label: "Add-On",

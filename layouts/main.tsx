@@ -31,6 +31,7 @@ export default function Main({ children }) {
     <NavbarContextProvider>
       <Box overflow={"hidden"}>
         <Navbar />
+        <Box id={"hero"} />
         {children}
         <Footer />
         <FloatingButton />

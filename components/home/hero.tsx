@@ -86,7 +86,7 @@ const data = [
 
 export default function Hero() {
   return (
-    <Box id={"hero"}>
+    <Box>
       <Container maxW="1350px" p={"65px"}>
         <Center flexDirection={"column"} pt={"136px"} pb={"84px"}>
           <Image
