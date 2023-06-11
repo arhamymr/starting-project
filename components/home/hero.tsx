@@ -136,25 +136,25 @@ export default function Hero() {
             </Text>
             <Marquee>
               <Flex
-                w={"1440px"}
+                w={"1450px"}
                 justifyContent={"space-between"}
                 alignItems={"center"}
                 flexWrap={"wrap"}
+                mx={"20px"}
                 gap={"20px"}
               >
                 {data.map((item) => (
-                  <Center key={item} w={"135px"} h={"54px"}>
+                  <Box key={item} w={"135px"} h={"54px"} position={"relative"}>
                     <Image
                       src={"/assets/lp/" + item}
                       alt={item}
-                      width={135}
-                      height={54}
+                      fill
                       quality={100}
                       style={{
                         objectFit: "cover",
                       }}
                     />
-                  </Center>
+                  </Box>
                 ))}
               </Flex>
             </Marquee>
