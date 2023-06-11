@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { Text, Box } from "@chakra-ui/react";
-import { NavbarContext } from "layouts/main";
+import { NavbarContext } from "layouts/context";
 
 interface ISmootProps {
   targetId: string;
@@ -32,6 +32,7 @@ function SmoothScrollLink({ targetId, label, children }: ISmootProps) {
   const handleClick = (target) => {
     setActiveNavItem(target);
   };
+
   return (
     <>
       {children ? (

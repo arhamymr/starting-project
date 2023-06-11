@@ -5,7 +5,7 @@ import Product from "./product";
 import AddOn from "./add-on";
 import Deposit from "./deposit";
 import Template from "./template";
-import { NavbarContext } from "layouts/main";
+import { NavbarContext } from "layouts/context";
 
 const RenderServices = ({ type }) => {
   switch (type) {

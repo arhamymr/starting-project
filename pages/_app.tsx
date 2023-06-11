@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import ProgressBar from "@badrap/bar-of-progress";
 import modifyComponent from "styles/component";
+import { NavbarContextProvider } from "layouts/context";
 
 const theme = extendTheme({
   colors: {
@@ -44,15 +45,17 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ChakraProvider theme={theme}>
-      <Head>
-        <title>Serpul.co.id</title>
-        <meta
-          name="description"
-          content="Nikmati manfaat dan kemudahan dalam membuat aplikasi sesuka hati dengan beragam fitur, add-on dan template yang kami sediakan"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Component {...pageProps} />
+      <NavbarContextProvider>
+        <Head>
+          <title>Serpul.co.id</title>
+          <meta
+            name="description"
+            content="Nikmati manfaat dan kemudahan dalam membuat aplikasi sesuka hati dengan beragam fitur, add-on dan template yang kami sediakan"
+          />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Component {...pageProps} />
+      </NavbarContextProvider>
     </ChakraProvider>
   );
 }

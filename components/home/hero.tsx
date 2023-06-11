@@ -88,7 +88,7 @@ export default function Hero() {
   return (
     <Box>
       <Container maxW="1350px" p={"65px"}>
-        <Center flexDirection={"column"} pt={"136px"} pb={"84px"}>
+        <Center flexDirection={"column"} pt={"76px"} pb={"84px"}>
           <Image
             src={"/assets/lp/banner.png"}
             width={681}

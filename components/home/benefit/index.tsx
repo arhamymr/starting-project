@@ -67,8 +67,8 @@ const data = [
 
 export default function Benefit() {
   return (
-    <Box pb={"60px"} id={"benefit"}>
-      <Center flexDirection={"column"} pt={"136px"}>
+    <Box pb={"30px"} id={"benefit"}>
+      <Center flexDirection={"column"} pt={"100px"}>
         <Heading
           fontSize={"30px"}
           mb={{ base: "20px", md: "31px" }}

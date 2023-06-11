@@ -102,7 +102,7 @@ export default function FAQ() {
               <h2>
                 <AccordionButton>
                   <Flex w={"full"} align={"center"}>
-                    <Text as={"div"} textAlign="left" fontWeight={500}>
+                    <Text as={"div"} textAlign="left" fontWeight={700}>
                       {item.ask}
                     </Text>
                     <Spacer />

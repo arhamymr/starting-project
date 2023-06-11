@@ -35,7 +35,7 @@ export default function Steps() {
   return (
     <Box pb={"60px"} bg={"linear-gradient(180deg, #FFFFFF 0%, #B9C0FD 100%)"}>
       <Container maxW="1350px" p={"65px"}>
-        <Center flexDirection={"column"} pt={"136px"}>
+        <Center flexDirection={"column"} pt={"60px"}>
           <Heading
             fontSize={"30px"}
             mb={"51px"}
