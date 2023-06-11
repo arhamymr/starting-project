@@ -69,7 +69,9 @@ export default function Footer() {
             <SmoothScrollLink targetId={"#product"}>
               <Text>Product</Text>
             </SmoothScrollLink>
-            <SmoothScrollLink targetId={"#add-on"} label={"Add-on"} />
+            <SmoothScrollLink targetId={"#add-on"}>
+              <Text>Add-on</Text>
+            </SmoothScrollLink>
           </Stack>
           <Stack align={"flex-start"} gap={1}>
             <ListHeader>Hubungi Kami</ListHeader>
