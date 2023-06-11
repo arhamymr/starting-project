@@ -1,7 +1,13 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { Text } from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
 import { NavbarContext } from "layouts/main";
-function SmoothScrollLink({ targetId, label }) {
+
+interface ISmootProps {
+  targetId: string;
+  label?: string;
+  children?: React.ReactNode;
+}
+function SmoothScrollLink({ targetId, label, children }: ISmootProps) {
   const linkRef = useRef(null);
   const { setActiveNavItem } = useContext(NavbarContext);
 
@@ -27,34 +33,40 @@ function SmoothScrollLink({ targetId, label }) {
     setActiveNavItem(target);
   };
   return (
-    <Text
-      p={{ base: 0, md: 2 }}
-      className={targetId}
-      fontSize={"sm"}
-      ref={linkRef}
-      fontWeight={500}
-      onClick={() => handleClick(targetId)}
-      color={
-        label === "Affiliate Program" || label === "Template"
-          ? "gray.300"
-          : "gray.500"
-      }
-      whiteSpace={"nowrap"}
-      cursor={
-        label === "Affiliate Program" || label === "Template"
-          ? "not-allowed"
-          : "pointer"
-      }
-      _hover={{
-        textDecoration: "none",
-        color:
-          label === "Affiliate Program" || label === "Template"
-            ? "gray.300"
-            : "black",
-      }}
-    >
-      {label}
-    </Text>
+    <>
+      {children ? (
+        <Box ref={linkRef}>{children}</Box>
+      ) : (
+        <Text
+          p={{ base: 0, md: 2 }}
+          className={targetId}
+          fontSize={"sm"}
+          ref={linkRef}
+          fontWeight={500}
+          onClick={() => handleClick(targetId)}
+          color={
+            label === "Affiliate Program" || label === "Template"
+              ? "gray.300"
+              : "gray.500"
+          }
+          whiteSpace={"nowrap"}
+          cursor={
+            label === "Affiliate Program" || label === "Template"
+              ? "not-allowed"
+              : "pointer"
+          }
+          _hover={{
+            textDecoration: "none",
+            color:
+              label === "Affiliate Program" || label === "Template"
+                ? "gray.300"
+                : "black",
+          }}
+        >
+          {label}
+        </Text>
+      )}
+    </>
   );
 }
 

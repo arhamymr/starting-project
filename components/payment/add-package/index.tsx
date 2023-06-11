@@ -40,6 +40,7 @@ export default function CardList() {
     for (let i = 1; i <= data?.last_page; i++) {
       pageNumbers.push(
         <NavNumber
+          key={i}
           onClick={() => handleChangePage(i)}
           active={currentPage !== i ? false : true}
         >

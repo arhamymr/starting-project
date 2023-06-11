@@ -16,6 +16,7 @@ import { FacebookIcon } from "icons/fb";
 import { TelegramIcon } from "icons/telegram";
 import { LinkedinIcon } from "icons/linkedin";
 import Link from "next/link";
+import SmoothScrollLink from "components/navbar/smothlink";
 
 const Logo = () => {
   return (
@@ -65,8 +66,10 @@ export default function Footer() {
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Informasi Produk</ListHeader>
-            <a href={"#"}>Produk</a>
-            <a href={"#"}>Add-On</a>
+            <SmoothScrollLink targetId={"#product"}>
+              <Text>Product</Text>
+            </SmoothScrollLink>
+            <SmoothScrollLink targetId={"#add-on"} label={"Add-on"} />
           </Stack>
           <Stack align={"flex-start"} gap={1}>
             <ListHeader>Hubungi Kami</ListHeader>

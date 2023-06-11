@@ -56,17 +56,16 @@ function StepperComp() {
 }
 
 const Payment = () => {
-  const { data, payConf } = usePayment();
+  const { data, payConf, loading } = usePayment();
 
   useEffect(() => {
     payConf();
   }, []);
 
-  console.log(data, "data");
   return (
     <PaymentLayout
       title={"Selesaikan Pembayaran"}
-      main={<PaymentFulfilment data={data} />}
+      main={<PaymentFulfilment data={data} loading={loading} />}
       sidebar={
         <Box
           mb={"21px"}

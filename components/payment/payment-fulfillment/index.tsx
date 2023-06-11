@@ -12,7 +12,7 @@ const content = (data) => {
     {
       label: "Metode Pembayaran",
       type: "image",
-      value: data.payment_method.payment_logo,
+      value: data?.payment_method?.payment_logo,
     },
     {
       label: "Nomor Rekening",
@@ -65,10 +65,10 @@ const ValueRender = ({ type, value }) => {
   }
 };
 
-export default function PaymentFulfilment({ data }) {
+export default function PaymentFulfilment({ data, loading }) {
   return (
     <Box>
-      {!data.total_price ? (
+      {!!loading ? (
         <Center h={40}>
           <Spinner />
         </Center>
