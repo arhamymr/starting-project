@@ -53,22 +53,26 @@ const data = [
   },
 ];
 
-const RenderProduct = ({ type }) => {
+const RenderProduct = () => {
   return (
-    <Grid
-      mb={"127px"}
-      templateColumns={{
-        base: "1fr 1fr",
-        xl: "repeat(3, 1fr)",
-        "2xl": "repeat(4, 1fr)",
-      }}
-      gap={{ base: "16px", md: "31px" }}
-      p={4}
-    >
-      {data.map((item, index) => (
-        <AddOnCard data={item} key={index} />
-      ))}
-    </Grid>
+    <Center>
+      <Box maxW={"1440px"}>
+        <Grid
+          mb={"127px"}
+          templateColumns={{
+            base: "1fr 1fr",
+            xl: "repeat(3, 1fr)",
+            "2xl": "repeat(4, 1fr)",
+          }}
+          gap={{ base: "16px", md: "31px" }}
+          p={4}
+        >
+          {data.map((item, index) => (
+            <AddOnCard data={item} key={index} />
+          ))}
+        </Grid>
+      </Box>
+    </Center>
   );
 };
 
@@ -92,7 +96,7 @@ const Product = () => {
 
   return (
     <Box>
-      <Center w={"100vw"} maxW={"1440px"} pt={"46px"} pb={"30px"}>
+      <Center w={"100vw"} pt={"46px"} pb={"30px"}>
         <Flex gap={"69px"} overflowX={"auto"} whiteSpace={"nowrap"}>
           {menu.map((item, index) => (
             <Text
@@ -109,7 +113,7 @@ const Product = () => {
           ))}
         </Flex>
       </Center>
-      <RenderProduct type={active} />
+      <RenderProduct />
     </Box>
   );
 };
