@@ -1,4 +1,15 @@
-import { Box, Text, Flex, Spinner, Center, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Flex,
+  Spinner,
+  Center,
+  Button,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import { formatPrice, copyToClipboard } from "helpers/payment";
 import { CopyIcon } from "@chakra-ui/icons";
@@ -6,7 +17,7 @@ import Modal from "./modal";
 import ReactHtmlParser from "react-html-parser";
 import { useState } from "react";
 import Link from "next/link";
-
+import { Accordion } from "@chakra-ui/react";
 const content = (data) => {
   return [
     {
@@ -110,15 +121,42 @@ export default function PaymentFulfilment({ data, loading }) {
               </Flex>
             ))}
           </Box>
-          <Box px={5} mb={8}>
-            {ReactHtmlParser(data?.payment_method?.how_to_use)}
-          </Box>
+
+          <Accordion mb={8} defaultIndex={[0]} allowMultiple>
+            <AccordionItem border={"none"}>
+              <h2>
+                <AccordionButton>
+                  <Box
+                    as="span"
+                    fontWeight={600}
+                    fontSize={"17px"}
+                    flex="1"
+                    textAlign="left"
+                  >
+                    Petunjuk Pembayaran
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4}>
+                <Box px={5} mb={8}>
+                  {ReactHtmlParser(data?.payment_method?.how_to_use)}
+                </Box>
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
+
           {!!data?.expired_time ? (
             <Modal />
           ) : (
-            <Link href={"/payment"}>
-              <Button w={"full"}>Daftar Ulang Paket</Button>
-            </Link>
+            <Flex gap={3}>
+              <Modal />
+              <Box w={"full"}>
+                <Link href={"/payment"}>
+                  <Button w={"full"}>Daftar Ulang Paket</Button>
+                </Link>
+              </Box>
+            </Flex>
           )}
         </Box>
       )}

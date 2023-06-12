@@ -35,6 +35,7 @@ function CountdownTimer({ expired }) {
           rounded={"md"}
           bg={"gray.100"}
           mb={"7px"}
+          color={"brand.500"}
         >
           {!!expired ? remainingHours : "00"}
         </Text>
