@@ -36,7 +36,7 @@ const data = [
   {
     text: "Sepengalamanku dalam bermitra dengan Serpul.co.id ini cukup bagus untuk H2H . Produknya makin lengkap, serta transaksi responnya dalam hitungan detik. ",
     image: "/assets/lp/testimonial/tes-6.png",
-    name: "KIOSKU- Hasan Ashari",
+    name: "KIOSKU- Krismanto",
     bg: "linear-gradient(180deg, #D6A440 0%, #8F650E 100%)",
   },
   {
