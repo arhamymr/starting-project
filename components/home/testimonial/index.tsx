@@ -34,7 +34,7 @@ const data = [
     bg: "linear-gradient(180deg, #F85555 0%, #AF1423 100%)",
   },
   {
-    text: "Sepengalamanku dalam bermitra dengan Serpul.co.id ini cukup bagus untuk H2H . Produknya makin lengkap, serta transaksi responnya dalam hitungan detik. ",
+    text: "Sepengalamanku dalam bermitra dengan Serpul.co.id ini cukup bagus untuk H2H . Produknya makin lengkap dan transaksi super cepat.",
     image: "/assets/lp/testimonial/tes-6.png",
     name: "KIOSKU- Krismanto",
     bg: "linear-gradient(180deg, #D6A440 0%, #8F650E 100%)",
