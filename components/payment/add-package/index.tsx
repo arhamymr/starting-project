@@ -42,7 +42,7 @@ export default function CardList() {
         <NavNumber
           key={i}
           onClick={() => handleChangePage(i)}
-          active={currentPage !== i ? false : true}
+          active={currentPage === i ? false : true}
         >
           {i}
         </NavNumber>
