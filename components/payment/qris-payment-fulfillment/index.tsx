@@ -33,10 +33,6 @@ const content = [
 ];
 
 export default function PaymentFulfilment() {
-  const handlePayment = () => {
-    console.log("ok");
-  };
-
   return (
     <Box>
       <Center>

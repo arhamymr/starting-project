@@ -83,13 +83,13 @@ export default function DetailPayment() {
           </SimpleGrid>
         );
       })}
-      {!!context?.additional?.others_fee?.value && (
+      {!!context?.additional?.other_fee?.value && (
         <SimpleGrid spacing={2} columns={2} mb={4}>
           <Text>Biaya Tambahan</Text>
           <Flex justify={"space-between"}>
             <Text ml={6}>Rp. </Text>
             <Text fontWeight={600}>
-              {formatPrice(context?.additional?.others_fee?.value)}
+              {formatPrice(context?.additional?.other_fee?.value)}
             </Text>
           </Flex>
         </SimpleGrid>

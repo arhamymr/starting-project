@@ -54,7 +54,11 @@ export default function Footer() {
               Jln. Puri Asri Raya, Tamalanrea Indah, Kec. Tamalanrea, Kota
               Makassar, Sulawesi Selatan 90245.
             </Text>
-            <Text fontSize={"sm"}>2023 | Serpul.co.id by Yuscorp</Text>
+            <Text fontSize={"sm"}>
+              © 2017 - {new Date().getFullYear()} | PT Serpul Teknologi
+              Indonesia <br />
+              by Yuscorp Ecosystem
+            </Text>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Perusahaan</ListHeader>
