@@ -10,13 +10,32 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
+import usePayment from "./hooks/usePayment";
+import { useToast } from "@chakra-ui/react";
 
 function ModalComp() {
+  const { payInvoice, loading } = usePayment();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast();
+
+  const handlePay = async () => {
+    try {
+      await payInvoice();
+      onOpen();
+    } catch (error) {
+      toast({
+        // title: "",
+        description: error.data.message,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+  };
 
   return (
     <>
-      <Button w={"full"} onClick={onOpen}>
+      <Button isLoading={loading} w={"full"} onClick={handlePay}>
         Saya Sudah Bayar
       </Button>
       <Modal size={"md"} isOpen={isOpen} onClose={onClose}>

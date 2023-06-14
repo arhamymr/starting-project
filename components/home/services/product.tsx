@@ -119,7 +119,6 @@ const RenderProduct = ({ type }) => {
         base: "1fr 1fr",
         md: "repeat(3, 1fr)",
         xl: "repeat(5, 1fr)",
-        "2xl": "repeat(6, 1fr)",
       }}
       gap={{ base: "16px", md: "31px" }}
       p={4}

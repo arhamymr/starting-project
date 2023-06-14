@@ -28,10 +28,10 @@ const data = [
       "Tersedia layanan customer service yang siap membantu keluhanmu kapanpun dan dimanapun",
   },
   {
-    title: "Bebas Terhubung Terkait Produk di Suplier Lain",
+    title: "Bebas Costum Aplikasi Tanpa Coding",
     image: "/assets/lp/benefit/ben-5.png",
     description:
-      "Dengan fitur multivendor memungkinkan kamu menambahkan produk dari supplier lainnya",
+      "Buat aplikasi dengan merek, logo,icon, dan warna yang dapat kamu costum sendiri",
   },
   {
     title: "Bebas Terhubung Terkait Produk di Suplier Lain",

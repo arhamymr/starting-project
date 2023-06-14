@@ -65,7 +65,7 @@ const Payment = () => {
   return (
     <PaymentLayout
       title={"Selesaikan Pembayaran"}
-      main={<PaymentFulfilment data={data} loading={loading} />}
+      main={<PaymentFulfilment data={data} pageLoading={loading} />}
       sidebar={
         <Box
           mb={"21px"}

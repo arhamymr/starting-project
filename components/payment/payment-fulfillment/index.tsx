@@ -16,8 +16,11 @@ import { CopyIcon } from "@chakra-ui/icons";
 import Modal from "./modal";
 import ReactHtmlParser from "react-html-parser";
 import { useState } from "react";
-import Link from "next/link";
 import { Accordion } from "@chakra-ui/react";
+import usePayment from "./hooks/usePayment";
+import { useToast } from "@chakra-ui/react";
+import { useRouter } from "next/router";
+
 const content = (data) => {
   return [
     {
@@ -76,10 +79,29 @@ const ValueRender = ({ type, value }) => {
   }
 };
 
-export default function PaymentFulfilment({ data, loading }) {
+export default function PaymentFulfilment({ data, pageLoading }) {
+  const { expiredInvoice, loading } = usePayment();
+  const toast = useToast();
+  const router = useRouter();
+
+  const handleRePackage = async () => {
+    try {
+      await expiredInvoice();
+      router.push("/payment");
+    } catch (error) {
+      toast({
+        // title: "",
+        description: error.data.message,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+  };
+
   return (
     <Box>
-      {!!loading ? (
+      {!!pageLoading ? (
         <Center h={40}>
           <Spinner />
         </Center>
@@ -145,17 +167,30 @@ export default function PaymentFulfilment({ data, loading }) {
               </AccordionPanel>
             </AccordionItem>
           </Accordion>
-
-          {!!data?.expired_time ? (
-            <Modal />
+          {!data?.expired_time ? (
+            <Box w={"full"}>
+              <Button
+                colorScheme="blackAlpha"
+                isLoading={loading}
+                w={"full"}
+                onClick={handleRePackage}
+              >
+                Daftar Ulang Paket
+              </Button>
+            </Box>
           ) : (
             <Flex gap={3}>
-              <Modal />
               <Box w={"full"}>
-                <Link href={"/payment"}>
-                  <Button w={"full"}>Daftar Ulang Paket</Button>
-                </Link>
+                <Button
+                  colorScheme="blackAlpha"
+                  isLoading={loading}
+                  w={"full"}
+                  onClick={handleRePackage}
+                >
+                  Daftar Ulang Paket
+                </Button>
               </Box>
+              <Modal />
             </Flex>
           )}
         </Box>
