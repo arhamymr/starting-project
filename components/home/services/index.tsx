@@ -34,7 +34,6 @@ const Navbar = () => {
     setActive(mapNav[activeNavItem] === undefined ? 0 : mapNav[activeNavItem]);
   }, [activeNavItem]);
 
-  console.log(active, "active");
   const menu = ["Product", "Add-On", "Template", "Deposit"];
 
   const disableList = (menu) => {
