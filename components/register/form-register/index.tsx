@@ -25,7 +25,7 @@ const FormSchema = Yup.object().shape({
 
 const FormRegister = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { procedRegister } = useRegister();
+  const { procedRegister, loading } = useRegister();
   const toast = useToast();
 
   const formik = useFormik({
@@ -131,7 +131,7 @@ const FormRegister = () => {
             <FormErrorMessage>{formik.errors.phone}</FormErrorMessage>
           )}
         </FormControl>
-        <Button type={"submit"} w={"full"} mb={"12px"}>
+        <Button isLoading={loading} type={"submit"} w={"full"} mb={"12px"}>
           Mulai
         </Button>
       </form>

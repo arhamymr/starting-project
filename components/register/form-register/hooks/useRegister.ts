@@ -5,6 +5,7 @@ function useRegister() {
   const [loading, setLoading] = useState(false);
 
   const procedRegister = async (formData) => {
+    setLoading(true);
     try {
       const options = {
         method: "POST",
@@ -15,6 +16,8 @@ function useRegister() {
       return response.data;
     } catch (error) {
       throw error.response;
+    } finally {
+      setLoading(false);
     }
   };
 
