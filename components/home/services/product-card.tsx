@@ -19,7 +19,12 @@ export default function CardBenefit({ data }) {
         height={204}
         alt={data.title}
       />
-      <Text mt={"21px"} textAlign={"center"} mb={"22px"} fontSize={"22px"}>
+      <Text
+        mt={"21px"}
+        textAlign={"center"}
+        mb={"22px"}
+        fontSize={{ base: "16px", md: "22px" }}
+      >
         {data.name}
       </Text>
     </Card>
