@@ -139,17 +139,19 @@ export default function Hero() {
               gap={"10px"}
             >
               {data.map((item) => (
-                <Box key={item} w={"142px"} h={"46px"} position={"relative"}>
-                  <Image
-                    src={"/assets/media/" + item}
-                    alt={item}
-                    fill
-                    quality={100}
-                    style={{
-                      objectFit: "cover",
-                    }}
-                  />
-                </Box>
+                <a href={"#"} key={item} target={"_blank"}>
+                  <Box w={"142px"} h={"46px"} position={"relative"}>
+                    <Image
+                      src={"/assets/media/" + item}
+                      alt={item}
+                      fill
+                      quality={100}
+                      style={{
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Box>
+                </a>
               ))}
             </Flex>
           </Center>
