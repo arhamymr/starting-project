@@ -5,7 +5,7 @@ import Button from "./button";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Marquee from "./marquee";
+// import Marquee from "./marquee";
 import Link from "next/link";
 
 const texts = Array.from(
@@ -74,14 +74,13 @@ function AnimatedTextSlider() {
 }
 
 const data = [
-  "kioser.png",
-  "m-pulsa.png",
-  "serpay.png",
-  "indosat.png",
-  "kiosfin.png",
-  "indopay.png",
-  "bimasakti.png",
-  "dflash.png",
+  "media1.png",
+  "media2.png",
+  "media3.png",
+  "media4.png",
+  "media5.png",
+  "media7.png",
+  "media6.png",
 ];
 
 export default function Hero() {
@@ -128,36 +127,31 @@ export default function Hero() {
         <Container maxW="1649px" p={{ base: "40px 0", md: "65px" }}>
           <Center flexDirection={"column"}>
             <Text mb="45px" textAlign={"center"} maxW={"690px"}>
-              {" "}
-              Berpengalaman Selama 7 Tahun dan dipercaya Oleh 800.000+ Agen{" "}
-              <br />
-              dengan 600+ Aplikasi yang telah kami buat untuk pebisnis pulsa dan
-              lainnya
+              Serpul.co.id telah diliput oleh berbagai Media Besar di Indonesia
             </Text>
-            <Marquee>
-              <Flex
-                w={"1450px"}
-                justifyContent={"space-between"}
-                alignItems={"center"}
-                flexWrap={"wrap"}
-                mx={"20px"}
-                gap={"20px"}
-              >
-                {data.map((item) => (
-                  <Box key={item} w={"135px"} h={"54px"} position={"relative"}>
-                    <Image
-                      src={"/assets/lp/" + item}
-                      alt={item}
-                      fill
-                      quality={100}
-                      style={{
-                        objectFit: "cover",
-                      }}
-                    />
-                  </Box>
-                ))}
-              </Flex>
-            </Marquee>
+
+            <Flex
+              maxW={"1440px"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              flexWrap={"wrap"}
+              mx={"20px"}
+              gap={"10px"}
+            >
+              {data.map((item) => (
+                <Box key={item} w={"142px"} h={"46px"} position={"relative"}>
+                  <Image
+                    src={"/assets/media/" + item}
+                    alt={item}
+                    fill
+                    quality={100}
+                    style={{
+                      objectFit: "cover",
+                    }}
+                  />
+                </Box>
+              ))}
+            </Flex>
           </Center>
         </Container>
       </Box>

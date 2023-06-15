@@ -6,7 +6,7 @@ const data = [
   {
     text: "Tim IT dari Serpul sangat baik dalam melayani setiap permasalahan, dan sejauh ini tidak ada kendala yang berarti",
     image: "/assets/lp/testimonial/tes-1.png",
-    name: "Serpay -Lorem Ipsum",
+    name: "Serpay - Dody Alfayed",
     bg: "linear-gradient(180deg, #989BF1 0%, #6667AA 100%)",
   },
   {
