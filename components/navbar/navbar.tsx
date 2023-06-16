@@ -102,8 +102,15 @@ const MobileNav = ({ onToggle }) => {
 
 const MobileNavItem = ({ label, onToggle, href }: NavItem) => {
   return (
-    <Stack spacing={4} onClick={onToggle}>
-      <Box py={2}>
+    <Stack spacing={4}>
+      <Box
+        py={2}
+        onClick={() => {
+          setTimeout(function () {
+            onToggle();
+          }, 1000);
+        }}
+      >
         <SmoothScrollLink key={label} targetId={href} label={label} />
       </Box>
     </Stack>
