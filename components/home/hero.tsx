@@ -40,7 +40,7 @@ export default function Hero() {
               Buat
               <Text
                 as={"span"}
-                fontSize={{ base: "25px", md: "34px" }}
+                fontSize={{ base: "25px", md: "28px" }}
                 mx={"12px"}
                 bg={"linear-gradient(180deg, #595FEB 0%, #2125A7 100%)"}
                 backgroundClip={"text"}
