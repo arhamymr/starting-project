@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <Box>
       <Container maxW="1350px" p={"65px"}>
-        <Center flexDirection={"column"} pt={"76px"} pb={"84px"}>
+        <Center flexDirection={"column"} pt={"50px"} pb={"84px"}>
           <Image
             src={"/assets/lp/banner.png"}
             width={681}
@@ -31,7 +31,7 @@ export default function Hero() {
           />
 
           <Flex
-            mb={"31px"}
+            mb={"20px"}
             align={"center"}
             fontWeight={"bold"}
             flexDirection={{ base: "column", md: "row" }}
@@ -54,7 +54,7 @@ export default function Hero() {
             maxW={"753px"}
             fontSize={"20px"}
             textAlign={"center"}
-            mb={"40px"}
+            mb={"30px"}
           >
             Nikmati kemudahan buat aplikasi custom tanpa harus ngoding dengan
             6.000+ pilihan Produk PPOB, Add-on dan beragam template keren
