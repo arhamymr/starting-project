@@ -89,6 +89,7 @@ export default function Services() {
           textAlign={"center"}
           as={"h2"}
           maxW={700}
+          p={"16px"}
         >
           Lengkapi Aplikasi Kamu dengan Ribuan Produk PPOB, Add-On, dan Template
         </Heading>

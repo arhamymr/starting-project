@@ -60,7 +60,7 @@ export default function Hero() {
             6.000+ pilihan Produk PPOB, Add-on dan beragam template keren
             lainnya
           </Text>
-          <HStack spacing={"44px"}>
+          <HStack spacing={{ base: "16px", md: "44px" }}>
             <Link href={"/register"}>
               <Button size={"lg"}>Buat Aplikasi Sekarang!</Button>
             </Link>

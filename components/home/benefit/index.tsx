@@ -74,6 +74,7 @@ export default function Benefit() {
           mb={{ base: "20px", md: "31px" }}
           textAlign={"center"}
           as={"h2"}
+          p={"16px"}
           maxW={700}
         >
           10 Alasan Kamu Harus Membuat Aplikasi di Serpul.co.id
