@@ -64,13 +64,13 @@ export default function Testimonial() {
     <Box pb={"60px"} id={"testimonial"}>
       <Center flexDirection={"column"} pt={"136px"}>
         <Heading
-          fontSize={{ base: "25px", md: "30px" }}
+          fontSize={{ base: "25px", md: "28px" }}
           mb={{ base: "20px", md: "31px" }}
           textAlign={"center"}
           as={"h2"}
           maxW={700}
         >
-          10 Alasan Kamu Harus Membuat Aplikasi di Serpul.co.id
+          Apa Kata Mereka Tentang Serpul.co.id?
         </Heading>
         <Text
           maxW={"753px"}
@@ -79,8 +79,9 @@ export default function Testimonial() {
           p={"16px"}
           mb={{ base: "40px", md: "90px" }}
         >
-          Nikmati manfaat dan kemudahan dalam membuat aplikasi sesuka hati
-          dengan beragam fitur, add-on dan template yang kami sediakan
+          Berbekal pengalaman selama lebih dari 7 tahun dalam melayani ratusan
+          tenant mulai dariperorangan hingga corporasi, sehingga kepuasan
+          pelanggan adalah prioritas utama kami.
         </Text>
       </Center>
       <Container maxW={"1709px"}>

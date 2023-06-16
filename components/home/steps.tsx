@@ -37,8 +37,8 @@ export default function Steps() {
       <Container maxW="1350px" p={"65px"}>
         <Center flexDirection={"column"} pt={"60px"}>
           <Heading
-            fontSize={"30px"}
-            mb={"51px"}
+            fontSize={{ base: "25px", md: "28px" }}
+            mb={{ base: "20px", md: "31px" }}
             textAlign={"center"}
             as={"h2"}
             maxW={700}
@@ -51,8 +51,8 @@ export default function Steps() {
             textAlign={"center"}
             mb={"90px"}
           >
-            Tidak perlu skill koding hanya klik dan klik, siapapun bisa buat
-            aplikasi dengan serpul.co.id. Yuk mulai dengan 3 langkah mudah!
+            Siapapun bisa buat aplikasi dengan mudah, hanya dengan 3 Langkah
+            saja!
           </Text>
 
           <Flex

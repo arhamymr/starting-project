@@ -70,7 +70,7 @@ export default function Benefit() {
     <Box pb={"30px"} id={"benefit"}>
       <Center flexDirection={"column"} pt={"100px"}>
         <Heading
-          fontSize={"30px"}
+          fontSize={{ base: "25px", md: "28px" }}
           mb={{ base: "20px", md: "31px" }}
           textAlign={"center"}
           as={"h2"}
@@ -84,8 +84,9 @@ export default function Benefit() {
           fontSize={"20px"}
           mb={{ base: "40px", md: "90px" }}
         >
-          Nikmati manfaat dan kemudahan dalam membuat aplikasi sesuka hati
-          dengan beragam fitur, add-on dan template yang kami sediakan
+          Kami telah berpengalaman Lebih dari 7 Tahun dan telah dipercaya Oleh
+          1.000.000+ Agen dengan 600+ Aplikasi yang telah kami buat untuk
+          pebisnis pulsa dan lainnya
         </Text>
       </Center>
       <Container maxW={"1439px"}>

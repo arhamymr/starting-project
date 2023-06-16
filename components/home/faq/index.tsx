@@ -80,7 +80,7 @@ export default function FAQ() {
     <Box pb={"60px"} id={"faq"}>
       <Center flexDirection={"column"} pt={"136px"}>
         <Heading
-          fontSize={"30px"}
+          fontSize={{ base: "25px", md: "28px" }}
           mb={"31px"}
           textAlign={"center"}
           as={"h2"}

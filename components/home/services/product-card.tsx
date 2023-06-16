@@ -23,7 +23,7 @@ export default function CardBenefit({ data }) {
         mt={"21px"}
         textAlign={"center"}
         mb={"22px"}
-        fontSize={{ base: "16px", md: "22px" }}
+        fontSize={{ base: "16px", md: "20px" }}
       >
         {data.name}
       </Text>

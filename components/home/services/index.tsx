@@ -84,13 +84,13 @@ export default function Services() {
     <Box>
       <Center flexDirection={"column"} pt={"136px"}>
         <Heading
-          fontSize={"30px"}
-          mb={"51px"}
+          fontSize={{ base: "25px", md: "28px" }}
+          mb={{ base: "20px", md: "31px" }}
           textAlign={"center"}
           as={"h2"}
           maxW={700}
         >
-          Custom Aplikasi Kamu dengan Ribuan Produk PPOB, Add-On, dan Template
+          Lengkapi Aplikasi Kamu dengan Ribuan Produk PPOB, Add-On, dan Template
         </Heading>
         <Text
           maxW={"753px"}
