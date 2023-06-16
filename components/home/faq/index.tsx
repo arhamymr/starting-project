@@ -111,7 +111,7 @@ export default function FAQ() {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                <Divider />
+                <Divider my={2} />
                 <Text as={"div"}>{item.answer}</Text>
               </AccordionPanel>
             </AccordionItem>

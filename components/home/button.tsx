@@ -1,6 +1,10 @@
 import { Button } from "@chakra-ui/react";
 
-export default function ButtonComp({ children, isDisabled = false, size }) {
+export default function ButtonComp({
+  children,
+  isDisabled = false,
+  size,
+}: any) {
   return (
     <Button
       isDisabled={isDisabled}
