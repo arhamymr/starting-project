@@ -60,7 +60,7 @@ const RenderProduct = () => {
         <Grid
           mb={"127px"}
           templateColumns={{
-            base: "1fr 1fr",
+            base: "1fr",
             xl: "repeat(3, 1fr)",
             "2xl": "repeat(4, 1fr)",
           }}

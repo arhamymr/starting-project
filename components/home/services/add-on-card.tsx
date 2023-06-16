@@ -29,7 +29,7 @@ export default function AddOnCard({ data }) {
         />
       </Box>
 
-      <Text mt={"21px"} mb={"22px"} fontSize={"22px"}>
+      <Text mt={"21px"} mb={"22px"} fontSize={"20px"}>
         {data.name}
       </Text>
       <Text>{data.description}</Text>
