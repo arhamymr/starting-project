@@ -92,7 +92,13 @@ export default function Services() {
         >
           Custom Aplikasi Kamu dengan Ribuan Produk PPOB, Add-On, dan Template
         </Heading>
-        <Text maxW={"753px"} fontSize={"20px"} textAlign={"center"} mb={"90px"}>
+        <Text
+          maxW={"753px"}
+          fontSize={"20px"}
+          textAlign={"center"}
+          p={"16px"}
+          mb={"90px"}
+        >
           Kami menyediakan 6.000+ pilihan Produk PPOB, Add-On dan Template
           Desain Aplikasi yang dapat kamu sesuaikan dengan kebutuhan bisnismu
         </Text>

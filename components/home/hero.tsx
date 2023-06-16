@@ -113,20 +113,31 @@ export default function Hero() {
             </Text>
             <AnimatedTextSlider />
           </Flex>
-          <Text maxW={"753px"} textAlign={"center"} mb={"40px"}>
+          <Text
+            maxW={"753px"}
+            fontSize={"20px"}
+            textAlign={"center"}
+            mb={"40px"}
+          >
             Nikmati kemudahan buat aplikasi custom tanpa harus ngoding dengan
             6.000+ pilihan Produk PPOB, Add-on dan beragam template keren
             lainnya
           </Text>
           <Link href={"/register"}>
-            <Button>Buat Aplikasi Sekarang!</Button>
+            <Button size={"lg"}>Buat Aplikasi Sekarang!</Button>
           </Link>
         </Center>
       </Container>
       <Box bg={"brand.100"}>
         <Container maxW="1649px" p={{ base: "40px 0", md: "65px" }}>
           <Center flexDirection={"column"}>
-            <Text mb="45px" textAlign={"center"} maxW={"690px"} px={"16px"}>
+            <Text
+              mb="45px"
+              textAlign={"center"}
+              fontSize={"20px"}
+              maxW={"690px"}
+              px={"16px"}
+            >
               Serpul.co.id telah diliput oleh berbagai Media Besar di Indonesia
             </Text>
 

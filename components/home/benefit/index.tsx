@@ -81,6 +81,7 @@ export default function Benefit() {
         <Text
           maxW={"753px"}
           textAlign={"center"}
+          fontSize={"20px"}
           mb={{ base: "40px", md: "90px" }}
         >
           Nikmati manfaat dan kemudahan dalam membuat aplikasi sesuka hati
