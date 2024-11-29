@@ -32,7 +32,7 @@ const BlogTags = (props: Props) => {
     <HStack spacing={2} marginTop={marginTop}>
       {tags.map((tag) => {
         return (
-          <Tag size={'md'} variant="solid" colorScheme="orange" key={tag}>
+          <Tag size={'md'} variant="solid" colorScheme="brand" key={tag}>
             {tag}
           </Tag>
         );
@@ -66,7 +66,7 @@ const firstArticle = articlesData[0];
 
 const ArticleList = () => {
   return (
-    <Container maxW={'7xl'} p="12" mt={12}>
+    <Container maxW={'7xl'} p="12" mt={24}>
       <Link href={`/article/${firstArticle.slug}`}>
         <Flex gap={12} mt={6}>
           <Box display="flex" flex="1" position="relative" alignItems="center">
@@ -74,7 +74,9 @@ const ArticleList = () => {
               borderRadius="lg"
               src={firstArticle.image}
               alt="some good alt text"
-              objectFit="contain"
+              height={300}
+              width={'full'}
+              objectFit="cover"
             />
           </Box>
           <Box
@@ -102,7 +104,7 @@ const ArticleList = () => {
         </Flex>
       </Link>
       <Heading as="h2" marginTop="20">
-        Article Terbaru
+        Resep Terbaru
       </Heading>
       <Divider marginTop="5" />
       <Grid templateColumns="repeat(3, 1fr)" gap="6">
@@ -118,9 +120,9 @@ const ArticleList = () => {
                     <Image
                       src={item.image}
                       alt="some text"
-                      objectFit="contain"
-                      width="100%"
-                      transition="0.3s ease-in-out"
+                      height={300}
+                      width={'full'}
+                      objectFit="cover"
                     />
                   </Box>
                 </Box>

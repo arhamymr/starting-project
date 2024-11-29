@@ -1,77 +1,59 @@
-import React from "react";
-import { Box, HStack, Text, Flex, Center, Container } from "@chakra-ui/react";
-import Image from "next/image";
-import Button from "./button";
+import React from 'react';
+import { Box, HStack, Text, Flex, Center, Container } from '@chakra-ui/react';
+import Image from 'next/image';
+import Button from './button';
 // import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 // import Marquee from "./marquee";
-import Link from "next/link";
+import Link from 'next/link';
 
 const data = [
-  "media1.png",
-  "media2.png",
-  "media3.png",
-  "media4.png",
-  "media5.png",
-  "media7.png",
-  "media6.png",
+  'media1.png',
+  'media2.png',
+  'media3.png',
+  'media4.png',
+  'media5.png',
+  'media7.png',
+  'media6.png',
 ];
 
 export default function Hero() {
   return (
     <Box>
-      <Container maxW="1350px" p={"65px"}>
-        <Center flexDirection={"column"} pt={"50px"} pb={"84px"}>
+      <Container maxW="1350px" p={'65px'}>
+        <Center flexDirection={'column'} pt={'50px'} pb={'84px'}>
           <Image
-            src={"/assets/lp/banner.png"}
-            width={681}
+            src={'/assets/logo-text.png'}
+            width={381}
             height={358}
-            alt={"hero banner"}
+            alt={'hero banner'}
           />
 
-          <Flex
-            mb={"20px"}
-            align={"center"}
-            fontWeight={"bold"}
-            flexDirection={{ base: "column", md: "row" }}
-          >
-            <Text fontSize={{ base: "25px", md: "28px" }} textAlign={"center"}>
-              Buat
-              <Text
-                as={"span"}
-                fontSize={{ base: "25px", md: "28px" }}
-                mx={"12px"}
-                bg={"linear-gradient(180deg, #595FEB 0%, #2125A7 100%)"}
-                backgroundClip={"text"}
-              >
-                Aplikasi Pulsa
-              </Text>
-              Brand Sendiri hanya 10 Menit
-            </Text>
-          </Flex>
           <Text
-            maxW={"753px"}
-            fontSize={"20px"}
-            textAlign={"center"}
-            mb={"30px"}
+            maxW={'753px'}
+            fontSize={'20px'}
+            textAlign={'center'}
+            mb={'30px'}
           >
-            Nikmati kemudahan buat aplikasi custom tanpa harus ngoding dengan
-            6.000+ pilihan Produk PPOB, Add-on dan beragam template keren
-            lainnya
+            Selamat datang di MyHealthDiet, platform bisnis konsultasi online
+            yang dirancang untuk membantu Anda mencapai tujuan diet gizi yang
+            optimal. Di sini, kami menyajikan layanan profesional yang
+            integratif, termasuk resep modifikasi makanan yang lezat dan sehat,
+            serta rekomendasi aktivitas fisik yang efektif.
           </Text>
-          <HStack spacing={{ base: "16px", md: "44px" }}>
-            <Link href={"/register"}>
-              <Button size={"lg"}>Buat Aplikasi Sekarang!</Button>
+          <HStack spacing={{ base: '16px', md: '44px' }}>
+            <Link
+              href={
+                'https://api.whatsapp.com/send/?phone=6281936654547&text&type=phone_number&app_absent=0'
+              }
+            >
+              <Button size={'lg'}>Konsultasi Sekarang</Button>
             </Link>
-
-            <Button size={"lg"} isDisabled>
-              Demo
-            </Button>
           </HStack>
         </Center>
       </Container>
-      <Box bg={"brand.100"}>
+      {/* <Box bg={"brand.100"}>
         <Container maxW="1649px" p={{ base: "40px 0", md: "65px" }}>
           <Center flexDirection={"column"}>
             <Text
@@ -110,7 +92,7 @@ export default function Hero() {
             </Flex>
           </Center>
         </Container>
-      </Box>
+      </Box> */}
     </Box>
   );
 }

@@ -12,13 +12,14 @@ export default function Home() {
   return (
     <MainLayout>
       <Hero />
-      <Benefit />
-      <ArticleList />
       <Steps />
-      <Services />
-      <Testimonial />
+      {/* <Benefit /> */}
+      <ArticleList />
+
+      {/* <Services /> */}
+      {/* <Testimonial />
       <CTA />
-      <FAQ />
+      <FAQ /> */}
     </MainLayout>
   );
 }

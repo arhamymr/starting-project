@@ -39,8 +39,8 @@ export default function Navigation() {
             <Link href={'/'}>
               <Image
                 src={'/assets/logo.png'}
-                width={132}
-                height={28}
+                width={80}
+                height={80}
                 alt="logo"
               />
             </Link>
@@ -85,7 +85,7 @@ const DesktopNav = () => {
       <Link
         target="_blank"
         href={
-          'https://api.whatsapp.com/send/?phone=6289669594959&text&type=phone_number&app_absent=0'
+          'https://api.whatsapp.com/send/?phone=6281936654547&text&type=phone_number&app_absent=0'
         }
       >
         <Button>Konsultasi Sekarang</Button>
@@ -108,7 +108,11 @@ const NAV_ITEMS: Array<NavItem> = [
     href: '/',
   },
   {
-    label: 'Artikel',
-    href: '/article',
+    label: 'Resep',
+    href: '/resep',
+  },
+  {
+    label: 'Aktivitas',
+    href: '#activity',
   },
 ];

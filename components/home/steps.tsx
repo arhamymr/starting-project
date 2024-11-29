@@ -65,17 +65,15 @@ const data = [
     description:
       'Waktu Tempuh selama 60-90 menit. Manfaat yaitu dapat meningkatkan kerjasama tim dan keterampilan sosial serta mempelajari keterampilan kardiovaskular',
   },
-  {
-    image: '/images/activities/1.jpg',
-    title: 'Latihan Kekuatan',
-    description:
-      'Waktu Tempuh selama 30-60 menit, 2-3 kali seminggu. Manfaat yaitu dapat meningkatkan massa otot dan kekuatan, meningkatkan kepadatan tulang dan mengurangi risiko cedera',
-  },
 ];
 
 export default function Steps() {
   return (
-    <Box pb={'60px'} bg={'linear-gradient(180deg, #FFFFFF 0%, #B9C0FD 100%)'}>
+    <Box
+      id="activity"
+      pb={'60px'}
+      bg={'linear-gradient(180deg, #FFFFFF 0%, #F06788 100%)'}
+    >
       <Container maxW="1350px" p={'65px'}>
         <Center flexDirection={'column'} pt={'60px'}>
           <Heading
@@ -152,7 +150,6 @@ export default function Steps() {
               </Card>
             ))}
           </Grid>
-          <ButtonComp isDisabled={true}>Akses Demo Aplikasi</ButtonComp>
         </Center>
       </Container>
     </Box>

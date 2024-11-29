@@ -1,7 +1,7 @@
-import { useState } from "react";
-import Image from "next/image";
-import { Button, Link } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { useState } from 'react';
+import Image from 'next/image';
+import { Button, Link } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
 const containerVariants = {
   initial: {
@@ -15,7 +15,7 @@ function FloatingButton() {
   const [hover, setHover] = useState(false);
 
   return (
-    <Link href={"https://wa.me/6281354444604"} target="_blank">
+    <Link href={'https://wa.me/6281936654547'} target="_blank">
       <Button
         as={motion.button}
         colorScheme="brand"
@@ -23,13 +23,13 @@ function FloatingButton() {
         bottom={4}
         right={4}
         aria-label="WhatsApp"
-        rounded={"full"}
-        fontSize={"12px"}
+        rounded={'full'}
+        fontSize={'12px'}
         variants={containerVariants}
         initial="initial"
         whileHover="hover"
-        size={"lg"}
-        overflow={"hidden"}
+        size={'lg'}
+        overflow={'hidden'}
         onHoverStart={() => setHover(true)}
         onHoverEnd={() => setHover(false)}
         rightIcon={
@@ -42,7 +42,7 @@ function FloatingButton() {
           />
         }
       >
-        {hover && "Ada pertanyaan? Yuk hubungi kami!"}
+        {hover && 'Ada pertanyaan? Yuk hubungi kami!'}
       </Button>
     </Link>
   );

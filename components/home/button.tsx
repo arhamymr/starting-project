@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button } from '@chakra-ui/react';
 
 export default function ButtonComp({
   children,
@@ -8,12 +8,12 @@ export default function ButtonComp({
   return (
     <Button
       isDisabled={isDisabled}
-      bg={"linear-gradient(180deg, #5055E3 0%, #575BD1 100%)"}
-      rounded={"full"}
-      fontSize={"16px"}
+      bg={'linear-gradient(180deg, #F06788 0%, #D85E7A 100%)'}
+      rounded={'full'}
+      fontSize={'16px'}
       size={size}
       _hover={{
-        background: "linear-gradient(180deg, #5055E3 0%, #575BD1 100%)",
+        background: 'linear-gradient(180deg, #5055E3 0%, #575BD1 100%)',
       }}
     >
       {children}
