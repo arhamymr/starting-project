@@ -1,21 +1,15 @@
 import {
-  Box,
   Heading,
   Image,
   Text,
-  Divider,
   HStack,
   Tag,
-  Wrap,
-  WrapItem,
   SpaceProps,
-  useColorModeValue,
   Container,
   VStack,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbSeparator,
 } from '@chakra-ui/react';
 import HTMLRenderer from 'react-html-renderer';
 import MainLayout from 'layouts/main';

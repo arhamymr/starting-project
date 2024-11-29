@@ -6,61 +6,69 @@ import {
   Center,
   Card,
   Grid,
+  Image,
 } from '@chakra-ui/react';
-import ButtonComp from './button';
-import Image from 'next/image';
 
 const data = [
   {
-    image: '/images/activities/1.jpg',
+    image:
+      'https://images.unsplash.com/photo-1627466603841-5b0bfa442951?q=80&w=2478&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: 'Jalan Santai',
     description:
       'Waktu Tempuh  selama 30 menit. Manfaat yaitu dapat merilekskan tubuh',
   },
   {
-    image: '/images/activities/1.jpg',
+    image:
+      'https://images.unsplash.com/photo-1590646299178-1b26ab821e34?q=80&w=2826&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: 'Lari',
     description:
       'Waktu Tempuh selama20-30 menit. Manfaat yaitu meningkatkan kebugaran kardiovaskular dan membantu mengurangi stres',
   },
   {
-    image: '/images/activities/1.jpg',
+    image:
+      'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: 'Yoga',
     description:
       'Waktu Tempuh selama20-30 menit. Manfaat yaitu meningkatkan kebugaran kardiovaskular dan membantu mengurangi stres',
   },
   {
-    image: '/images/activities/1.jpg',
+    image:
+      'https://plus.unsplash.com/premium_photo-1664304656077-5f40bbcad93f?q=80&w=2873&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: 'Bersepeda',
     description:
       'Waktu Tempuh selama 30-50 menit. Manfaat yaitu dapat meningkatkan daya tahan, membakar kalori, dan menjelajahi lingkungan',
   },
   {
-    image: '/images/activities/1.jpg',
+    image:
+      'https://plus.unsplash.com/premium_photo-1719501574608-0cf632f7c0f3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: 'Renang',
     description:
       'Waktu Tempuh selama 30-45 menit. Manfaat yaitu dapat latihan seluruh tubuh, baik untuk pemulihan cedera',
   },
   {
-    image: '/images/activities/1.jpg',
+    image:
+      'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: 'Senam Aerobik',
     description:
       'Waktu Tempuh selama 30-45 menit. Manfaat yaitu dapat meningkatkan kebugaran jantung dan membakar kalori dengan cara yang menyenangkan',
   },
   {
-    image: '/images/activities/1.jpg',
+    image:
+      'https://images.unsplash.com/photo-1603503364272-6e28e046b37a?q=80&w=2788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: 'Latihan Kekuatan',
     description:
       'Waktu Tempuh selama 30-60 menit. Manfaat yaitu dapat membangun otot, meningkatkan metabolisme, dan memperkuat tulang',
   },
   {
-    image: '/images/activities/1.jpg',
+    image:
+      'https://plus.unsplash.com/premium_photo-1709829409681-43871ca716a6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: 'HIIT (High-Intensity Interval Training)',
     description:
       'Waktu Tempuh selama 20-30 menit. Manfaat yaitu dapat membakar lemak dengan cepat dan meningkatkan kebugaran dalam waktu singkat',
   },
   {
-    image: '/images/activities/1.jpg',
+    image:
+      'https://plus.unsplash.com/premium_photo-1668032739358-5ea4d34cc948?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: 'Tim Olahraga (Sepak Bola, Basket, dll.)',
     description:
       'Waktu Tempuh selama 60-90 menit. Manfaat yaitu dapat meningkatkan kerjasama tim dan keterampilan sosial serta mempelajari keterampilan kardiovaskular',
@@ -129,11 +137,13 @@ export default function Steps() {
                   </Text>
                 </Center>
                 <Image
-                  quality={100}
+                  objectFit={'cover'}
                   src={item.image}
                   width={281}
                   height={172}
                   alt={item.title}
+                  mt={12}
+                  rounded={'12px'}
                 />
                 <Text
                   mt={'21px'}
