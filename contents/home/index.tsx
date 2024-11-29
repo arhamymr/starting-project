@@ -6,7 +6,7 @@ import Services from 'components/home/services';
 import Testimonial from 'components/home/testimonial';
 import CTA from 'components/home/cta';
 import FAQ from 'components/home/faq';
-import ArticleList from './articles/article-list';
+import ArticleList from '../articles/article-list';
 
 export default function Home() {
   return (

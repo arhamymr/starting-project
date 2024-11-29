@@ -9,6 +9,7 @@ import {
   Link,
   Container,
   useDisclosure,
+  Button,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import Image from 'next/image';
@@ -35,7 +36,7 @@ export default function Navigation() {
             py={{ base: 2 }}
             align={'center'}
           >
-            <Link href={'#'}>
+            <Link href={'/'}>
               <Image
                 src={'/assets/logo.png'}
                 width={132}
@@ -81,6 +82,14 @@ const DesktopNav = () => {
           <Link href={navItem.href}>{navItem.label}</Link>
         </Box>
       ))}
+      <Link
+        target="_blank"
+        href={
+          'https://api.whatsapp.com/send/?phone=6289669594959&text&type=phone_number&app_absent=0'
+        }
+      >
+        <Button>Konsultasi Sekarang</Button>
+      </Link>
     </Flex>
   );
 };
