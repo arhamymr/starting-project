@@ -103,7 +103,7 @@ const ArticleList = () => {
           mb={12}
           transition="0.3s ease-in-out"
         />
-        <BlogAuthor name="John Doe" date={new Date('2021-04-06T19:01:27Z')} />
+        <BlogAuthor name="Admin" date={new Date('2021-04-06T19:01:27Z')} />
         <VStack paddingTop="40px" spacing="2" alignItems="flex-start">
           <BlogTags tags={article.category} />
           <Heading as="h2">{article.title}</Heading>

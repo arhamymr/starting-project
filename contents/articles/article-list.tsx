@@ -96,10 +96,7 @@ const ArticleList = () => {
             >
               {firstArticle.description}
             </Text>
-            <BlogAuthor
-              name="John Doe"
-              date={new Date('2021-04-06T19:01:27Z')}
-            />
+            <BlogAuthor name="Admin" date={new Date('2021-04-06T19:01:27Z')} />
           </Box>
         </Flex>
       </Link>
