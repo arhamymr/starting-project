@@ -14,6 +14,8 @@ import {
 } from '@chakra-ui/react';
 import { articlesData } from './content';
 import Link from 'next/link';
+import { use } from 'react';
+import { useRouter } from 'next/router';
 
 interface IBlogTags {
   tags: Array<string>;
@@ -65,9 +67,12 @@ const BlogAuthor = (props: BlogAuthorProps) => {
 const firstArticle = articlesData[0];
 
 const ArticleList = () => {
+  const router = useRouter();
+  const { token } = router.query;
+
   return (
     <Container maxW={'7xl'} p="12" mt={24}>
-      <Link href={`/article/${firstArticle.slug}`}>
+      <Link href={`/resep/${firstArticle.slug}?token=${token}`}>
         <Flex gap={12} mt={6}>
           <Box display="flex" flex="1" position="relative" alignItems="center">
             <Image
@@ -107,7 +112,7 @@ const ArticleList = () => {
       <Grid templateColumns="repeat(3, 1fr)" gap="6">
         {articlesData.map((item, index) => {
           return (
-            <Link key={index} href={`/article/${item.slug}`}>
+            <Link key={index} href={`/resep/${item.slug}?token=${token}`}>
               <Box w="100%" py={4}>
                 <Box borderRadius="lg" overflow="hidden">
                   <Box

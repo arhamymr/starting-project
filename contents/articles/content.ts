@@ -3,17 +3,15 @@
 
 export const articlesData = [
   {
-    slug: 'modifikasi-diet',
-    title: 'Modifikasi diet',
+    slug: 'kue-brownies-bebas-gula',
+    title: 'Kue Brownies Bebas Gula',
     description:
-      'Free online What You See Is What You Get (WYSIWYG) editor with instant HTML converter and cleaning features.',
+      'Brownies sehat yang dibuat dengan tepung almond atau gandum utuh, menggunakan pemanis alami dan cokelat hitam tanpa gula',
     image:
-      'https://images.unsplash.com/photo-1604881744424-176be6b804de?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://images.unsplash.com/photo-1629273547117-f459fcc8a577?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 
-    category: ['olahraga', 'sehat'],
-    content: `
-    <p class="p1">1. Kue brownies bebas gula</p>
-<p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; </span>Modifikasi</p>
+    category: ['sehat', 'cemilan'],
+    content: `<p class="p1">Modifikasi</p>
 <p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; </span>- Ganti tepung terigu dengan <strong>tepung</strong> <strong>almond</strong> atau <strong>tepung</strong> <strong>gandum</strong> utuh.&nbsp;</p>
 <p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; </span>- Gunakan pemanis alami seperti <strong>stevia</strong> atau<span class="Apple-converted-space">&nbsp; </span><strong>erythritol</strong><span class="Apple-converted-space">&nbsp; </span>sebagai pengganti gula.&nbsp;</p>
 <p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; </span>- Tambahkan cokelat hitam 70-85% tanpa gula untuk rasa cokelat yang kaya.&nbsp;</p>
@@ -46,12 +44,18 @@ export const articlesData = [
 <p class="p1">Karbohidrat : 6&ndash;8 gram</p>
 <p class="p1">Serat: 2&ndash;3 gram</p>
 <p class="p1">Gula: 0&ndash;1 gram</p>
-<p class="p1">Natrium : 50&ndash;100 mg</p>
-<p class="p1"><strong>Contoh gambar</strong> : https://unsplash.com/photos/chocolate-cake-on-white-ceramic-plate-yRI0fojBUv8</p>
-<p class="p2">&nbsp;</p>
-<p class="p1">2.menurut citra</p>
-<p class="p1">Resep Modifikasi Diet:<strong> Salad Ayam Panggang Rendah Kalori</strong></p>
-<p class="p1"><strong>Cara Membuat</strong>:</p>
+<p class="p1">Natrium : 50&ndash;100 mg</p>`,
+  },
+  {
+    slug: 'salad-ayam-panggang-rendah-kalori',
+    title: 'Salad Ayam Panggang Rendah Kalori',
+    description:
+      'Salad segar dengan dada ayam panggang, sayuran segar seperti selada dan tomat ceri, serta dressing minyak zaitun dan lemon',
+    image:
+      'https://plus.unsplash.com/premium_photo-1664392068994-9277c9ed4837?q=80&w=2857&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+
+    category: ['Sehat'],
+    content: `<p class="p1"><strong>Cara Membuat</strong>:</p>
 <p class="p1">1. panggang dada ayam dengan sedikit garam dan lada hitam hingga matang.</p>
 <p class="p1">2. Campurkan daun selada, tomat ceri, dan mentimun di mangkuk.</p>
 <p class="p1">3. Potong dada ayam yang sudah matang menjadi irisan kecil, lalu tambahkan ke mangkuk salad.</p>
@@ -69,18 +73,23 @@ export const articlesData = [
 <p class="p1">2. Diet Keto atau Rendah Karbohidrat: Karena hanya mengandung sedikit karbohidrat, salad ini cocok untuk diet rendah karbohidrat atau keto (dengan syarat jumlah karbohidrat harian tetap rendah).</p>
 <p class="p1">3. Diet Sehat dan Mediterania: Penggunaan minyak zaitun sebagai sumber lemak sehat mendukung pola makan ala Mediterania, yang baik untuk kesehatan jantung.</p>
 <p class="p1">4. Diet Tinggi Protein: Kandungan protein yang tinggi membantu mendukung rasa kenyang lebih lama dan cocok untuk pola makan tinggi protein yang biasa digunakan oleh atlet atau orang yang ingin menjaga otot.</p>
-<p class="p1">Resep ini fleksibel untuk dimodifikasi sesuai preferensi. Misalnya, tambahkan alpukat untuk lebih banyak lemak sehat atau ganti ayam dengan ikan panggang untuk variasi.</p>
-<p class="p1"><strong>Contoh gambar </strong>:<span class="Apple-converted-space">&nbsp; </span>https://unsplash.com/photos/a-person-pouring-dressing-into-a-salad-in-a-bowl-93YkGkC7caw</p>
-<p class="p2">&nbsp;</p>
-<p class="p1">3..<strong> Nasi Goreng Rendah Indeks Glikemik </strong></p>
-<p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; </span>- Modifikasi:&nbsp;</p>
+<p class="p1">Resep ini fleksibel untuk dimodifikasi sesuai preferensi. Misalnya, tambahkan alpukat untuk lebih banyak lemak sehat atau ganti ayam dengan ikan panggang untuk variasi</p>`,
+  },
+  {
+    slug: 'nasi-goreng-rendah-indeks-glikemik',
+    title: 'Nasi Goreng Rendah Indeks Glikemik',
+    description:
+      ' Nasi goreng dengan beras merah atau shirataki, dipadukan dengan sayuran dan ayam, serta kecap rendah gula. ',
+    image:
+      'https://images.unsplash.com/photo-1581184953963-d15972933db1?q=80&w=2765&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+
+    category: ['Sehat', 'Makanan berat'],
+    content: `<p class="p1">Modifikasi:&nbsp;</p>
 <p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; </span>- Gunakan <strong>beras merah </strong> atau <strong>beras shirataki </strong> sebagai pengganti nasi putih.&nbsp;</p>
 <p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; </span>- Tambahkan sayuran seperti wortel, brokoli, dan paprika untuk serat.&nbsp;</p>
 <p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; </span>- Ganti kecap manis dengan kecap rendah gula atau tambahkan sedikit madu tanpa tambahan gula.&nbsp;</p>
 <p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; </span>- Gunakan minyak zaitun atau minyak kanola untuk menggoreng.&nbsp;</p>
 <p class="p1"><span class="Apple-converted-space">&nbsp;&nbsp; </span><strong>Hasil</strong>: Nasi goreng rendah karbohidrat yang mengontrol gula darah.</p>
-<p class="p2">&nbsp;</p>
-<p class="p2">&nbsp;</p>
 <p class="p2">&nbsp;</p>
 <p class="p1"><strong>Bahan</strong>:</p>
 <p class="p1">200 gr beras merah atau beras shirataki</p>
@@ -98,11 +107,18 @@ export const articlesData = [
 <p class="p1">Kalori: 120</p>
 <p class="p1">Karbohidrat: 7 g</p>
 <p class="p1">Protein: 10 gram</p>
-<p class="p1">Lemak: 6 gr</p>
-<p class="p1">Gambar : https://unsplash.com/photos/brown-wooden-bowl-with-food-z32XV0TGSzc</p>
-<p class="p2">&nbsp;</p>
-<p class="p1"><strong>4</strong>. <strong>acar sayur untuk penderita hipertensi agar tetap lezat namun rendah garam</strong>:&nbsp;</p>
-<p class="p1">Bahan-bahan:</p>
+<p class="p1">Lemak: 6 gr</p>`,
+  },
+  {
+    slug: 'acar-sayur-hipertensi',
+    title: 'Acar Sayur untuk Penderita Hipertensi',
+    description:
+      'Acar segar yang terbuat dari sayuran seperti wortel dan mentimun, direndam dalam larutan cuka rendah natrium',
+    image:
+      'https://images.unsplash.com/photo-1728636945305-67a629484ff7?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+
+    category: ['Sehat', 'serat'],
+    content: `<p class="p1">Bahan-bahan:</p>
 <p class="p1">- 1 buah wortel (iris korek api)&nbsp;</p>
 <p class="p1">- 1 buah mentimun (iris tipis atau potong dadu kecil)&nbsp;</p>
 <p class="p1">- 5 batang buncis (potong sesuai selera)&nbsp;</p>
@@ -144,232 +160,48 @@ export const articlesData = [
 <li class="li1">Vitamin C: 5&ndash;10 mg</li>
 <li class="li1">Kalsium: 15&ndash;20 mg</li>
 <li class="li1">Magnesium: 8&ndash;12mg</li>
-</ul>
-<p class="p1"><strong>Gambar : </strong>https://unsplash.com/photos/a-bowl-of-chopped-vegetables-with-a-spoon-LFnjpjO608Q</p>
-<p class="p2">&nbsp;</p>
-<p class="p1"><strong>5. Resep: Muffin Oat Pisang Rendah Kalori</strong></p>
-<p class="p1"><strong>Deskripsi: Muffin yang lembut, bebas tepung, rendah gula, dan tinggi serat, cocok untuk camilan sehat bagi penderita obesitas.</strong></p>
-<p class="p1"><strong>Bahan-bahan (untuk 6 muffin):</strong></p>
-<p class="p1">100 gram oatmeal (giling halus menjadi tepung oat)</p>
-<p class="p1">2 buah pisang matang ukuran sedang (sebagai pemanis alami)</p>
-<p class="p1">1 butir telur ayam</p>
-<p class="p1">50 ml yogurt rendah lemak atau tanpa lemak</p>
-<p class="p1">1/2 sdt baking powder</p>
-<p class="p1">1/4 sdt baking soda</p>
-<p class="p1">1/2 sdt ekstrak vanila</p>
-<p class="p1">1 sdm minyak kelapa (atau margarin rendah lemak)</p>
-<p class="p1">1/2 sdt kayu manis bubuk (opsional, untuk aroma)</p>
-<p class="p1">1 sdm kismis atau kacang almond cincang (opsional, topping)</p>
-<p class="p1"><strong>Cara Membuat:</strong></p>
-<p class="p1">1.Panaskan oven hingga 180&deg;C dan siapkan loyang muffin. Lapisi dengan kertas muffin atau olesi dengan sedikit minyak kelapa.</p>
-<p class="p1">2.Haluskan pisang menggunakan garpu hingga lembut.</p>
-<p class="p1">3. Campurkan pisang halus dengan telur, yogurt, minyak kelapa, dan ekstrak vanila dalam satu wadah. Aduk rata.</p>
-<p class="p1">4. Tambahkan tepung oat, baking powder, baking soda, dan kayu manis bubuk. Aduk hingga adonan tercampur sempurna.</p>
-<p class="p1">5. Tuang adonan ke dalam cetakan muffin hingga 3/4 penuh. Taburi dengan kismis atau kacang almond jika diinginkan.</p>
-<p class="p1">6. Panggang selama 18-20 menit hingga matang dan bagian atasnya berwarna keemasan.</p>
-<p class="p1">7. Angkat, dinginkan, dan siap disajikan.</p>
-<p class="p2">&nbsp;</p>
-<p class="p1"><strong>Informasi Nilai Gizi (per 1 muffin):</strong></p>
-<p class="p1"><strong>&bull; Kalori: ~120 kkal</strong></p>
-<p class="p1"><strong>&bull; Protein: ~4 gram</strong></p>
-<p class="p1"><strong>&bull; Lemak: ~3 gram</strong></p>
-<p class="p1"><strong>&bull; Karbohidrat: ~18 gram</strong></p>
-<p class="p1"><strong>&bull; Serat: ~3 gram</strong></p>
-<p class="p1"><strong>Manfaat Resep untuk Diet Obesitas:</strong></p>
-<p class="p1">1.Rendah Kalori: Muffin ini memiliki kalori terkontrol, sehingga cocok untuk camilan tanpa menambah asupan kalori berlebih.</p>
-<p class="p1">2.Tinggi Serat: Oat dan pisang membantu memperlancar pencernaan dan memberikan rasa kenyang lebih lama.</p>
-<p class="p1">3.Tanpa Gula Tambahan: Pemanis alami dari pisang mengurangi kebutuhan gula, membantu mengontrol berat badan dan kadar gula darah.</p>
-<p class="p1">4.Rendah Lemak Tidak Sehat: Menggunakan minyak kelapa dalam jumlah kecil sebagai pengganti margarin atau mentega biasa.</p>
-<div id="gtx-trans" style="position: absolute; left: -10px; top: 25.5px;">&nbsp;</div>`,
+</ul>`,
   },
   {
-    slug: 'slug-1',
-    title: 'Online WYSIWYG Editor and HTML Converter',
+    slug: 'muffin-oat-pisang-rendah-kalori',
+    title: 'Muffin Oat Pisang Rendah Kalori',
     description:
-      'Free online What You See Is What You Get (WYSIWYG) editor with instant HTML converter and cleaning features.',
+      'Muffin yang lembut, bebas tepung, rendah gula, dan tinggi serat, cocok untuk camilan sehat bagi penderita obesitas',
     image:
-      'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1604881744424-176be6b804de?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 
-    category: ['Tech', 'Code'],
-    content: `
-      <h1>Online WYSIWYG Editor and HTML Converter</h1>
-      <p><strong>Free online What You See Is What You Get (WYSIWYG) editor with instant HTML converter and cleaning features. Compose your documents online in your web browser without downloading and installing any&nbsp;program.</strong></p>
-      <p>Edit or paste your document in the visual editor on the right to convert it to&nbsp;<a href="https://en.wikipedia.org/wiki/HTML" target="_blank" rel="nofollow">HTML markup</a>. Edit either of the two input fields to get the result in the other one&nbsp;instantly.</p>
-      <p><a class="loadDemoText">Load the demo text</a>&nbsp;or populate the workspace with&nbsp;<a class="loremIpsum">Lorem Ipsum</a>&nbsp;gibberish text to experiment with the&nbsp;editor.</p>
-      <h2>Visual Editor</h2>
-      <p><img src="https://wysiwyghtml.com/images/wysiwyg-toolbar.jpg" alt="visual toolbar" /><br />Format your text, add&nbsp;<a href="https://htmltable.com/" target="_blank" rel="nofollow">tables</a>, images, links and other sections easily to your document with the toolbar above the visual editor. It works like a regular What You See Is What You Get&nbsp;editor.</p>
-      <h2>Source Code</h2>
-      <p><img src="https://wysiwyghtml.com/images/html-toolbar.jpg" alt="source options" /><br />The&nbsp;<a href="https://html-cleaner.com/" target="_blank" rel="nofollow">HTML cleanup</a>&nbsp;options are listed above the source editor. Check the options you need to remove pressing the Clean button or execute them one by one with the right-pointing&nbsp;arrows.</p>
-      <ol>
-      <li>Inline styles</li>
-      <li>Classes &amp; IDs</li>
-      <li>Empty tags</li>
-      <li>Tags with 1 space</li>
-      <li>Successive spaces</li>
-      <li>Comments</li>
-      <li>Tag attributes</li>
-      <li>All tags</li>
-      </ol>
-      <p>Below the&nbsp;<a href="https://tohtml.com/" target="_blank" rel="nofollow">syntax highlighted</a>&nbsp;source code you will find other useful features:</p>
-      <ol>
-      <li><strong>undo</strong>&nbsp;button to restore a previous saved version of the file</li>
-      <li><strong>erase</strong>&nbsp;the whole page</li>
-      <li>organize line&nbsp;<strong>indentation</strong>&nbsp;in the souce to visualize tag hierarchy</li>
-      <li><strong>compress</strong>&nbsp;the document</li>
-      <li>enable or disable character&nbsp;<strong>encoding</strong></li>
-      </ol>
-`,
-  },
-  {
-    slug: 'slug-2',
-    title: 'Online WYSIWYG Editor and HTML Converter',
-    description:
-      'Free online What You See Is What You Get (WYSIWYG) editor with instant HTML converter and cleaning features.',
-    image:
-      'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80',
+    category: ['Cemilan', 'Sehat'],
+    content: `Bahan-bahan (untuk 6 muffin):
+100 gram oatmeal (giling halus menjadi tepung oat)
+2 buah pisang matang ukuran sedang (sebagai pemanis alami)
+1 butir telur ayam
+50 ml yogurt rendah lemak atau tanpa lemak
+1/2 sdt baking powder
+1/4 sdt baking soda
+1/2 sdt ekstrak vanila
+1 sdm minyak kelapa (atau margarin rendah lemak)
+1/2 sdt kayu manis bubuk (opsional, untuk aroma)
+1 sdm kismis atau kacang almond cincang (opsional, topping)
+Cara Membuat:
+1.Panaskan oven hingga 180°C dan siapkan loyang muffin. Lapisi dengan kertas muffin atau olesi dengan sedikit minyak kelapa.
+2.Haluskan pisang menggunakan garpu hingga lembut.
+3.	Campurkan pisang halus dengan telur, yogurt, minyak kelapa, dan ekstrak vanila dalam satu wadah. Aduk rata.
+4.	Tambahkan tepung oat, baking powder, baking soda, dan kayu manis bubuk. Aduk hingga adonan tercampur sempurna.
+5.	Tuang adonan ke dalam cetakan muffin hingga 3/4 penuh. Taburi dengan kismis atau kacang almond jika diinginkan.
+6.	Panggang selama 18-20 menit hingga matang dan bagian atasnya berwarna keemasan.
+7.	Angkat, dinginkan, dan siap disajikan.
 
-    category: ['Tech', 'Code'],
-    content: `
-      <h1>Online WYSIWYG Editor and HTML Converter</h1>
-      <p><strong>Free online What You See Is What You Get (WYSIWYG) editor with instant HTML converter and cleaning features. Compose your documents online in your web browser without downloading and installing any&nbsp;program.</strong></p>
-      <p>Edit or paste your document in the visual editor on the right to convert it to&nbsp;<a href="https://en.wikipedia.org/wiki/HTML" target="_blank" rel="nofollow">HTML markup</a>. Edit either of the two input fields to get the result in the other one&nbsp;instantly.</p>
-      <p><a class="loadDemoText">Load the demo text</a>&nbsp;or populate the workspace with&nbsp;<a class="loremIpsum">Lorem Ipsum</a>&nbsp;gibberish text to experiment with the&nbsp;editor.</p>
-      <h2>Visual Editor</h2>
-      <p><img src="https://wysiwyghtml.com/images/wysiwyg-toolbar.jpg" alt="visual toolbar" /><br />Format your text, add&nbsp;<a href="https://htmltable.com/" target="_blank" rel="nofollow">tables</a>, images, links and other sections easily to your document with the toolbar above the visual editor. It works like a regular What You See Is What You Get&nbsp;editor.</p>
-      <h2>Source Code</h2>
-      <p><img src="https://wysiwyghtml.com/images/html-toolbar.jpg" alt="source options" /><br />The&nbsp;<a href="https://html-cleaner.com/" target="_blank" rel="nofollow">HTML cleanup</a>&nbsp;options are listed above the source editor. Check the options you need to remove pressing the Clean button or execute them one by one with the right-pointing&nbsp;arrows.</p>
-      <ol>
-      <li>Inline styles</li>
-      <li>Classes &amp; IDs</li>
-      <li>Empty tags</li>
-      <li>Tags with 1 space</li>
-      <li>Successive spaces</li>
-      <li>Comments</li>
-      <li>Tag attributes</li>
-      <li>All tags</li>
-      </ol>
-      <p>Below the&nbsp;<a href="https://tohtml.com/" target="_blank" rel="nofollow">syntax highlighted</a>&nbsp;source code you will find other useful features:</p>
-      <ol>
-      <li><strong>undo</strong>&nbsp;button to restore a previous saved version of the file</li>
-      <li><strong>erase</strong>&nbsp;the whole page</li>
-      <li>organize line&nbsp;<strong>indentation</strong>&nbsp;in the souce to visualize tag hierarchy</li>
-      <li><strong>compress</strong>&nbsp;the document</li>
-      <li>enable or disable character&nbsp;<strong>encoding</strong></li>
-      </ol>
-`,
-  },
-  {
-    slug: 'slug-3',
-    title: 'Online WYSIWYG Editor and HTML Converter',
-    description:
-      'Free online What You See Is What You Get (WYSIWYG) editor with instant HTML converter and cleaning features.',
-    image:
-      'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80',
-
-    category: ['Tech', 'Code'],
-    content: `
-      <h1>Online WYSIWYG Editor and HTML Converter</h1>
-      <p><strong>Free online What You See Is What You Get (WYSIWYG) editor with instant HTML converter and cleaning features. Compose your documents online in your web browser without downloading and installing any&nbsp;program.</strong></p>
-      <p>Edit or paste your document in the visual editor on the right to convert it to&nbsp;<a href="https://en.wikipedia.org/wiki/HTML" target="_blank" rel="nofollow">HTML markup</a>. Edit either of the two input fields to get the result in the other one&nbsp;instantly.</p>
-      <p><a class="loadDemoText">Load the demo text</a>&nbsp;or populate the workspace with&nbsp;<a class="loremIpsum">Lorem Ipsum</a>&nbsp;gibberish text to experiment with the&nbsp;editor.</p>
-      <h2>Visual Editor</h2>
-      <p><img src="https://wysiwyghtml.com/images/wysiwyg-toolbar.jpg" alt="visual toolbar" /><br />Format your text, add&nbsp;<a href="https://htmltable.com/" target="_blank" rel="nofollow">tables</a>, images, links and other sections easily to your document with the toolbar above the visual editor. It works like a regular What You See Is What You Get&nbsp;editor.</p>
-      <h2>Source Code</h2>
-      <p><img src="https://wysiwyghtml.com/images/html-toolbar.jpg" alt="source options" /><br />The&nbsp;<a href="https://html-cleaner.com/" target="_blank" rel="nofollow">HTML cleanup</a>&nbsp;options are listed above the source editor. Check the options you need to remove pressing the Clean button or execute them one by one with the right-pointing&nbsp;arrows.</p>
-      <ol>
-      <li>Inline styles</li>
-      <li>Classes &amp; IDs</li>
-      <li>Empty tags</li>
-      <li>Tags with 1 space</li>
-      <li>Successive spaces</li>
-      <li>Comments</li>
-      <li>Tag attributes</li>
-      <li>All tags</li>
-      </ol>
-      <p>Below the&nbsp;<a href="https://tohtml.com/" target="_blank" rel="nofollow">syntax highlighted</a>&nbsp;source code you will find other useful features:</p>
-      <ol>
-      <li><strong>undo</strong>&nbsp;button to restore a previous saved version of the file</li>
-      <li><strong>erase</strong>&nbsp;the whole page</li>
-      <li>organize line&nbsp;<strong>indentation</strong>&nbsp;in the souce to visualize tag hierarchy</li>
-      <li><strong>compress</strong>&nbsp;the document</li>
-      <li>enable or disable character&nbsp;<strong>encoding</strong></li>
-      </ol>
-`,
-  },
-  {
-    slug: 'slug-4',
-    title: 'Online WYSIWYG Editor and HTML Converter',
-    description:
-      'Free online What You See Is What You Get (WYSIWYG) editor with instant HTML converter and cleaning features.',
-    image:
-      'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80',
-
-    category: ['Tech', 'Code'],
-    content: `
-      <h1>Online WYSIWYG Editor and HTML Converter</h1>
-      <p><strong>Free online What You See Is What You Get (WYSIWYG) editor with instant HTML converter and cleaning features. Compose your documents online in your web browser without downloading and installing any&nbsp;program.</strong></p>
-      <p>Edit or paste your document in the visual editor on the right to convert it to&nbsp;<a href="https://en.wikipedia.org/wiki/HTML" target="_blank" rel="nofollow">HTML markup</a>. Edit either of the two input fields to get the result in the other one&nbsp;instantly.</p>
-      <p><a class="loadDemoText">Load the demo text</a>&nbsp;or populate the workspace with&nbsp;<a class="loremIpsum">Lorem Ipsum</a>&nbsp;gibberish text to experiment with the&nbsp;editor.</p>
-      <h2>Visual Editor</h2>
-      <p><img src="https://wysiwyghtml.com/images/wysiwyg-toolbar.jpg" alt="visual toolbar" /><br />Format your text, add&nbsp;<a href="https://htmltable.com/" target="_blank" rel="nofollow">tables</a>, images, links and other sections easily to your document with the toolbar above the visual editor. It works like a regular What You See Is What You Get&nbsp;editor.</p>
-      <h2>Source Code</h2>
-      <p><img src="https://wysiwyghtml.com/images/html-toolbar.jpg" alt="source options" /><br />The&nbsp;<a href="https://html-cleaner.com/" target="_blank" rel="nofollow">HTML cleanup</a>&nbsp;options are listed above the source editor. Check the options you need to remove pressing the Clean button or execute them one by one with the right-pointing&nbsp;arrows.</p>
-      <ol>
-      <li>Inline styles</li>
-      <li>Classes &amp; IDs</li>
-      <li>Empty tags</li>
-      <li>Tags with 1 space</li>
-      <li>Successive spaces</li>
-      <li>Comments</li>
-      <li>Tag attributes</li>
-      <li>All tags</li>
-      </ol>
-      <p>Below the&nbsp;<a href="https://tohtml.com/" target="_blank" rel="nofollow">syntax highlighted</a>&nbsp;source code you will find other useful features:</p>
-      <ol>
-      <li><strong>undo</strong>&nbsp;button to restore a previous saved version of the file</li>
-      <li><strong>erase</strong>&nbsp;the whole page</li>
-      <li>organize line&nbsp;<strong>indentation</strong>&nbsp;in the souce to visualize tag hierarchy</li>
-      <li><strong>compress</strong>&nbsp;the document</li>
-      <li>enable or disable character&nbsp;<strong>encoding</strong></li>
-      </ol>
-`,
-  },
-  {
-    slug: 'slug-5',
-    title: 'Online WYSIWYG Editor and HTML Converter',
-    description:
-      'Free online What You See Is What You Get (WYSIWYG) editor with instant HTML converter and cleaning features.',
-    image:
-      'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80',
-
-    category: ['Tech', 'Code'],
-    content: `
-      <h1>Online WYSIWYG Editor and HTML Converter</h1>
-      <p><strong>Free online What You See Is What You Get (WYSIWYG) editor with instant HTML converter and cleaning features. Compose your documents online in your web browser without downloading and installing any&nbsp;program.</strong></p>
-      <p>Edit or paste your document in the visual editor on the right to convert it to&nbsp;<a href="https://en.wikipedia.org/wiki/HTML" target="_blank" rel="nofollow">HTML markup</a>. Edit either of the two input fields to get the result in the other one&nbsp;instantly.</p>
-      <p><a class="loadDemoText">Load the demo text</a>&nbsp;or populate the workspace with&nbsp;<a class="loremIpsum">Lorem Ipsum</a>&nbsp;gibberish text to experiment with the&nbsp;editor.</p>
-      <h2>Visual Editor</h2>
-      <p><img src="https://wysiwyghtml.com/images/wysiwyg-toolbar.jpg" alt="visual toolbar" /><br />Format your text, add&nbsp;<a href="https://htmltable.com/" target="_blank" rel="nofollow">tables</a>, images, links and other sections easily to your document with the toolbar above the visual editor. It works like a regular What You See Is What You Get&nbsp;editor.</p>
-      <h2>Source Code</h2>
-      <p><img src="https://wysiwyghtml.com/images/html-toolbar.jpg" alt="source options" /><br />The&nbsp;<a href="https://html-cleaner.com/" target="_blank" rel="nofollow">HTML cleanup</a>&nbsp;options are listed above the source editor. Check the options you need to remove pressing the Clean button or execute them one by one with the right-pointing&nbsp;arrows.</p>
-      <ol>
-      <li>Inline styles</li>
-      <li>Classes &amp; IDs</li>
-      <li>Empty tags</li>
-      <li>Tags with 1 space</li>
-      <li>Successive spaces</li>
-      <li>Comments</li>
-      <li>Tag attributes</li>
-      <li>All tags</li>
-      </ol>
-      <p>Below the&nbsp;<a href="https://tohtml.com/" target="_blank" rel="nofollow">syntax highlighted</a>&nbsp;source code you will find other useful features:</p>
-      <ol>
-      <li><strong>undo</strong>&nbsp;button to restore a previous saved version of the file</li>
-      <li><strong>erase</strong>&nbsp;the whole page</li>
-      <li>organize line&nbsp;<strong>indentation</strong>&nbsp;in the souce to visualize tag hierarchy</li>
-      <li><strong>compress</strong>&nbsp;the document</li>
-      <li>enable or disable character&nbsp;<strong>encoding</strong></li>
-      </ol>
+Informasi Nilai Gizi (per 1 muffin):
+•	Kalori: ~120 kkal
+•	Protein: ~4 gram
+•	Lemak: ~3 gram
+•	Karbohidrat: ~18 gram
+•	Serat: ~3 gram
+Manfaat Resep untuk Diet Obesitas:
+1.Rendah Kalori: Muffin ini memiliki kalori terkontrol, sehingga cocok untuk camilan tanpa menambah asupan kalori berlebih.
+2.Tinggi Serat: Oat dan pisang membantu memperlancar pencernaan dan memberikan rasa kenyang lebih lama.
+3.Tanpa Gula Tambahan: Pemanis alami dari pisang mengurangi kebutuhan gula, membantu mengontrol berat badan dan kadar gula darah.
+4.Rendah Lemak Tidak Sehat: Menggunakan minyak kelapa dalam jumlah kecil sebagai pengganti margarin atau mentega biasa.
 `,
   },
 ];

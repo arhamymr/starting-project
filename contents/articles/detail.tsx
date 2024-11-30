@@ -65,7 +65,7 @@ const BlogTags = (props: Props) => {
 
 const ArticleList = () => {
   const router = useRouter();
-  const { slug } = router.query;
+  const { slug, token } = router.query;
 
   const findarticle = articlesData.find((article) => article.slug === slug);
   const article = findarticle || articlesData[0];
@@ -75,11 +75,13 @@ const ArticleList = () => {
       <Container py={'120px'}>
         <Breadcrumb mb={4}>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Beranda</BreadcrumbLink>
+            <BreadcrumbLink href={`/?token=${token}`}>Beranda</BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/article">Artikel</BreadcrumbLink>
+            <BreadcrumbLink href={`/resep?token=${token}`}>
+              Resep
+            </BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem isCurrentPage>

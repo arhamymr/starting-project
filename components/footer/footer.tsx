@@ -67,6 +67,12 @@ export default function Footer() {
                 +6281936654547
               </a>
             </HStack>
+            <HStack>
+              <EmailIcon />
+              <a target="_blank" href={'mailto:myhealth.diet28@gmail.com'}>
+                myhealth.diet28@gmail.com
+              </a>
+            </HStack>
 
             <HStack gap={'24px'}>
               <a
