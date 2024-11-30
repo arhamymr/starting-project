@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -75,11 +76,13 @@ export default function Navigation() {
 }
 
 const DesktopNav = () => {
+  const router = useRouter();
+  const query = router.query.token ? `?token=${router.query.token}` : '';
   return (
     <Flex align={'center'} gap={'48px'}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
-          <Link href={navItem.href}>{navItem.label}</Link>
+          <Link href={navItem.href + query}>{navItem.label}</Link>
         </Box>
       ))}
       <Link
@@ -113,6 +116,6 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: 'Aktivitas',
-    href: '#activity',
+    href: '/activity',
   },
 ];

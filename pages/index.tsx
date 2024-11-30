@@ -1,4 +1,4 @@
-import Home from "contents/home";
+import Home from 'contents/home';
 
 export default function HomePage() {
   return <Home />;
