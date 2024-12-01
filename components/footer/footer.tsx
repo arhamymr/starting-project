@@ -60,7 +60,7 @@ export default function Footer() {
               <WhatsappFillIcon />
               <a
                 href={
-                  'https://api.whatsapp.com/send/?phone=6281936654547&text&type=phone_number&app_absent=0'
+                  'https://api.whatsapp.com/send/?phone=6281936654547&text=selamat pagi/siang/malam, saya ingin berkonsultasi tentang diet saya. Nama saya (nama anda)=selamat pagi/siang/malam, saya ingin berkonsultasi tentang diet saya. Nama saya (nama anda)=&type=phone_number&app_absent=0'
                 }
                 target="_blank"
               >

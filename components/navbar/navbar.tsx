@@ -17,6 +17,8 @@ import { useRouter } from 'next/router';
 
 export default function Navigation() {
   const { isOpen, onToggle } = useDisclosure();
+  const router = useRouter();
+  const query = router.query.token ? `?token=${router.query.token}` : '';
 
   return (
     <Box
@@ -37,7 +39,7 @@ export default function Navigation() {
             py={{ base: 2 }}
             align={'center'}
           >
-            <Link href={'/'}>
+            <Link href={'/' + query}>
               <Image
                 src={'/assets/logo.png'}
                 width={80}
@@ -70,10 +72,45 @@ export default function Navigation() {
             </Flex>
           </Flex>
         </Container>
+
+        <Collapse in={isOpen} animateOpacity>
+          <MobileNav onToggle={onToggle} />
+        </Collapse>
       </Box>
     </Box>
   );
 }
+
+const MobileNav = ({ onToggle }) => {
+  return (
+    <Stack bg={'white'} p={4} display={{ md: 'none' }}>
+      {NAV_ITEMS.map((navItem) => (
+        <MobileNavItem onToggle={onToggle} key={navItem.label} {...navItem} />
+      ))}
+    </Stack>
+  );
+};
+
+const MobileNavItem = ({ label, onToggle, href }: NavItem) => {
+  const router = useRouter();
+  const query = router.query.token ? `?token=${router.query.token}` : '';
+  return (
+    <Stack spacing={4}>
+      <Box
+        py={2}
+        onClick={() => {
+          setTimeout(function () {
+            onToggle();
+          }, 1000);
+        }}
+      >
+        <Box key={label}>
+          <Link href={href + query}>{label}</Link>
+        </Box>
+      </Box>
+    </Stack>
+  );
+};
 
 const DesktopNav = () => {
   const router = useRouter();
@@ -88,7 +125,7 @@ const DesktopNav = () => {
       <Link
         target="_blank"
         href={
-          'https://api.whatsapp.com/send/?phone=6281936654547&text&type=phone_number&app_absent=0'
+          'https://api.whatsapp.com/send/?phone=6281936654547&text=selamat pagi/siang/malam, saya ingin berkonsultasi tentang diet saya. Nama saya (nama anda)&type=phone_number&app_absent=0'
         }
       >
         <Button>Konsultasi Sekarang</Button>

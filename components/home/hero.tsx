@@ -32,7 +32,7 @@ export default function Hero() {
 
           <Text
             maxW={'753px'}
-            fontSize={'20px'}
+            fontSize={{ md: '20px', sm: 11 }}
             textAlign={'center'}
             mb={'30px'}
           >
@@ -45,7 +45,7 @@ export default function Hero() {
           <HStack spacing={{ base: '16px', md: '44px' }}>
             <Link
               href={
-                'https://api.whatsapp.com/send/?phone=6281936654547&text&type=phone_number&app_absent=0'
+                'https://api.whatsapp.com/send/?phone=6281936654547&text=selamat pagi/siang/malam, saya ingin berkonsultasi tentang diet saya. Nama saya (nama anda)&type=phone_number&app_absent=0'
               }
             >
               <Button size={'lg'}>Konsultasi Sekarang</Button>
