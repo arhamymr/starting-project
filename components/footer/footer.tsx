@@ -74,12 +74,14 @@ export default function Footer() {
               </a>
             </HStack>
 
-            <HStack gap={'24px'}>
+            <HStack>
+              <InstagramIcon />
               <a
                 href={'https://www.instagram.com/myhealth_diet/'}
                 target="_blank"
               >
-                <InstagramIcon />
+                {' '}
+                myhealth_diet
               </a>
             </HStack>
           </Stack>
