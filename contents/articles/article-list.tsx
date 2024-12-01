@@ -73,8 +73,8 @@ const ArticleList = () => {
   return (
     <Container maxW={'7xl'} p="12" mt={24}>
       <Link href={`/resep/${firstArticle.slug}?token=${token}`}>
-        <Flex gap={12} mt={6}>
-          <Box display="flex" flex="1" position="relative" alignItems="center">
+        <Flex gap={12} mt={6} flexDirection={{ base: 'column', md: 'row' }}>
+          <Box position="relative" alignItems="center">
             <Image
               borderRadius="lg"
               src={firstArticle.image}
@@ -109,7 +109,7 @@ const ArticleList = () => {
         Resep Terbaru
       </Heading>
       <Divider marginTop="5" />
-      <Grid templateColumns="repeat(3, 1fr)" gap="6">
+      <Grid templateColumns={{ sm: '1fr', md: 'repeat(3, 1fr)' }} gap="6">
         {articlesData.map((item, index) => {
           return (
             <Link key={index} href={`/resep/${item.slug}?token=${token}`}>
